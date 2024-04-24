@@ -98,7 +98,7 @@ const MainPage = () => {
                                                 <img src={v['trademarkUrl']} alt='tob' />
                                             </div>
                                             <p>{v['subName']}</p>
-                                            <Link to='/product/suncream'>Chi tiết sản phẩm</Link>
+                                            <Link to={'/product/detail?seq=' + v['seq']}>Chi tiết sản phẩm</Link>
                                         </div>
                                     </div>
                                 </li>
@@ -118,6 +118,7 @@ const Wrap = styled.div`
     max-width:1240px;
     margin:0 auto;
     width:95%;
+    text-align: center;
     
     // 비주얼 섹션
     & .visual_sec {

@@ -7,6 +7,7 @@ import MainLayout from "./layout/CommonLayout";
 
 // 페이지
 import MainHome from "./pages/main";
+import ProductDetail from "./pages/product/detail";
 import DrFlomos from "./pages/product/flomos";
 import TobMask from "./pages/product/mask";
 import TobCleanser from "./pages/product/cleanser";
@@ -19,7 +20,9 @@ function App() {
           <GlobalStyles/>
           <Routes>
               <Route element={<MainLayout />}>
+                <Route path="*" element={<MainHome/>}/>
                 <Route path="/" element={<MainHome/>}/>
+                  <Route path="/product/detail" element={<ProductDetail />}/>
                   <Route path="/product/flomos" element={<DrFlomos />}/>
                   <Route path="/product/mask" element={<TobMask />}/>
                   <Route path="/product/cleanser" element={<TobCleanser />}/>
