@@ -1,18 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+/* JS */
+import * as Server from 'assets/js/Server';
+
 const HeaderLayout = () => {
-
     const [sideOpen, setSideOpen] = useState(false);
-
-    const activeBurger = () => {
-        setSideOpen(state => !state);
-    };
-
-    const sideClose = () => {
-        setSideOpen(false);
-    }
+    const [menu, setMenu] = useState([]);
 
     useEffect(() => {
         if (sideOpen) {
@@ -22,7 +17,25 @@ const HeaderLayout = () => {
         }
     }, [sideOpen]);
 
+    useEffect(() => {
+        Server.sendGet(
+            'tob/product/list',
+            {
+                useYn: 'Y'
+            },
+            getProductList
+        ).then();
+    }, []);
 
+    const getProductList = res => {
+        setMenu(res['resultList']);
+    };
+    const activeBurger = () => {
+        setSideOpen(state => !state);
+    };
+    const sideClose = () => {
+        setSideOpen(false);
+    };
 
     return (
         <React.Fragment>
@@ -36,18 +49,13 @@ const HeaderLayout = () => {
                     <div className="gnb_nav">
                         <nav>
                             <ul>
-                                <li>
-                                    <Link to="/product/flomos">DR Flomos</Link>
-                                </li>
-                                <li>
-                                    <Link to="/product/mask">TOB Wrapping Mask</Link>
-                                </li>
-                                <li>
-                                    <Link to="/product/cleanser">TOB Cream Cleanser</Link>
-                                </li>
-                                <li>
-                                    <Link to="/product/suncream">TOB Sun Cream</Link>
-                                </li>
+                                {menu?.map((v, i) => (
+                                    <li key={i}>
+                                        <Link to={"/product/detail?seq=" + v['seq']} end={true} className={({isActive}) => { return isActive ? 'active' : ''; }}>
+                                            {v['menuName']}
+                                        </Link>
+                                    </li>
+                                ))}
                                 <li>
                                     <Link to="/story">Our Story</Link>
                                 </li>
@@ -73,20 +81,13 @@ const HeaderLayout = () => {
                     </div>
                     <div className="nav_sec">
                         <ul className="menu_nav">
+                            {menu?.map((v, i) => (
+                                <li key={i}>
+                                    <Link to={"/product/detail?seq=" + v['seq']}>{v['menuName']}</Link>
+                                </li>
+                            ))}
                             <li>
-                                <Link to="/product/flomos">DR Flomos</Link>
-                            </li>
-                            <li>
-                                <Link to="/product/mask">TOB Wrapping Mask</Link>
-                            </li>
-                            <li>
-                                <Link to="/product/cleanser">TOB Cream Cleanser</Link>
-                            </li>
-                            <li>
-                                <Link to="/product/suncream">TOB Sun Cream</Link>
-                            </li>
-                            <li>
-                                <Link to="/story">Our Story</Link>
+                                <NavLink to="/story">Our Story</NavLink>
                             </li>
                         </ul>
                         <ul className="sns_nav">
@@ -165,7 +166,7 @@ const HeaderWrap = styled.header`
     }
     
     & .hamburger {
-      display:none;
+        display:none;
         z-index:99;
         position:relative;
 

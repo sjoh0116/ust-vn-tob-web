@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
+import useDidMountEffect from 'hooks/useDidMountEffect';
+import { useNavigate } from 'react-router-dom';
 
 /* JS */
 import * as Server from 'assets/js/Server';
@@ -15,12 +17,22 @@ import 'swiper/css/autoplay';
 
 const Detail = () => {
     const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
+
     const [productDetail, setProductDetail] = useState({
         slideY: [],
         slideN: []
     });
 
     useEffect(() => {
+        callProductImgList();
+    }, []);
+
+    useDidMountEffect(() => {
+        callProductImgList();
+    }, [searchParams])
+
+    const callProductImgList = () => {
         Server.sendGet(
             'tob/product/img',
             {
@@ -28,9 +40,12 @@ const Detail = () => {
             },
             getProductImgList
         ).then();
-    }, []);
-
+    };
     const getProductImgList = res => {
+        if (Common.isEmpty(res['resultList'])) {
+            navigate('/');
+        }
+
         const item = {
             slideY: [],
             slideN: [],
@@ -85,13 +100,14 @@ const Detail = () => {
 }
 
 const ProdWrap = styled.div`
-    position:relative;
-    padding:70px 0 100px;
+  position:relative;
+  padding:70px 0 100px;
   
   .prod_inner {
     max-width:1240px;
     margin:0 auto;
     width:95%;
+    text-align: center;
   }
     
 
