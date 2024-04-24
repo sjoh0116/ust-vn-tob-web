@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+.idea/aws.xml
+.idea/jpa-buddy.xml
+.idea/misc.xml
+.idea/inspectionProfiles/Project_Default.xml
 
 # testing
 /coverage
@@ -18,6 +22,12 @@
 .env.test.local
 .env.production.local
 
+/erp-front.iml
+/.idea/
+package.json
+package-lock.json
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+erp-front.iml

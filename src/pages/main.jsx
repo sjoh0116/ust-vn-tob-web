@@ -1,123 +1,108 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import React from 'react';
 import styled from 'styled-components';
 
+/* JS */
+import * as Server from 'assets/js/Server';
+import * as Common from 'assets/js/Common';
+
+/* 슬라이드 - 스와이퍼 */
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+
 const MainPage = () => {
+    const [mainItem, setMainItem] = useState({
+        banner: [],
+        subBanner: [],
+        product: [],
+    });
+
+    useEffect(() => {
+        Server.sendGet(
+            'tob/main/list',
+            {
+                bannerType: 'M',
+                subBannerType: 'S',
+            },
+            getProductMainList
+        ).then();
+    }, []);
+
+    const getProductMainList = res => {
+        setMainItem(res['resultObject']);
+    };
+
     return (
         <React.Fragment>
             <Wrap>
-                <div className="inner">
-                    <section className="visual_sec">
-                        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/visual_bg.png" alt="visual img" />
-                    </section>
-                    <section className="info_sec">
+                <div className='inner'>
+                    <Swiper
+                        modules={[Autoplay]}
+                        autoplay={{
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        }}
+                        loop={true}
+                    >
+                        {mainItem?.banner?.map((v, i) => (
+                            <SwiperSlide key={i}>
+                                <section className='visual_sec'>
+                                    <img src={v['bannerUrl']} alt='visual img' />
+                                </section>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <section className='info_sec'>
                         <ul>
-                            <li>
-                                <div>
-                                    <div className="info_img">
-                                        <InfoImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/main_info01.png" />
-                                    </div>
-                                    <div className="info_desc">
-                                        <strong>Công nghệ làm đẹp từ Hàn Quốc</strong>
-                                        <p>
-                                            Thương hiệu luôn bắt kịp xu hướng công nghệ làm đẹp Hàn Quốc đang thay đổi nhanh chóng
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div className="info_img">
-                                        <InfoImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/main_info02.png" />
-                                    </div>
-                                    <div className="info_desc">
-                                        <strong>Thương hiệu thấu hiểu thiên nhiên</strong>
-                                        <p>
-                                            Phân tích những yếu tố gây hại cho da trong nước, đất và không khí
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div className="info_img">
-                                        <InfoImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/main_info03.png" />
-                                    </div>
-                                    <div className="info_desc">
-                                        <strong>Clean Beauty</strong>
-                                        <p>
-                                            Công thức clean beauty không chứa 12 thành phần gây hại cho da
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <div className="info_img">
-                                        <InfoImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/main_info04.png" />
-                                    </div>
-                                    <div className="info_desc">
-                                        <strong>Hành trình tìm kiếm nguyên liệu tốt nhất</strong>
-                                        <p>
-                                            Nghiên cứu công thức phù hợp từ việc tìm kiếm nguyên liệu ở các vùng đất màu mỡ và phân tích môi trường nơi sản sinh nguồn nguyên liệu
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+                            <Swiper loop={true} spaceBetween={14} slidesPerView={4}>
+                                {mainItem?.subBanner?.map((v, i) => (
+                                    <SwiperSlide key={i}>
+                                        <li>
+                                            <div>
+                                                <div className='info_img'>
+                                                    <InfoImg src={v['bannerUrl']} alt={'sub img'} />
+                                                </div>
+                                                <div className='info_desc'>
+                                                    <strong>{v['title']}</strong>
+                                                    <p>{v['subTitle']}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
                         </ul>
                     </section>
-                    <section className="prod_sec">
+                    <section className='prod_sec'>
                         <ul>
-                            <li>
-                                <div className="prod_in sun">
-                                    <div className="prod_desc">
-                                        <span>Chống nắng, làm dịu và bảo vệ da</span>
-                                        <strong>SUN GEL+</strong>
-                                        <div className="brand">
-                                            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tob_logo.webp" alt="tob" />
+                            {mainItem?.product?.map((v, i) => (
+                                <li key={i}>
+                                    <div className='prod_in' style={{ backgroundImage: 'url(' + v['productUrl'] + ')' }}>
+                                        {!Common.isEmpty(v['tagName']) &&
+                                            <ItemUtil>
+                                                {
+                                                    v['tagName'].split(',').map((item, index) => (
+                                                        <Util>
+                                                            <span>{item}</span>
+                                                        </Util>
+                                                    ))
+                                                }
+                                            </ItemUtil>
+                                        }
+                                        <div className='prod_desc'>
+                                            <span>{v['description']}</span>
+                                            <strong>{v['productName']}</strong>
+                                            <div className='brand'>
+                                                <img src={v['trademarkUrl']} alt='tob' />
+                                            </div>
+                                            <p>{v['subName']}</p>
+                                            <Link to='/product/suncream'>Chi tiết sản phẩm</Link>
                                         </div>
-                                        <p>Gel chống nắng SPF50+ PA++++</p>
-                                        <Link to="/product/suncream">Chi tiết sản phẩm</Link>
                                     </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="prod_in clean">
-                                    <div className="prod_desc">
-                                        <span>Làm sạch sâu, dưỡng ẩm và se khít lỗ chân lông</span>
-                                        <strong>CREAM-CLEANSER</strong>
-                                        <div className="brand">
-                                            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tob_logo.webp" alt="tob" />
-                                        </div>
-                                        <p>Sữa rửa mặt Collagen</p>
-                                        <Link to="/product/cleanser">Chi tiết sản phẩm</Link>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="prod_in mask">
-                                    <div className="prod_desc">
-                                        <span>Cải thiện độ đàn hồi nâng cơ làm trắng</span>
-                                        <strong>WRAPPING MASK</strong>
-                                        <div className="brand">
-                                            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tob_logo.webp" alt="tob" />
-                                        </div>
-                                        <p>Mặt nạ ngủ tiện dụng</p>
-                                        <Link to="/product/mask">Chi tiết sản phẩm</Link>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="prod_in toner">
-                                    <div className="prod_desc">
-                                        <span>Chống nắng, làm dịu và bảo vệ da</span>
-                                        <strong>SUN GEL+</strong>
-                                        <h6>Dr.flomos</h6>
-                                        <p>Gel chống nắng SPF50+ PA++++</p>
-                                        <Link to="/product/flomos">Chi tiết sản phẩm</Link>
-                                    </div>
-                                </div>
-                            </li>
+                                </li>
+                            ))}
                         </ul>
                     </section>
                 </div>
@@ -201,28 +186,15 @@ const Wrap = styled.div`
         background-size:cover;
         background-repeat: no-repeat;
         padding:0 80px;
-        display:flex;
-        align-items: center;
-        
-        &.sun {
-          background-image:url('https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/prod_01.png');
-        }
-        
-        &.clean {
-          background-image:url('https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/prod_02.png');
-        }
-        
-        &.mask {         
-          background-image:url('https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/prod_03.png');
-        }
-        
-        &.toner {
-          background-image:url('https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/prod_04.png');
-        }
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
         
         & .prod_desc {
           z-index:2;
           position:relative;
+          margin-top: 20px;
           
           & span {
             font-size:var(--prd-info);
@@ -452,7 +424,40 @@ const Wrap = styled.div`
       }
     }
   }
-`
+`;
+
+const ItemUtil = styled.ul`
+  display: flex;
+  align-items: center;
+  gap: 0 12px;
+`;
+
+const Util = styled.li`
+  padding: 0 15px;
+  height: 30px;
+  background: #d9d9d9;
+  border-radius: 25px;
+  margin: 0 !important;
+  
+  & span {
+    display: block;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 30px;
+    color: #7d7d7d;
+  }
+
+  @media only screen and (max-width: 1240px) {
+    padding:0 8px;
+    height:20px;
+    background:#ffffff;
+    
+    & span {
+      font-size:12px;
+      line-height:20px;
+    }
+  }
+`;
 
 const InfoImg = styled.img.attrs({alt:'tob info'})``
 
