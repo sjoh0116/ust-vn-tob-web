@@ -44,6 +44,7 @@ const ProdWrap = styled.div`
     max-width:1240px;
     margin:0 auto;
     width:95%;
+    text-align:center;
   }
 
 
