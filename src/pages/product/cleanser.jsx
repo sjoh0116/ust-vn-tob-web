@@ -5,31 +5,31 @@ const TobCleanser = () => {
   return (
     <React.Fragment>
       <ProdWrap>
-        <div className="prod_inner">
+        <div className='prod_inner'>
           {/* 1 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_01.webp"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_01.webp'/>
           {/* 2 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_02.webp"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_02.webp'/>
           {/* 3 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_03.webp"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_03.webp'/>
           {/* 4 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_04.webp"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_04.webp'/>
           {/* 5 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_05.webp"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_05.webp'/>
           {/* 6 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_06.webp"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_06.webp'/>
           {/* 7 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_07.gif"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_07.gif'/>
           {/* 8 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_08.webp"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_08.webp'/>
           {/* 9 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_09.webp"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_09.webp'/>
           {/* 10 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_10.webp"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_10.webp'/>
           {/* 11 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_11.gif"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_11.gif'/>
           {/* 12 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_12.webp"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/cleanser_12.webp'/>
         </div>
       </ProdWrap>
     </React.Fragment>

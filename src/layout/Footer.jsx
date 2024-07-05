@@ -14,37 +14,37 @@ const FooterLayout = () => {
   return (
     <React.Fragment>
       <FooterWrap>
-        <div className="inner">
-          <div className="foot_menu">
-            <div className="menu_logo">
-              <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tob_logo.webp" alt="Truth of Beauty"/>
+        <div className='inner'>
+          <div className='foot_menu'>
+            <div className='menu_logo'>
+              <img src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tob_logo.webp' alt='Truth of Beauty'/>
             </div>
-            <ul className="menu_link">
+            <ul className='menu_link'>
               <li>
-                <Link to="https://www.facebook.com/TOBVinaKorean">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/facebook_ic.webp"/>
+                <Link to='https://www.facebook.com/TOBVinaKorean'>
+                  <LinkImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/facebook_ic.webp'/>
                 </Link>
               </li>
               <li>
-                <Link to="https://shopee.vn/tob_officialstore">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/shopper_ic.webp"/>
+                <Link to='https://shopee.vn/tob_officialstore'>
+                  <LinkImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/shopper_ic.webp'/>
                 </Link>
               </li>
               <li>
                 <Link
-                  to="https://www.lazada.vn/shop/aqua-solution/?spm=a2o4n.pdp_revamp.seller.1.15084a0ePaPdKq&itemId=2221839876&channelSource=pdp">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/lazada_ic.webp"/>
+                  to='https://www.lazada.vn/shop/aqua-solution/?spm=a2o4n.pdp_revamp.seller.1.15084a0ePaPdKq&itemId=2221839876&channelSource=pdp'>
+                  <LinkImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/lazada_ic.webp'/>
                 </Link>
               </li>
               <li>
-                <Link to="https://www.tiktok.com/@healthacleanvietnam">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tiktok_ic.webp"/>
+                <Link to='https://www.tiktok.com/@healthacleanvietnam'>
+                  <LinkImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tiktok_ic.webp'/>
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="foot_desc">
-            <div className="address">
+          <div className='foot_desc'>
+            <div className='address'>
               <h6>Địa chỉ</h6>
               <ul>
                 <li>
@@ -55,14 +55,14 @@ const FooterLayout = () => {
                 <li>Cấp tại: Sở Kế Hoạch Đầu Tư Thành Phố Đà Nẵng</li>
               </ul>
             </div>
-            <div className="support">
+            <div className='support'>
               <h6>Liên lạc & Hỗ trợ</h6>
               <ul>
-                <li><a href="mailto: tobofficial@ust.co">Email: tobofficial@ust.co</a></li>
-                <li><a href="tel:02363 811 116">Hotline: 02363 811 116</a></li>
+                <li><a href='mailto: tobofficial@ust.co'>Email: tobofficial@ust.co</a></li>
+                <li><a href='tel:02363 811 116'>Hotline: 02363 811 116</a></li>
               </ul>
             </div>
-            <div className="time">
+            <div className='time'>
               <h6>Giờ làm việc</h6>
               <ul>
                 <li>
@@ -73,16 +73,16 @@ const FooterLayout = () => {
                   </ul>
                 </li>
                 <li>
-                  <Link to="http://online.gov.vn/Home/WebDetails/104571">
-                    <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/salenoti_logo.png"
-                         alt="THÔNG TIN WEBSITE THƯƠNG MẠI ĐIỆN TỬ"/>
+                  <Link to='http://online.gov.vn/Home/WebDetails/104571'>
+                    <img src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/salenoti_logo.png'
+                         alt='THÔNG TIN WEBSITE THƯƠNG MẠI ĐIỆN TỬ'/>
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="copyright">
+        <div className='copyright'>
           <p>
             © 2024 TOB. All rights reserved.
           </p>

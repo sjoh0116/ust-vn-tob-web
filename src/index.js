@@ -9,7 +9,7 @@ import 'index.css';
 import 'App.css';
 
 /* 페이지 */
-import App from '/App';
+import App from 'App';
 
 const rootElement = document.getElementById('root');
 

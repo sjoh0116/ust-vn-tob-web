@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
@@ -8,6 +8,10 @@ import * as Server from 'assets/js/Server';
 const HeaderLayout = () => {
   const [sideOpen, setSideOpen] = useState(false);
   const [menu, setMenu] = useState([]);
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const currentSeq = searchParams.get('seq');
 
   useEffect(() => {
     if (sideOpen) {
@@ -36,84 +40,94 @@ const HeaderLayout = () => {
   return (
     <React.Fragment>
       <HeaderWrap>
-        <div className="inner">
-          <div className="gnb_logo">
-            <Link to="/">
-              <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tob_logo.webp" alt="Truth of Beauty"/>
+        <div className='inner'>
+          <div className='gnb_logo'>
+            <Link to='/'>
+              <img src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tob_logo.webp' alt='Truth of Beauty'/>
             </Link>
           </div>
-          <div className="gnb_nav">
+          <div className='gnb_nav'>
             <nav>
               <ul>
                 {menu?.map((v, i) => (
                   <li key={i}>
-                    <Link to={"/product/detail?seq=" + v['seq']} end={true} className={({ isActive }) => {
-                      return isActive ? 'active' : '';
-                    }}>
+                    <NavLink
+                      to={`/product/detail?seq=${v['seq']}`}
+                      className={({ isActive }) => {
+                        return isActive && currentSeq === String(v['seq']) ? 'active' : '';
+                      }}
+                    >
                       {v['menuName']}
-                    </Link>
+                    </NavLink>
                   </li>
                 ))}
                 <li>
-                  <Link to="/story">Our Story</Link>
+                  <NavLink to='/story'>Our Story</NavLink>
                 </li>
               </ul>
             </nav>
           </div>
 
-          <div className="hamburger">
-            <button onClick={activeBurger} className={sideOpen === true ? 'open' : ''}>
-              <div className="icon-left"/>
-              <div className="icon-right"/>
+          <div className='hamburger'>
+            <button onClick={activeBurger} className={sideOpen ? 'open' : ''}>
+              <div className='icon-left'/>
+              <div className='icon-right'/>
             </button>
           </div>
         </div>
       </HeaderWrap>
 
       <SideBar>
-        <div className={sideOpen === true ? 'open sideWrap' : 'sideWrap'}>
-          <div className="logo_sec">
-            <Link to="/">
-              <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tob_logo.webp" alt="Truth of Beauty"/>
+        <div className={sideOpen ? 'open sideWrap' : 'sideWrap'}>
+          <div className='logo_sec'>
+            <Link to='/'>
+              <img src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tob_logo.webp' alt='Truth of Beauty'/>
             </Link>
           </div>
-          <div className="nav_sec">
-            <ul className="menu_nav">
+          <div className='nav_sec'>
+            <ul className='menu_nav'>
               {menu?.map((v, i) => (
                 <li key={i}>
-                  <Link to={"/product/detail?seq=" + v['seq']}>{v['menuName']}</Link>
+                  <NavLink
+                    to={`/product/detail?seq=${v['seq']}`}
+                    className={({ isActive }) => {
+                      return isActive && currentSeq === String(v['seq']) ? 'active' : '';
+                    }}
+                  >
+                    {v['menuName']}
+                  </NavLink>
                 </li>
               ))}
               <li>
-                <NavLink to="/story">Our Story</NavLink>
+                <NavLink to='/story'>Our Story</NavLink>
               </li>
             </ul>
-            <ul className="sns_nav">
+            <ul className='sns_nav'>
               <li>
-                <Link to="https://www.facebook.com/TOBVinaKorean">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/facebook_ic.webp"/>
+                <Link to='https://www.facebook.com/TOBVinaKorean'>
+                  <LinkImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/facebook_ic.webp'/>
                 </Link>
               </li>
               <li>
-                <Link to="https://shopee.vn/tob_officialstore">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/shopper_ic.webp"/>
+                <Link to='https://shopee.vn/tob_officialstore'>
+                  <LinkImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/shopper_ic.webp'/>
                 </Link>
               </li>
               <li>
                 <Link
-                  to="https://www.lazada.vn/shop/aqua-solution/?spm=a2o4n.pdp_revamp.seller.1.15084a0ePaPdKq&itemId=2221839876&channelSource=pdp">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/lazada_ic.webp"/>
+                  to='https://www.lazada.vn/shop/aqua-solution/?spm=a2o4n.pdp_revamp.seller.1.15084a0ePaPdKq&itemId=2221839876&channelSource=pdp'>
+                  <LinkImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/lazada_ic.webp'/>
                 </Link>
               </li>
               <li>
-                <Link to="https://www.tiktok.com/@healthacleanvietnam">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tiktok_ic.webp"/>
+                <Link to='https://www.tiktok.com/@healthacleanvietnam'>
+                  <LinkImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tiktok_ic.webp'/>
                 </Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className={sideOpen === true ? 'open dimmed' : 'dimmed'} onClick={sideClose}/>
+        <div className={sideOpen ? 'open dimmed' : 'dimmed'} onClick={sideClose}/>
       </SideBar>
     </React.Fragment>
   )
@@ -161,6 +175,10 @@ const HeaderWrap = styled.header`
             color: var(--color-primary);
           }
         }
+
+        li a.active {
+          color: var(--color-primary);
+        }
       }
     }
 
@@ -188,7 +206,7 @@ const HeaderWrap = styled.header`
           transition-duration: 0.5s;
 
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             top: -10px;
@@ -200,7 +218,7 @@ const HeaderWrap = styled.header`
           }
 
           &::after {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             top: 10px;
@@ -224,7 +242,7 @@ const HeaderWrap = styled.header`
           transition-property: top, bottom, left, right, opacity, transform;
 
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             top: -10px;
@@ -236,7 +254,7 @@ const HeaderWrap = styled.header`
           }
 
           &::after {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             top: 10px;

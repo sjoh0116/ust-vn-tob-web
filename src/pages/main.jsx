@@ -79,7 +79,7 @@ const MainPage = () => {
                     {!Common.isEmpty(v['tagName']) &&
                       <ItemUtil>
                         {v['tagName'].split(',').map((item, index) => (
-                          <Util>
+                          <Util key={index}>
                             <span>{item}</span>
                           </Util>
                         ))}

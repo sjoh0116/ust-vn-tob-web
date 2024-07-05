@@ -5,36 +5,36 @@ const TobMask = () => {
   return (
     <React.Fragment>
       <ProdWrap>
-        <div className="prod_inner">
+        <div className='prod_inner'>
           {/* 1 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob01.jpg"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob01.jpg'/>
           {/* 2 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob02.jpg"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob02.jpg'/>
           {/* 3 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob03.jpg"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob03.jpg'/>
           {/* 4 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob04.jpg"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob04.jpg'/>
           {/* 5 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob05.jpg"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob05.jpg'/>
           {/* 6 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob06.jpg"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob06.jpg'/>
           {/* 7 */}
-          <MaskVideo autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" preload="metadata">
-            <source src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/video/mask_detail.mp4" type="video/mp4"/>
+          <MaskVideo autoplay='autoplay' loop='loop' muted='muted' playsinline='playsinline' preload='metadata'>
+            <source src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/video/mask_detail.mp4' type='video/mp4'/>
           </MaskVideo>
           {/* 8 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob08.jpg"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob08.jpg'/>
           {/* 9 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob09.jpg"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob09.jpg'/>
           {/* 10 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob10.jpg"/>
-          <DetailVideo autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" preload="metadata">
-            <source src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/video/phMask.mp4" type="video/mp4"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob10.jpg'/>
+          <DetailVideo autoplay='autoplay' loop='loop' muted='muted' playsinline='playsinline' preload='metadata'>
+            <source src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/video/phMask.mp4' type='video/mp4'/>
           </DetailVideo>
           {/* 11 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob11.jpg"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob11.jpg'/>
           {/* 12 */}
-          <ProdImg src="https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob12.jpg"/>
+          <ProdImg src='https://ust-tob-kr.s3.ap-northeast-2.amazonaws.com/detail/tob12.jpg'/>
         </div>
       </ProdWrap>
     </React.Fragment>

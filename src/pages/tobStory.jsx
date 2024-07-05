@@ -29,7 +29,7 @@ const TobStory = () => {
   return (
     <React.Fragment>
       <StoryWrap>
-        <div className="inner">
+        <div className='inner'>
           <Swiper
             modules={[Autoplay]}
             autoplay={{
@@ -41,22 +41,22 @@ const TobStory = () => {
             {mainItem?.banner?.map((v, i) => (
               <SwiperSlide key={i}>
                 <section
-                  className="visual_story"
+                  className='visual_story'
                   style={{
                     background: 'url(' + v['bannerUrl'] + ') top 50% left 50% no-repeat',
                   }}
                 >
-                  <div className="visual_box">
+                  <div className='visual_box'>
                     <h4>{v['title']}</h4>
-                    <div className="img_box">
+                    <div className='img_box'>
                       {v['bannerSubList']?.map((val, idx) => {
                         if (val['frontYn'] === 'Y') {
                           return (
-                            <DecoImg key={idx} className="top" src={val['imgUrl']}/>
+                            <DecoImg key={idx} className='top' src={val['imgUrl']}/>
                           );
                         } else {
                           return (
-                            <DecoImg key={idx} className="bot" src={val['imgUrl']}/>
+                            <DecoImg key={idx} className='bot' src={val['imgUrl']}/>
                           );
                         }
                       })}
@@ -66,8 +66,8 @@ const TobStory = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          <section className="brand_story">
-            <div className="title">
+          <section className='brand_story'>
+            <div className='title'>
               <h4>Thương hiệu TOB luôn</h4>
               <p>Thay đổi sản phẩm mặt nạ giấy thông thường thành Wrapping Mask ngay nhé!</p>
             </div>
@@ -77,21 +77,21 @@ const TobStory = () => {
               <li>Mang lại hiệu quả<br/>vượt trội</li>
             </ul>
           </section>
-          <section className="ceo_story">
-            <div className="ceo_box">
-              <div className="ceo_img">
-                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/ceo_img.jpg" alt="Ceo"/>
+          <section className='ceo_story'>
+            <div className='ceo_box'>
+              <div className='ceo_img'>
+                <img src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/ceo_img.jpg' alt='Ceo'/>
                 <span>CEO</span>
               </div>
-              <div className="ceo_desc">
-                <div className="desc_tit">
+              <div className='ceo_desc'>
+                <div className='desc_tit'>
                   <h4>TOB</h4>
                   <p>
                     TOB trong tiếng Do thái có nghĩa là “đẹp (Beautiful), đúng (Right), tốt (Good)”. TOB luôn hướng tới
                     mục tiêu trở thành một thương hiệu làm đẹp an toàn, hiệu quả và chất lượng nhất dành cho khách hàng.
                   </p>
                 </div>
-                <ul className="desc_list">
+                <ul className='desc_list'>
                   <li>
                     <strong>Beautiful</strong>
                     <span>Thương hiệu TOB chuyên nghiên cứu các sản phẩm hiệu quả với mụn trứng cá, cung cấp giải pháp làm đẹp mới cho khách hàng.</span>
@@ -110,13 +110,13 @@ const TobStory = () => {
               </div>
             </div>
           </section>
-          <section className="choose_story">
-            <div className="title">
+          <section className='choose_story'>
+            <div className='title'>
               <h4>Tại sao chọn chúng tôi?</h4>
             </div>
             <ul>
               <li>
-                <div className="choose_in">
+                <div className='choose_in'>
                   <strong>Vận chuyển toàn quốc</strong>
                   <p>
                     Hỗ trợ vận chuyển nhanh chóng, đa dạng hình thức thông qua các công ty uy tín hàng đầu
@@ -124,7 +124,7 @@ const TobStory = () => {
                 </div>
               </li>
               <li>
-                <div className="choose_in">
+                <div className='choose_in'>
                   <strong>Giá trị cộng đồng</strong>
                   <p>
                     Hướng đến vẻ đẹp chân thực, chia sẻ kiến thức làm đẹp vì cộng đồng
@@ -132,7 +132,7 @@ const TobStory = () => {
                 </div>
               </li>
               <li>
-                <div className="choose_in">
+                <div className='choose_in'>
                   <strong>Cá nhân hóa</strong>
                   <p>
                     Tư vấn gián tiếp bởi các chuyên gia Hàn Quốc có kinh nghiệm trên 10 năm về mỹ phẩm chăm

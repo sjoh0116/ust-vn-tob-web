@@ -5,17 +5,17 @@ const DrFlomos = () => {
   return (
     <React.Fragment>
       <ProdWrap>
-        <div className="prod_inner">
+        <div className='prod_inner'>
           {/* 1 */}
-          <ProdImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/cosmetic/flomos01.png"/>
+          <ProdImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/cosmetic/flomos01.png'/>
           {/* 2 */}
-          <ProdImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/cosmetic/flomos02.png"/>
+          <ProdImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/cosmetic/flomos02.png'/>
           {/* 3 */}
-          <ProdImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/cosmetic/flomos03.png"/>
+          <ProdImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/cosmetic/flomos03.png'/>
           {/* 4 */}
-          <ProdImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/cosmetic/flomos04.png"/>
+          <ProdImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/cosmetic/flomos04.png'/>
           {/* 5 */}
-          <ProdImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/cosmetic/flomos05.png"/>
+          <ProdImg src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/cosmetic/flomos05.png'/>
         </div>
       </ProdWrap>
     </React.Fragment>

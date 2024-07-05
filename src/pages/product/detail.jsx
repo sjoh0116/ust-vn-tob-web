@@ -58,11 +58,11 @@ const Detail = () => {
   return (
     <React.Fragment>
       <ProdWrap>
-        <div className="prod_inner">
+        <div className='prod_inner'>
           {!Common.isEmpty(productDetail?.slideY) &&
             <Swiper
               modules={[EffectFade, Autoplay]}
-              effect="fade"
+              effect='fade'
               autoplay={{
                 delay: 6000,
                 disableOnInteraction: false,
@@ -79,8 +79,8 @@ const Detail = () => {
           {productDetail?.slideN?.map((v, i) => {
             if (v['imgUrl'].includes('mp')) {
               return (
-                <DetailVideo autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" preload="metadata">
-                  <source src={v['imgUrl']} type="video/mp4"/>
+                <DetailVideo autoPlay='autoPlay' loop='loop' muted='muted' playsInline='playsInline' preload='metadata' key={i}>
+                  <source src={v['imgUrl']} type='video/mp4'/>
                 </DetailVideo>
               );
             } else {
