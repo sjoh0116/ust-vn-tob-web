@@ -16,22 +16,22 @@ import TobStory from "./pages/tobStory";
 
 function App() {
   return (
-      <>
-          <GlobalStyles/>
-          <Routes>
-              <Route element={<MainLayout />}>
-                <Route path="*" element={<MainHome/>}/>
-                <Route path="/" element={<MainHome/>}/>
-                  <Route path="/product/detail" element={<ProductDetail />}/>
-                  <Route path="/product/flomos" element={<DrFlomos />}/>
-                  <Route path="/product/mask" element={<TobMask />}/>
-                  <Route path="/product/cleanser" element={<TobCleanser />}/>
-                  <Route path="/product/suncream" element={<TobSunCream />}/>
-                  <Route path="/story" element={<TobStory />}/>
-              </Route>
-            </Routes>
+    <>
+      <GlobalStyles/>
+      <Routes>
+        <Route element={<MainLayout/>}>
+          <Route path="*" element={<MainHome/>}/>
+          <Route path="/" element={<MainHome/>}/>
+          <Route path="/product/detail" element={<ProductDetail/>}/>
+          <Route path="/product/flomos" element={<DrFlomos/>}/>
+          <Route path="/product/mask" element={<TobMask/>}/>
+          <Route path="/product/cleanser" element={<TobCleanser/>}/>
+          <Route path="/product/suncream" element={<TobSunCream/>}/>
+          <Route path="/story" element={<TobStory/>}/>
+        </Route>
+      </Routes>
 
-      </>
+    </>
   );
 }
 

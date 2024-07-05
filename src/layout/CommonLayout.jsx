@@ -7,20 +7,20 @@ import FooterLayout from "./Footer";
 
 const ContentLayout = () => {
 
-    return (
-        <>
-            <ContentWrap>
-                <HeaderLayout />
-                <Outlet />
-                <FooterLayout />
-            </ContentWrap>
-        </>
-    );
+  return (
+    <>
+      <ContentWrap>
+        <HeaderLayout/>
+        <Outlet/>
+        <FooterLayout/>
+      </ContentWrap>
+    </>
+  );
 };
 
 const ContentWrap = styled.div`
-  margin-top:93px;
-  position:relative;    
+  margin-top: 93px;
+  position: relative;
 `;
 
 export default ContentLayout;
