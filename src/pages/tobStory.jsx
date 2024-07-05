@@ -1,20 +1,75 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+/* JS */
+import * as Server from 'assets/js/Server';
+import * as Common from 'assets/js/Common';
+
+/* 슬라이드 - 스와이퍼 */
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+
 const TobStory = () => {
+    const [mainItem, setMainItem] = useState({
+        banner: [],
+    });
+
+    useEffect(() => {
+        Server.sendGet(
+            'tob/main/ourStory/list',
+            {
+                bannerType: 'O',
+            },
+            getProductMainList
+        ).then();
+    }, []);
+
+    const getProductMainList = res => {
+        setMainItem(res['resultObject']);
+    };
+
     return (
         <React.Fragment>
            <StoryWrap>
                <div className="inner">
-                   <section className="visual_story">
-                       <div className="visual_box">
-                           <h4>TOB(Truth Of Beauty)</h4>
-                           <div className="img_box">
-                               <DecoImg className="top" src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/deco_1.webp" />
-                               <DecoImg className="bot" src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/deco_2.jpg" />
-                           </div>
-                       </div>
-                   </section>
+                   <Swiper
+                       modules={[Autoplay]}
+                       autoplay={{
+                           delay: 5000,
+                           disableOnInteraction: false,
+                       }}
+                       loop={true}
+                   >
+                       {mainItem?.banner?.map((v, i) => (
+                           <SwiperSlide key={i}>
+                               <section
+                                   className="visual_story"
+                                   style={{
+                                       background: 'url(' + v['bannerUrl'] + ') top 50% left 50% no-repeat',
+                                   }}
+                               >
+                                   <div className="visual_box">
+                                       <h4>{v['title']}</h4>
+                                       <div className="img_box">
+                                           {v['bannerSubList']?.map((val, idx) => {
+                                               if (val['frontYn'] === 'Y') {
+                                                   return (
+                                                       <DecoImg key={idx} className="top" src={val['imgUrl']} />
+                                                   );
+                                               } else {
+                                                   return (
+                                                       <DecoImg key={idx} className="bot" src={val['imgUrl']} />
+                                                   );
+                                               }
+                                           })}
+                                       </div>
+                                   </div>
+                               </section>
+                           </SwiperSlide>
+                       ))}
+                   </Swiper>
                    <section className="brand_story">
                        <div className="title">
                            <h4>Thương hiệu TOB luôn</h4>
@@ -108,7 +163,6 @@ const StoryWrap = styled.div`
       position:relative;
       width:100%;
       height:455px;
-      background:url('https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/story_bg.webp') 50% 50% no-repeat;
       background-size:cover;
       display:flex;
       align-items: center;
