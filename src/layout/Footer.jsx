@@ -72,7 +72,7 @@ const FooterLayout = () => {
                                 </li>
                                 <li>
                                     <Link to="http://online.gov.vn/Home/WebDetails/104571">
-                                        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/salenoti_logo.png" alt="THÔNG TIN WEBSITE THƯƠNG MẠI ĐIỆN TỬ" />
+                                        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/salenoti_logo.webp" alt="THÔNG TIN WEBSITE THƯƠNG MẠI ĐIỆN TỬ" />
                                     </Link>
                                 </li>
                             </ul>

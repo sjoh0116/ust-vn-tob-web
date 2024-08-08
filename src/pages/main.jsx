@@ -19,6 +19,9 @@ const MainPage = () => {
         product: [],
     });
 
+    // 반응형
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1025);
+
     useEffect(() => {
         Server.sendGet(
             'tob/main/list',
@@ -28,6 +31,14 @@ const MainPage = () => {
             },
             getProductMainList
         ).then();
+
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1025);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     const getProductMainList = res => {
@@ -38,42 +49,59 @@ const MainPage = () => {
         <React.Fragment>
             <Wrap>
                 <div className='inner'>
-                    <Swiper
-                        modules={[Autoplay]}
-                        autoplay={{
-                            delay: 5000,
-                            disableOnInteraction: false,
-                        }}
-                        loop={true}
-                    >
-                        {mainItem?.banner?.map((v, i) => (
-                            <SwiperSlide key={i}>
-                                <section className='visual_sec'>
-                                    <img src={v['bannerUrl']} alt='visual img' />
-                                </section>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                    <section className="visual_sec">
+                        <Swiper
+                            modules={[Autoplay]}
+                            autoplay={{
+                                delay: 5000,
+                                disableOnInteraction: false,
+                            }}
+                        >
+                            {mainItem?.banner?.map((v, i) => (
+                                <SwiperSlide key={i}>
+                                    <section className='visual_sec'>
+                                        <img src={v['bannerUrl']} alt='visual img' />
+                                    </section>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </section>
                     <section className='info_sec'>
-                        <ul>
-                            <Swiper loop={true} spaceBetween={14} slidesPerView={4}>
+                        { !isMobile && (
+                            <ul>
+                                {mainItem?.subBanner?.map((v, i) => (
+                                    <li key={i}>
+                                        <div className="info_box">
+                                            <div className='info_img'>
+                                                <InfoImg src={v['bannerUrl']} alt={'sub img'} />
+                                            </div>
+                                            <div className='info_desc'>
+                                                <strong>{v['title']}</strong>
+                                                <p>{v['subTitle']}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+
+                        { isMobile && (
+                            <Swiper loop={true} spaceBetween={36} slidesPerView={1}>
                                 {mainItem?.subBanner?.map((v, i) => (
                                     <SwiperSlide key={i}>
-                                        <li>
-                                            <div>
-                                                <div className='info_img'>
-                                                    <InfoImg src={v['bannerUrl']} alt={'sub img'} />
-                                                </div>
-                                                <div className='info_desc'>
-                                                    <strong>{v['title']}</strong>
-                                                    <p>{v['subTitle']}</p>
-                                                </div>
+                                        <div className="info_box">
+                                            <div className='info_img'>
+                                                <InfoImg src={v['bannerUrl']} alt={'sub img'} />
                                             </div>
-                                        </li>
+                                            <div className='info_desc'>
+                                                <strong>{v['title']}</strong>
+                                                <p>{v['subTitle']}</p>
+                                            </div>
+                                        </div>
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
-                        </ul>
+                        )}
                     </section>
                     <section className='prod_sec'>
                         <ul>
@@ -135,6 +163,32 @@ const Wrap = styled.div`
       padding:140px 0 70px;
       position:relative;
       
+      .info_box {
+        position:relative;
+        & .info_desc {
+          margin-top:30px;
+          text-align:center;
+
+          strong {
+            display:block;
+            min-height:62px;
+            font-size:var( --info-tit);
+            line-height:1.2;
+            font-weight:500;
+            color:var(--color-black);
+          }
+
+          p {
+            margin-top:15px;
+            display:block;
+            font-size:var( --info-txt);
+            line-height:1.5;
+            font-weight:400;
+            color:var(--color-grey);
+          }
+        }
+      }
+      
       ul {
         display:flex;
         gap:0 30px;
@@ -144,29 +198,6 @@ const Wrap = styled.div`
           
           img {
             width:100%;
-          }
-        }
-        
-        & .info_desc {
-          margin-top:30px;
-          text-align:center;
-          
-          strong {
-            display:block;
-            min-height:62px;
-            font-size:var( --info-tit);
-            line-height:1.2;
-            font-weight:500;
-            color:var(--color-black);
-          }
-          
-          p {
-            margin-top:15px;
-            display:block;
-            font-size:var( --info-txt);
-            line-height:24px;
-            font-weight:400;
-            color:var(--color-grey);
           }
         }
       }
@@ -269,41 +300,11 @@ const Wrap = styled.div`
       & .info_sec {
         padding:140px 0 70px;
         position:relative;
-
-        ul {
-          display:flex;
-          flex-wrap:wrap;
-          gap:30px 30px;
-
-          & li {
-            flex:none;
-            width:calc(50% - 15px);
-
-            img {
-              width:100%;
-            }
-          }
-
+        
+        .info_box {
           & .info_desc {
-            margin-top:30px;
-            text-align:center;
-
             strong {
-              display:block;
-              min-height:62px;
-              font-size:var( --info-tit);
-              line-height:1.2;
-              font-weight:500;
-              color:var(--color-black);
-            }
-
-            p {
-              margin-top:15px;
-              display:block;
-              font-size:var( --info-txt);
-              line-height:24px;
-              font-weight:400;
-              color:var(--color-grey);
+              min-height:auto;
             }
           }
         }
@@ -313,6 +314,7 @@ const Wrap = styled.div`
         & .prod_in {
           padding:0 40px;
           background-position:75% 100%;
+          align-items: center;
           }
         }
       }
@@ -324,45 +326,6 @@ const Wrap = styled.div`
       // 인포 섹션
       & .info_sec {
         padding:70px 0 35px;
-
-        ul {
-          display:block;
-          
-          & li {
-            width:100%;
-
-            & + li {
-              margin-top:36px;  
-            }
-            
-            img {
-              width:100%;
-            }
-          }
-
-          & .info_desc {
-            margin-top:30px;
-            text-align:center;
-
-            strong {
-              display:block;
-              min-height:62px;
-              font-size:var( --info-tit);
-              line-height:1.2;
-              font-weight:500;
-              color:var(--color-black);
-            }
-
-            p {
-              margin-top:15px;
-              display:block;
-              font-size:var( --info-txt);
-              line-height:24px;
-              font-weight:400;
-              color:var(--color-grey);
-            }
-          }
-        }
       }
 
       & .prod_sec {

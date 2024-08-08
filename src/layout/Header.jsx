@@ -90,6 +90,7 @@ const HeaderLayout = () => {
                                 <NavLink to="/story">Our Story</NavLink>
                             </li>
                         </ul>
+
                         <ul className="sns_nav">
                             <li>
                                 <Link to="https://www.facebook.com/TOBVinaKorean">
