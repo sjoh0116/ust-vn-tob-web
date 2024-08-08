@@ -223,6 +223,7 @@ const FooterWrap = styled.footer`
 const LinkImg = styled.img.attrs({alt:'Sns Shop'})``
 
 const TopBtn = styled.button`
+    z-index:99;
     position:fixed;
     right:20px;
     bottom:40px;
