@@ -41,7 +41,36 @@ const globalStyles = createGlobalStyle`
 
     --foot-cate: 16px;
     --foot-txt: 12px;
+
+    @media only screen and (max-width: 520px) {
+      --nav-tit: 14px;
+      --info-tit: 18px;
+      --info-txt: 12px;
+
+      --prd-info: 16px;
+      --prd-tit: 36px;
+      --prd-txt: 12px;
+
+      --banner-tit: 36px;
+
+      --m-prd-info: 12px;
+      --m-prd-tit: 16px;
+      --m-prd-txt: 12px;
+
+      --tit-head: 24px;
+      --tit-desc: 16px;
+
+      --m-tit-head: 18px;
+      --m-tit-desc: 12px;
+
+      --btn-txt: 14px;
+      --m-btn-txt: 12px;
+
+      --foot-cate: 14px;
+      --foot-txt: 12px;
+    }
   }
+  
 
   ${reset}
 
