@@ -12,15 +12,12 @@ export async function sendGet(url, param, cbSuccess) {
     url += Object.keys(param)[i] + '=' + Object.values(param)[i] + '&';
   }
 
-  await axios
-    .get(url.slice(0, url.length - 1))
-    .then(res => {
-      console.log('SUCCESS');
-      cbSuccess(res.data);
-    })
-    .catch(res => {
-      if (!Common.isEmpty(res.response)) {
-        console.log('ERROR');
-      }
-    });
+  await axios.get(url.slice(0, url.length - 1)).then(res => {
+    console.log('SUCCESS');
+    cbSuccess(res.data);
+  }).catch(res => {
+    if (!Common.isEmpty(res.response)) {
+      console.log('ERROR');
+    }
+  });
 }

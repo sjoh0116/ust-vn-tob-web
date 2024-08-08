@@ -1,8 +1,8 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 const globalStyles = createGlobalStyle`
-  
+
   :root {
 
     --font-family: "Noto Sans", sans-serif;
@@ -12,7 +12,7 @@ const globalStyles = createGlobalStyle`
     --color-white: #ffffff;
     --color-primary: #4cc0cb;
     --color-grey: #666666;
-    --color-copy:#808080;
+    --color-copy: #808080;
     --border-color: #e7eaf0;
 
     // Font-Size
@@ -24,25 +24,25 @@ const globalStyles = createGlobalStyle`
     --prd-tit: 48px;
     --prd-txt: 18px;
 
-    --banner-tit : 60px;
-    
+    --banner-tit: 60px;
+
     --m-prd-info: 16px;
     --m-prd-tit: 20px;
     --m-prd-txt: 12px;
 
-    --tit-head:32px;
-    --tit-desc:16px;
-    
-    --m-tit-head:24px;
-    --m-tit-desc:12px;
-    
+    --tit-head: 32px;
+    --tit-desc: 16px;
+
+    --m-tit-head: 24px;
+    --m-tit-desc: 12px;
+
     --btn-txt: 16px;
     --m-btn-txt: 12px;
 
     --foot-cate: 16px;
     --foot-txt: 12px;
   }
-  
+
   ${reset}
 
   ;
@@ -84,14 +84,14 @@ const globalStyles = createGlobalStyle`
     padding: 0;
   }
 
-  body,html {
-    word-wrap:break-word;
+  body, html {
+    word-wrap: break-word;
     color: var(--color-gray);
-    font-family:var(--font-family);
-    font-weight:400;
-    font-size:var(--info-txt);
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: var(--info-txt);
   }
-  
+
   html {
     width: 100%;
   }
@@ -163,9 +163,9 @@ const globalStyles = createGlobalStyle`
   a:active {
     text-decoration: none;
   }
-  
+
   input, textarea {
-    font-family: 'Pretendard', serif; 
+    font-family: 'Pretendard', serif;
   }
 
   input:-webkit-autofill {
