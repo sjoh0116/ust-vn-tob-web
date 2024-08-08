@@ -1,4 +1,8 @@
-s/js/Server';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+import * as Server from 'assets/js/Server';
 import * as Common from 'assets/js/Common';
 
 /* 슬라이드 - 스와이퍼 */
@@ -39,42 +43,59 @@ const MainPage = () => {
         <React.Fragment>
             <Wrap>
                 <div className='inner'>
-                    <Swiper
-                        modules={[Autoplay]}
-                        autoplay={{
-                            delay: 5000,
-                            disableOnInteraction: false,
-                        }}
-                        loop={true}
-                    >
-                        {mainItem?.banner?.map((v, i) => (
-                            <SwiperSlide key={i}>
-                                <section className='visual_sec'>
-                                    <img src={v['bannerUrl']} alt='visual img'/>
-                                </section>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                    <section className="visual_sec">
+                        <Swiper
+                            modules={[Autoplay]}
+                            autoplay={{
+                                delay: 5000,
+                                disableOnInteraction: false,
+                            }}
+                        >
+                            {mainItem?.banner?.map((v, i) => (
+                                <SwiperSlide key={i}>
+                                    <section className='visual_sec'>
+                                        <img src={v['bannerUrl']} alt='visual img' />
+                                    </section>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </section>
                     <section className='info_sec'>
-                        <ul>
-                            <Swiper loop={true} spaceBetween={14} slidesPerView={4}>
+                        { !isMobile && (
+                            <ul>
+                                {mainItem?.subBanner?.map((v, i) => (
+                                    <li key={i}>
+                                        <div className="info_box">
+                                            <div className='info_img'>
+                                                <InfoImg src={v['bannerUrl']} alt={'sub img'} />
+                                            </div>
+                                            <div className='info_desc'>
+                                                <strong>{v['title']}</strong>
+                                                <p>{v['subTitle']}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+
+                        { isMobile && (
+                            <Swiper loop={true} spaceBetween={36} slidesPerView={1}>
                                 {mainItem?.subBanner?.map((v, i) => (
                                     <SwiperSlide key={i}>
-                                        <li>
-                                            <div>
-                                                <div className='info_img'>
-                                                    <InfoImg src={v['bannerUrl']} alt={'sub img'}/>
-                                                </div>
-                                                <div className='info_desc'>
-                                                    <strong>{v['title']}</strong>
-                                                    <p>{v['subTitle']}</p>
-                                                </div>
+                                        <div className="info_box">
+                                            <div className='info_img'>
+                                                <InfoImg src={v['bannerUrl']} alt={'sub img'} />
                                             </div>
-                                        </li>
+                                            <div className='info_desc'>
+                                                <strong>{v['title']}</strong>
+                                                <p>{v['subTitle']}</p>
+                                            </div>
+                                        </div>
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
-                        </ul>
+                        )}
                     </section>
                     <section className='prod_sec'>
                         <ul>
