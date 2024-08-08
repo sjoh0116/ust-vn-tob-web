@@ -307,6 +307,17 @@ const Wrap = styled.div`
           padding:0 40px;
           background-position:75% 100%;
           align-items: center;
+
+          &::before {
+            z-index:1;
+            content:'';
+            position:absolute;
+            width:100%;
+            height:100%;
+            top:0;
+            left:0;
+            background:rgba(255,255,255, 0.5);
+          }
         }
       }
     }
@@ -326,18 +337,7 @@ const Wrap = styled.div`
           justify-content: center;
           text-align:center;
           height:328px;
-
-          &::before {
-            z-index:1;
-            content:'';
-            position:absolute;
-            width:100%;
-            height:100%;
-            top:0;
-            left:0;
-            background:rgba(255,255,255, 0.5);
-          }
-
+          
           & .prod_desc {
             z-index:2;
             position:relative;
