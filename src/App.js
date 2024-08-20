@@ -13,6 +13,7 @@ import TobMask from 'pages/product/mask';
 import TobCleanser from 'pages/product/cleanser';
 import TobSunCream from 'pages/product/suncream';
 import TobStory from 'pages/tobStory';
+import Brand from "./pages/brand";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/product/cleanser' element={<TobCleanser/>}/>
           <Route path='/product/suncream' element={<TobSunCream/>}/>
           <Route path='/story' element={<TobStory/>}/>
+          <Route path='/brand' element={<Brand />} />
         </Route>
       </Routes>
 

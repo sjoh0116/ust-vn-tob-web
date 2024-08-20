@@ -166,6 +166,7 @@ const StoryWrap = styled.div`
       align-items: center;
       border-radius: 20px;
       padding: 0 125px;
+      text-align:center;
 
       h4 {
         font-weight: 500;

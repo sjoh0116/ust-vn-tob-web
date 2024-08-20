@@ -108,6 +108,9 @@ const ProdWrap = styled.div`
 
 
   @media only screen and (max-width: 1080px) {
+    
+    padding:35px 0 70px;
+    
     .prod_inner {
       max-width: 100%;
       width: 100%;

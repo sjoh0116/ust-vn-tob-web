@@ -4,6 +4,16 @@ import reset from 'styled-reset';
 const globalStyles = createGlobalStyle`
 
   :root {
+    
+    .sec_head {
+      display:none;
+    }
+    
+    .inner {
+      position:relative;
+      max-width:1720px;
+      margin:0 auto;
+    }
 
     --font-family: "Noto Sans", sans-serif;
 
@@ -42,7 +52,17 @@ const globalStyles = createGlobalStyle`
     --foot-cate: 16px;
     --foot-txt: 12px;
 
-    @media only screen and (max-width: 520px) {
+    @media only screen and (max-width: 1024px) {
+      .inner {
+        position:relative;
+        max-width:100%;
+        padding:0 20px;
+        margin:0;
+      }
+      
+    }
+
+    @media only screen and (max-width: 540px) {
       --nav-tit: 14px;
       --info-tit: 18px;
       --info-txt: 12px;

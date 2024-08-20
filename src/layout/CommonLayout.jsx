@@ -21,6 +21,10 @@ const ContentLayout = () => {
 const ContentWrap = styled.div`
   margin-top: 93px;
   position: relative;
+
+  @media only screen and (max-width: 1024px) {
+    margin-top:85px;
+  }
 `;
 
 export default ContentLayout;
