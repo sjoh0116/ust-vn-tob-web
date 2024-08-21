@@ -38,6 +38,7 @@ const HeaderLayout = () => {
     };
     const sideClose = () => {
         setSideOpen(false);
+        setNavMenu(false);
     };
 
     return (

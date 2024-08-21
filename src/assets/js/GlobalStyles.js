@@ -13,6 +13,7 @@ const globalStyles = createGlobalStyle`
       position:relative;
       max-width:1720px;
       margin:0 auto;
+      width:95%;
     }
 
     --font-family: "Noto Sans", sans-serif;
@@ -56,6 +57,7 @@ const globalStyles = createGlobalStyle`
       .inner {
         position:relative;
         max-width:100%;
+        width:100%;
         padding:0 20px;
         margin:0;
       }

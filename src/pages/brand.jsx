@@ -113,4 +113,13 @@ const BrandWrap = styled.section`
     }
 
   }
+
+
+  @media only screen and (max-width: 540px) {
+    .brand_info {
+      img {
+        width:100%;
+      }
+    }
+  }
 `

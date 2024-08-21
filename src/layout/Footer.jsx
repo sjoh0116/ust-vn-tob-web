@@ -238,5 +238,9 @@ const TopBtn = styled.button`
     font-weight:600;
     font-size:var(--btn-txt);
     color:var(--color-white);
+
+  @media only screen and (max-width: 720px) {
+    right:10px;
+  }
 `
 export default FooterLayout
