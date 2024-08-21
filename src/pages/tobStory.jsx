@@ -3,11 +3,8 @@ import styled from 'styled-components';
 
 /* JS */
 import * as Server from 'assets/js/Server';
-import * as Common from 'assets/js/Common';
 
 /* 슬라이드 - 스와이퍼 */
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
@@ -29,116 +26,126 @@ const TobStory = () => {
   return (
     <React.Fragment>
       <StoryWrap>
-            {mainItem?.banner?.map((v, i) => (
-                <section
-                  className='visual_story'
-                >
-                  <div className="inner">
-                    <div className='visual_box'  style={{
-                      background: 'url(' + v['bannerUrl'] + ') no-repeat',
-                      backgroundSize:'cover'
-                    }}>
-                      <h4>{v['title']}</h4>
-                      <div className='img_box'>
-                        {v['bannerSubList']?.map((val, idx) => {
-                          if (val['frontYn'] === 'Y') {
-                            return (
-                                <DecoImg key={idx} className='top' src={val['imgUrl']}/>
-                            );
-                          } else {
-                            return (
-                                <DecoImg key={idx} className='bot' src={val['imgUrl']}/>
-                            );
-                          }
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                </section>
-            ))}
-          <section className='brand_story'>
-            <div className="inner">
-              <div className='title'>
-                <h4>Thương hiệu TOB luôn</h4>
-                <p>Thay đổi sản phẩm mặt nạ giấy thông thường thành Wrapping Mask ngay nhé!</p>
+        {mainItem?.banner?.map((v, i) => (
+          <section className='visual_story' key={i}>
+            <div className='inner'>
+              <div
+                className='visual_box'
+                style={{
+                  background: 'url(' + v['bannerUrl'] + ') no-repeat',
+                  backgroundSize: 'cover'
+                }}
+              >
+                <h4>{v['title']}</h4>
+                <div className='img_box'>
+                  {v['bannerSubList']?.map((val, idx) => {
+                    if (val['frontYn'] === 'Y') {
+                      return (
+                        <DecoImg key={idx} className='top' src={val['imgUrl']}/>
+                      );
+                    } else {
+                      return (
+                        <DecoImg key={idx} className='bot' src={val['imgUrl']}/>
+                      );
+                    }
+                  })}
+                </div>
               </div>
-              <ul>
-                <li>Lắng nghe nhu cầu<br/>của khách hàng</li>
-                <li>Phát triển giải pháp<br/>đến từ thiên nhiên</li>
-                <li>Mang lại hiệu quả<br/>vượt trội</li>
-              </ul>
             </div>
           </section>
-          <section className='ceo_story'>
-            <div className="inner">
-              <div className='ceo_box'>
-                <div className='ceo_img'>
-                  <img src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/ceo_img.jpg' alt='Ceo'/>
-                  <span>CEO</span>
+        ))}
+        <section className='brand_story'>
+          <div className='inner'>
+            <div className='title'>
+              <h4>Thương hiệu TOB luôn</h4>
+              <p>Thay đổi sản phẩm mặt nạ giấy thông thường thành Wrapping Mask ngay nhé!</p>
+            </div>
+            <ul>
+              <li>Lắng nghe nhu cầu
+                <br/>
+                của khách hàng
+              </li>
+              <li>Phát triển giải pháp
+                <br/>
+                đến từ thiên nhiên
+              </li>
+              <li>Mang lại hiệu quả
+                <br/>
+                vượt trội
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section className='ceo_story'>
+          <div className='inner'>
+            <div className='ceo_box'>
+              <div className='ceo_img'>
+                <img src='https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/ceo_img.jpg' alt='Ceo'/>
+                <span>CEO</span>
+              </div>
+              <div className='ceo_desc'>
+                <div className='desc_tit'>
+                  <h4>TOB</h4>
+                  <p>
+                    TOB trong tiếng Do thái có nghĩa là “đẹp (Beautiful), đúng (Right), tốt (Good)”. TOB luôn hướng tới
+                    mục tiêu trở thành một thương hiệu làm đẹp an toàn, hiệu quả và chất lượng nhất dành cho khách hàng.
+                  </p>
                 </div>
-                <div className='ceo_desc'>
-                  <div className='desc_tit'>
-                    <h4>TOB</h4>
-                    <p>
-                      TOB trong tiếng Do thái có nghĩa là “đẹp (Beautiful), đúng (Right), tốt (Good)”. TOB luôn hướng tới
-                      mục tiêu trở thành một thương hiệu làm đẹp an toàn, hiệu quả và chất lượng nhất dành cho khách hàng.
-                    </p>
-                  </div>
-                  <ul className='desc_list'>
-                    <li>
-                      <strong>Beautiful</strong>
-                      <span>Thương hiệu TOB chuyên nghiên cứu các sản phẩm hiệu quả với mụn trứng cá, cung cấp giải pháp làm đẹp mới cho khách hàng.</span>
-                    </li>
-                    <li>
-                      <strong>Right</strong>
-                      <span>
-                        Với nguyên liệu và giải pháp mỹ phẩm hàng đầu tại Hàn Quốc, thương hiệu TOB thực hiện sứ mệnh cung cấp giải pháp làm đẹp dành cho người Việt. Bạn đã sẵn sàng cùng TOB tham gia hành trình làm đẹp chưa nào?
+                <ul className='desc_list'>
+                  <li>
+                    <strong>Beautiful</strong>
+                    <span>Thương hiệu TOB chuyên nghiên cứu các sản phẩm hiệu quả với mụn trứng cá, cung cấp giải pháp làm đẹp mới cho khách hàng.</span>
+                  </li>
+                  <li>
+                    <strong>Right</strong>
+                    <span>
+                      Với nguyên liệu và giải pháp mỹ phẩm hàng đầu tại Hàn Quốc, thương hiệu TOB thực hiện sứ mệnh cung cấp giải pháp làm đẹp dành cho người Việt. Bạn đã sẵn sàng cùng TOB tham gia hành trình làm đẹp chưa nào?
                     </span>
-                    </li>
-                    <li>
-                      <strong>Good</strong>
-                      <span>TOB sẽ luôn bên cạnh ủng hộ hành trình đi tìm vẻ đẹp của bạn.</span>
-                    </li>
-                  </ul>
-                </div>
+                  </li>
+                  <li>
+                    <strong>Good</strong>
+                    <span>TOB sẽ luôn bên cạnh ủng hộ hành trình đi tìm vẻ đẹp của bạn.</span>
+                  </li>
+                </ul>
               </div>
+            </div>
 
+          </div>
+        </section>
+        <section className='choose_story'>
+          <div className='inner'>
+            <div className='title'>
+              <h4>Tại sao chọn chúng tôi?</h4>
             </div>
-          </section>
-          <section className='choose_story'>
-            <div className="inner">
-              <div className='title'>
-                <h4>Tại sao chọn chúng tôi?</h4>
-              </div>
-              <ul>
-                <li>
-                  <div className='choose_in'>
-                    <strong>Vận chuyển toàn quốc</strong>
-                    <p>
-                      Hỗ trợ vận chuyển nhanh chóng, đa dạng hình thức thông qua các công ty uy tín hàng đầu
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div className='choose_in'>
-                    <strong>Giá trị cộng đồng</strong>
-                    <p>
-                      Hướng đến vẻ đẹp chân thực, chia sẻ kiến thức làm đẹp vì cộng đồng
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div className='choose_in'>
-                    <strong>Cá nhân hóa</strong>
-                    <p>
-                      Tư vấn gián tiếp bởi các chuyên gia Hàn Quốc có kinh nghiệm trên 10 năm về mỹ phẩm chăm
-                      sóc da mặt
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </section>
+            <ul>
+              <li>
+                <div className='choose_in'>
+                  <strong>Vận chuyển toàn quốc</strong>
+                  <p>
+                    Hỗ trợ vận chuyển nhanh chóng, đa dạng hình thức thông qua các công ty uy tín hàng đầu
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className='choose_in'>
+                  <strong>Giá trị cộng đồng</strong>
+                  <p>
+                    Hướng đến vẻ đẹp chân thực, chia sẻ kiến thức làm đẹp vì cộng đồng
+                  </p>
+                </div>
+              </li>
+              <li>
+                <div className='choose_in'>
+                  <strong>Cá nhân hóa</strong>
+                  <p>
+                    Tư vấn gián tiếp bởi các chuyên gia Hàn Quốc có kinh nghiệm trên 10 năm về mỹ phẩm chăm
+                    sóc da mặt
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
       </StoryWrap>
     </React.Fragment>
   )
@@ -146,7 +153,7 @@ const TobStory = () => {
 
 const StoryWrap = styled.div`
   position: relative;
-  padding: 70px 0px;
+  padding: 70px 0;
 
   .visual_story {
     position: relative;
@@ -158,7 +165,7 @@ const StoryWrap = styled.div`
     }
 
     .visual_box {
-      position:relative;
+      position: relative;
       height: 455px;
       display: flex;
       justify-content: center;
@@ -166,8 +173,7 @@ const StoryWrap = styled.div`
       border-radius: 20px;
       padding: 0 125px;
     }
-    
-    
+
     .img_box img {
       position: absolute;
       border-radius: 20px;
@@ -306,7 +312,6 @@ const StoryWrap = styled.div`
         border-radius: 20px;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.06);
 
-
         strong {
           font-weight: 600;
           font-size: var(--info-tit);
@@ -349,14 +354,14 @@ const StoryWrap = styled.div`
       }
 
       .visual_box {
-        padding:0 16px;
-        width:100%;
+        padding: 0 16px;
+        width: 100%;
         justify-content: center;
         flex-direction: column;
-        
+
         .img_box {
           margin-top: 12px;
-          width:100%;
+          width: 100%;
           text-align: center;
           display: flex;
           align-items: flex-end;
@@ -365,24 +370,22 @@ const StoryWrap = styled.div`
 
           img {
             &.top {
-              position:relative;
-              width:40%;
+              position: relative;
+              width: 40%;
               transform: none;
-              bottom:0;
-              right:0;
+              bottom: 0;
+              right: 0;
             }
 
             &.bot {
-              position:relative;
-              width:40%;
+              position: relative;
+              width: 40%;
               transform: none;
-              top:0;
-              right:0;
-              
+              top: 0;
+              right: 0;
             }
           }
         }
-
       }
     }
 
@@ -570,8 +573,8 @@ const StoryWrap = styled.div`
       }
     }
   }
-`
+`;
 
-const DecoImg = styled.img.attrs({ alt: 'Deco Image' })``
+const DecoImg = styled.img.attrs({ alt: 'Deco Image' })``;
 
 export default TobStory;

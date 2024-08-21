@@ -79,7 +79,14 @@ const Detail = () => {
           {productDetail?.slideN?.map((v, i) => {
             if (v['imgUrl'].includes('mp')) {
               return (
-                <DetailVideo autoPlay='autoPlay' loop='loop' muted='muted' playsInline='playsInline' preload='metadata' key={i}>
+                <DetailVideo
+                  autoPlay='autoPlay'
+                  loop='loop'
+                  muted='muted'
+                  playsInline='playsInline'
+                  preload='metadata'
+                  key={i}
+                >
                   <source src={v['imgUrl']} type='video/mp4'/>
                 </DetailVideo>
               );
@@ -106,11 +113,9 @@ const ProdWrap = styled.div`
     text-align: center;
   }
 
-
   @media only screen and (max-width: 1080px) {
-    
-    padding:35px 0 70px;
-    
+    padding: 35px 0 70px;
+
     .prod_inner {
       max-width: 100%;
       width: 100%;

@@ -6,7 +6,6 @@ import HeaderLayout from 'layout/Header';
 import FooterLayout from 'layout/Footer';
 
 const ContentLayout = () => {
-
   return (
     <>
       <ContentWrap>
@@ -23,7 +22,7 @@ const ContentWrap = styled.div`
   position: relative;
 
   @media only screen and (max-width: 1024px) {
-    margin-top:85px;
+    margin-top: 85px;
   }
 `;
 
