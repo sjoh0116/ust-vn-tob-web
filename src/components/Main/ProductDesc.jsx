@@ -45,7 +45,7 @@ const Product = styled.section`
         text-align: center;
 
         strong {
-          font-weight: 700;
+          font-weight: 400;
           font-size: var(--prd-txt);
           color: var(--color-black);
         }
