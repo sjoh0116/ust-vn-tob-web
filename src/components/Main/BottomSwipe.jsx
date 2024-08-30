@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { BOT_SWIPE_DATA } from './Data';
 
 /* 슬라이드 - 스와이퍼 */
 import { Swiper, SwiperSlide } from 'swiper/react';

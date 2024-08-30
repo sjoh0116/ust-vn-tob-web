@@ -15,6 +15,10 @@ const globalStyles = createGlobalStyle`
       margin:0 auto;
       width:95%;
     }
+    
+    .inner.product {
+      max-width:1240px;
+    }
 
     --font-family: "Noto Sans", sans-serif;
 
@@ -60,6 +64,10 @@ const globalStyles = createGlobalStyle`
         width:100%;
         padding:0 20px;
         margin:0;
+      }
+
+      .inner.product {
+        max-width:100%;
       }
       
     }

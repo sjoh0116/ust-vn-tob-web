@@ -8,7 +8,7 @@ export default function ProductDesc({ product }) {
       <div className='sec_head'>
         <h1>Product Desc</h1>
       </div>
-      <div className='inner'>
+      <div className='inner product'>
         <ul>
           {product.map((item, index) => (
             <ProdItem key={index} item={item}/>
@@ -62,7 +62,7 @@ const Product = styled.section`
       gap: 18px 18px;
 
       li {
-        width: calc(33.33% - 12px);
+        width: calc(50% - 9px);
 
         .prod_img {
           width: 100%;
