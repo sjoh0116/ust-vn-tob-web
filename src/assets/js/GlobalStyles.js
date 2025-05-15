@@ -231,5 +231,25 @@ const globalStyles = createGlobalStyle`
     -webkit-box-shadow: 0 0 0 30px #fff inset;
     -webkit-text-fill-color: #000;
   }
+  
+  .title-desc {
+    position:relative;
+    text-align:center;
+    
+    h4 {
+      font-family:'Pt-Serif', serif;
+      font-size:28px;
+      font-weight:700;
+      color:#000;
+    }
+    
+    p {
+      margin-top:20px;
+      display:block;
+      vertical-align: 1px;
+      font-size:14px;
+      color:#777;
+    }
+  }
 `;
 export default globalStyles;

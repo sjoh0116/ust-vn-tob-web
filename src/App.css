@@ -62,3 +62,10 @@
   font-weight: 900;
   src: url('../src/assets/font/NotoSans-Black.woff2') format('woff2');
 }
+
+@font-face {
+  font-family:'Pt-Serif';
+  font-style:normal;
+  font-weight:700;
+  src: url('../src/assets/font/pt-serif-bold.woff2') format('woff2');
+}

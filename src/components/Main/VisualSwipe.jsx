@@ -14,13 +14,18 @@ export default function VisualSwiper({ banner }) {
         <h1>Visual Slider</h1>
       </div>
       <Swiper modules={[Autoplay]} slidesPerView={1} autoplay={{ delay: 5000, disableOnInteraction: false }} loop>
-        {banner.map((item, index) => (
-          <SwiperSlide key={index}>
-            <Link to={item.link}>
-              <img src={item.bannerUrl} alt={'mainBanner'}/>
-            </Link>
-          </SwiperSlide>
-        ))}
+        {/*{banner.map((item, index) => (*/}
+        {/*  <SwiperSlide key={index}>*/}
+        {/*    <Link to={item.link}>*/}
+        {/*      <img src={item.bannerUrl} alt={'mainBanner'}/>*/}
+        {/*    </Link>*/}
+        {/*  </SwiperSlide>*/}
+        {/*))}*/}
+            <SwiperSlide>
+              <Link to="">
+                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/test_bg.webp" alt={'mainBanner'}/>
+              </Link>
+            </SwiperSlide>
       </Swiper>
     </Visual>
   )
