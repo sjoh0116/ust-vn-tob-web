@@ -123,12 +123,16 @@ const BoardContent = styled.section`
       position:relative;
       
       .board-search {
+        position:relative;
         display:flex;
         justify-content: space-between;
         align-items: center;
-        gap:0 10px;
         
         .search-tool {
+          display:flex;
+          align-items: center;
+          gap:0 10px;
+          
           select {
             width:110px;
             padding:0 20px;
