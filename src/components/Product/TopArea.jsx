@@ -127,8 +127,6 @@ const TopContent = styled.section`
       // 상품 정보
       &.prd-desc {
         position:relative;
-        
-        
         .info {
           position:relative;
           padding:20px 0;
