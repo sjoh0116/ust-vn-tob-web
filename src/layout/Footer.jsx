@@ -1,17 +1,9 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
 import styled from 'styled-components';
 
 const FooterLayout = () => {
-  const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
 
   return (
-    <React.Fragment>
       <FooterWrap>
         <div className="inner">
           <div className="foot_menu">
@@ -91,10 +83,6 @@ const FooterLayout = () => {
           </p>
         </div>
       </FooterWrap>
-      <TopBtn onClick={scrollTop}>
-        TOP
-      </TopBtn>
-    </React.Fragment>
   )
 }
 
@@ -229,27 +217,5 @@ const FooterWrap = styled.footer`
 `;
 
 const LinkImg = styled.img.attrs({ alt: 'Sns Shop' })``;
-
-const TopBtn = styled.button`
-  z-index: 99;
-  position: fixed;
-  right: 20px;
-  bottom: 40px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--color-black);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Noto Sans', serif;
-  font-weight: 600;
-  font-size: var(--btn-txt);
-  color: var(--color-white);
-
-  @media only screen and (max-width: 720px) {
-    right: 10px;
-  }
-`;
 
 export default FooterLayout;

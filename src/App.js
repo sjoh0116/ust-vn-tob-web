@@ -1,37 +1,84 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Suspense, lazy } from "react";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import GlobalStyles from 'assets/js/GlobalStyles';
 
 // 레이아웃
+import Loading from "./layout/Loading";
 import ContentLayout from "layout/CommonLayout";
+import BoardWrite from "./pages/Qna/boardWrite";
+import BoardModify from "./pages/Qna/boardModify";
 
 // 페이지
-import MainHome from 'pages/main';
-import ProductDetail from 'pages/product/detail';
-import DrFlomos from 'pages/product/flomos';
-import TobMask from 'pages/product/mask';
-import TobCleanser from 'pages/product/cleanser';
-import TobSunCream from 'pages/product/suncream';
-import TobStory from 'pages/tobStory';
-import Brand from "./pages/brand";
+const Main = lazy(() => import('pages/main'));
+const ProductDetail = lazy(() => import('./pages/product'));
+const BrandStory= lazy(() => import('./pages/brand'));
+const BoardList = lazy(() => import('./pages/Qna/boardList'));
+const BoardDetail = lazy(() => import('./pages/Qna/boardDetail'));
 
 function App() {
+
+  const router = createBrowserRouter([
+      {
+          path:'/',
+          element: <ContentLayout />,
+          children: [
+              {
+                  index:true,
+                  element:
+                      <Suspense fallback={<Loading />}>
+                          <Main />
+                      </Suspense>
+              },
+              {
+                  path: '/product/:prdNum',
+                  element:
+                      <Suspense fallback={<Loading />}>
+                          <ProductDetail />
+                      </Suspense>
+              },
+              {
+                  path: '/brand',
+                  element:
+                      <Suspense fallback={<Loading />}>
+                          <BrandStory />
+                      </Suspense>
+              },
+              {
+                  path: '/board',
+                  element:
+                      <Suspense fallback={<Loading />}>
+                          <BoardList />
+                      </Suspense>
+              },
+              {
+                  path: '/board/write',
+                  element:
+                      <Suspense fallback={<Loading />}>
+                          <BoardWrite />
+                      </Suspense>
+              },
+              {
+                  path: '/board/modify/:boardNum',
+                  element:
+                      <Suspense fallback={<Loading />}>
+                          <BoardModify />
+                      </Suspense>
+              },
+              {
+                  path: '/board/detail/:boardNum',
+                  element:
+                      <Suspense fallback={<Loading />}>
+                          <BoardDetail />
+                      </Suspense>
+              }
+          ]
+      }
+  ])
+
   return (
     <>
-      <GlobalStyles/>
-      <Routes>
-        <Route element={<ContentLayout/>}>
-          <Route path='/' element={<MainHome/>}/>
-          <Route path='/product/detail' element={<ProductDetail/>}/>
-          <Route path='/product/flomos' element={<DrFlomos/>}/>
-          <Route path='/product/mask' element={<TobMask/>}/>
-          <Route path='/product/cleanser' element={<TobCleanser/>}/>
-          <Route path='/product/suncream' element={<TobSunCream/>}/>
-          <Route path='/story' element={<TobStory/>}/>
-          <Route path='/brand' element={<Brand />} />
-        </Route>
-      </Routes>
-
+        <GlobalStyles />
+        <RouterProvider router={router} />
     </>
   );
 }

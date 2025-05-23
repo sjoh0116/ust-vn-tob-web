@@ -26,7 +26,39 @@ export default function Header(){
                             <NavLink to="/brand">Brand Story</NavLink>
                           </li>
                           <li>
-                              <NavLink to="/product">Product</NavLink>
+                              <NavLink to="/product/toctocshot">Product</NavLink>
+                              <ul className="sub-nav">
+                                  <li>
+                                      <Link to='/product/toctocshot'>톡톡샷</Link>
+                                  </li>
+                                  <li>
+                                      <Link to='/product/toctocshot'>톡톡샷</Link>
+                                  </li>
+                                  <li>
+                                      <Link to='/product/toctocshot'>톡톡샷</Link>
+                                  </li>
+                                  <li>
+                                      <Link to='/product/toctocshot'>톡톡샷</Link>
+                                  </li>
+                                  <li>
+                                      <Link to='/product/toctocshot'>톡톡샷</Link>
+                                  </li>
+                                  <li>
+                                      <Link to='/product/toctocshot'>톡톡샷</Link>
+                                  </li>
+                                  <li>
+                                      <Link to='/product/toctocshot'>톡톡샷</Link>
+                                  </li>
+                                  <li>
+                                      <Link to='/product/toctocshot'>톡톡샷</Link>
+                                  </li>
+                                  <li>
+                                      <Link to='/product/toctocshot'>톡톡샷</Link>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <NavLink to="/board">Q&A</NavLink>
                           </li>
                       </ul>
                   </nav>
@@ -42,18 +74,18 @@ const HeadWrap = styled.header`
   top:0;
   left:0;
   width:100%;
-  height:100px;
   
   .head-inner {
     z-index:1000;
     position:relative;
     width:100%;
-    height:100%;
+    height:100px;
     padding:0 70px;
     background-color:rgba(255, 255, 255, 0);
     transition:all 0.3s ease;
     
     &.active {
+      height:85px;
       background-color:rgba(255, 255, 255, 0.9);
     }
     
@@ -80,15 +112,49 @@ const HeadWrap = styled.header`
         left:50%;
         transform:translate(-50%, -50%);
         
-        ul {
+        > ul {
           display:flex;
           align-items:center;
           gap:0 30px;
           
-          li a {
-            font-size:18px;
-            font-weight:500;
-            color:#000000;
+          li {
+            position:relative;
+            
+            a {
+              display:block;
+              font-size:18px;
+              line-height:50px;
+              font-weight:500;
+              color:#000000;
+            }
+            
+            .sub-nav {
+              display:none;
+              z-index:2;
+              position:absolute;
+              top:50px;
+              left:50%;
+              transform:translateX(-50%);
+              padding:10px 20px;
+              background:#fff;
+              border-radius:7px;
+              box-shadow:0 2px 9px rgba(0, 0, 0, 0.2);
+              
+              li a {
+                font-weight:500;
+                font-size:14px;
+                line-height:1.5;
+                color:#111;
+              }
+              
+              li + li {
+                margin-top:10px;
+              }
+            }
+            
+            &:hover .sub-nav {
+              display:block;
+            }
           }
         }
       }

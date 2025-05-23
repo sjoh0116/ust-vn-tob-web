@@ -20,7 +20,7 @@ export default function ProductSwipe(){
                 <p>토브의 독자적인 원료로 만들어진 화장품을 만나보세요.</p>
             </div>
             <div className="product-content">
-                <Swiper modules={[Autoplay]} slidesPerView={3} spaceBetween={20} autoplay={{ delay: 5000, disableOnInteraction: false }} loop>
+                <Swiper modules={[Autoplay]} slidesPerView={3} spaceBetween={20} autoplay={{ delay: 5000, disableOnInteraction: false }}>
                     {MAIN_PRODUCT_DATA.map((slide, idx) => (
                         <SwiperSlide key={slide.id} onMouseEnter={()=> setHovered(idx)} onMouseLeave={()=> setHovered(null)}>
                             <Link to="">

@@ -9,6 +9,11 @@ const globalStyles = createGlobalStyle`
       display:none;
     }
     
+    .sec-inner {
+      margin:0 auto;
+      max-width:1240px;
+    }
+    
     .inner {
       position:relative;
       max-width:1720px;

@@ -13,7 +13,7 @@ export default function VisualSwiper({ banner }) {
       <div className='sec_head'>
         <h1>Visual Slider</h1>
       </div>
-      <Swiper modules={[Autoplay]} slidesPerView={1} autoplay={{ delay: 5000, disableOnInteraction: false }} loop>
+      <Swiper modules={[Autoplay]} slidesPerView={1} autoplay={{ delay: 5000, disableOnInteraction: false }} >
         {/*{banner.map((item, index) => (*/}
         {/*  <SwiperSlide key={index}>*/}
         {/*    <Link to={item.link}>*/}
