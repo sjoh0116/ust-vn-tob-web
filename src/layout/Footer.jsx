@@ -8,7 +8,7 @@ const FooterLayout = () => {
         <div className="inner">
           <div className="foot_menu">
             <div className="menu_logo">
-              <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tob_logo.webp" alt="Truth of Beauty"/>
+              <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/tob_logo.webp" alt="truth of beauty" />
             </div>
             <ul className="menu_link">
               <li>
@@ -125,8 +125,6 @@ const FooterWrap = styled.footer`
       grid-template-columns: calc(100% - 720px) 360px 360px;
 
       & > div {
-        padding: 0 16px;
-
         h6 {
           font-size: var(--foot-cate);
           font-weight: 700;

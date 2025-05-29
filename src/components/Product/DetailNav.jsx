@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export default function DetailNav({ product, qna, toDetail, toQna }){
+export default function DetailNav({ product, qna, review, toDetail, toQna, toReview }){
     return (
         <NavWrap>
             <div className="inner">
@@ -7,6 +7,11 @@ export default function DetailNav({ product, qna, toDetail, toQna }){
                     <li className={ product === 'active' ? 'active' : undefined}>
                         <button onClick={toDetail}>
                             <span>상세 정보</span>
+                        </button>
+                    </li>
+                    <li className={ review === 'active' ? 'active' : undefined}>
+                        <button onClick={toReview}>
+                            <span>Review</span><p>0</p>
                         </button>
                     </li>
                     <li className={ qna === 'active' ? 'active' : undefined}>
@@ -65,7 +70,7 @@ const NavWrap = styled.div`
             color:#fff;
             text-align:center;
           }
-        }\
+        }
       }
     }
   }

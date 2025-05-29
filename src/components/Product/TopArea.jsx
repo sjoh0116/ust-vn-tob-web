@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {motion} from "framer-motion";
 
 export default function TopArea(){
 
@@ -56,17 +55,17 @@ export default function TopArea(){
                     </div>
                 </div>
                 <div className="prd-desc">
-                    <div className="info">
+                    <div className="desc-info desc-depth">
                         <strong>콜라겐 톡톡샷500 부스팅 클렌징밤</strong>
                         <span>딥클렌징+요철 스케일링+피부 부스팅</span>
                     </div>
-                    <div className="price">
+                    <div className="desc-price desc-depth">
                         <strong>19,600원</strong>
                     </div>
-                    <div className="desc">
+                    <div className="desc-txt desc-depth">
                         <p>세틸에틸헥사노에이트, 카프릴릭/카프릭트라이글리세라이드, 피이지-20글리세릴트라이아이소스테아레이트, 피이지-100아이소스테아레이트, 합성왁스, 호호바씨오일, 아르간커넬오일, 진들딸기씨오일, 하이드롤라이즈드해면, 하이드롤라이즈드콜라겐, 로즈힙열매오일, 포도씨오일, 가지열매추출물, 비타민나무열매오일, 블랙체리열매추출물, 아사이팜열매오일, 아이비고드열매추출물, 토코페릴아세테이트, 세틸피이지/피피지-10/다이메티콘, 토코페롤, 1,2-헥산다이올, 지치뿌리추출물, 인도멀구슬나무잎추출물, 인도멀구슬나무꽃추출물, 해바라기씨오일, 알로에베라꽃추출물, 참산호말추출물, 물푸레나무잎추출물, 홀리바질잎추출물, 펜타에리스리틸테트라-다이-t-부틸하이드록시아이소히드록시하이드록시네이트, 향료</p>
                     </div>
-                    <div className="sns">
+                    <div className="desc-sns desc-depth">
                         <ul>
                             {menuItems.map((item, index) => (
                                 <li>
@@ -127,9 +126,13 @@ const TopContent = styled.section`
       // 상품 정보
       &.prd-desc {
         position:relative;
-        .info {
+        
+        .desc-depth {
           position:relative;
           padding:20px 0;
+        }
+        
+        .desc-info {
           border-bottom:1px solid #d7d7d7;
 
           strong {
@@ -147,8 +150,7 @@ const TopContent = styled.section`
           } 
         }
         
-        .price {
-          padding:20px 0;
+        .desc-price {
           border-bottom:1px solid #d7d7d7;
           text-align:right;
           
@@ -160,10 +162,7 @@ const TopContent = styled.section`
           
         }
         
-        .desc {
-          position:relative;
-          padding:20px 0;
-          
+        .desc-txt {
           p {
             font-weight:400;
             font-size:12px;
@@ -172,10 +171,7 @@ const TopContent = styled.section`
           }
         }
         
-        .sns {
-          position:relative;
-          padding:20px 0;
-          
+        .desc-sns {
           ul {
             display:flex;
             align-items:center;

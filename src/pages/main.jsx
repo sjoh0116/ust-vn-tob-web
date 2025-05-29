@@ -5,11 +5,9 @@ import styled from 'styled-components';
 import * as Server from 'assets/js/Server';
 
 import VisualSwiper from 'components/Main/VisualSwipe';
-import ProductDesc from 'components/Main/ProductDesc';
-import Philosophy from 'components/Main/Philosophy';
-import BottomSwiper from 'components/Main/BottomSwipe';
-import BrandStory from "../components/Main/BrandStory";
 import ProductSwipe from "../components/Main/ProductSwiper";
+import BrandStory from "../components/Main/BrandStory";
+import ProductReview from "../components/Main/ProductReview";
 import KeywordProduct from "../components/Main/KeywordProduct";
 
 const MainPage = () => {
@@ -36,6 +34,7 @@ const MainPage = () => {
       <VisualSwiper banner={mainItem?.banner}/>
       <ProductSwipe />
       <BrandStory />
+      <ProductReview />
       <KeywordProduct />
     </Wrap>
   )

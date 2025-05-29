@@ -7,12 +7,14 @@ import TopArea from "../components/Product/TopArea";
 import DetailArea from "../components/Product/DetailArea";
 import QnaBoard from "../components/Product/QnaList";
 import DetailNav from "../components/Product/DetailNav";
+import ReviewArea from "../components/Product/ReviewArea";
 
 export default function ProductPage(){
     const params = useParams();
 
     const DetailRef = useRef(null);
     const QnaRef = useRef(null);
+    const ReviewRef = useRef(null);
 
     const handleScroll = (ref) => {
         ref.current.scrollIntoView({ behavior: "smooth" });
@@ -29,8 +31,20 @@ export default function ProductPage(){
                     product="active"
                     toDetail={() => handleScroll(DetailRef)}
                     toQna={() => handleScroll(QnaRef)}
+                    toReview={() => handleScroll(ReviewRef)}
                 />
                 <DetailArea />
+            </section>
+
+            {/* 리뷰 영역 */}
+            <section ref={ReviewRef}>
+                <DetailNav
+                    review="active"
+                    toDetail={() => handleScroll(DetailRef)}
+                    toQna={() => handleScroll(QnaRef)}
+                    toReview={() => handleScroll(ReviewRef)}
+                />
+                <ReviewArea />
             </section>
 
             {/* Qna 테이블 */}
@@ -39,6 +53,7 @@ export default function ProductPage(){
                     qna="active"
                     toDetail={() => handleScroll(DetailRef)}
                     toQna={() => handleScroll(QnaRef)}
+                    toReview={() => handleScroll(ReviewRef)}
                 />
                 <QnaBoard />
             </section>
