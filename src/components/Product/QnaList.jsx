@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
 export default function QnaBoard(){
     return (
@@ -6,7 +7,7 @@ export default function QnaBoard(){
             <div className="sec-inner">
                 <div className="qna-head">
                     <h4>Q&A</h4>
-                    <button>상품 문의</button>
+                    <Link to="/board/write">상품 문의</Link>
                 </div>
                 <div className="qna-table">
                     <table>
@@ -54,7 +55,7 @@ const QnaContent = styled.div`
       color:#111;
     }
     
-    button {
+    a {
       padding:0 20px;
       display:block;
       height:30px;

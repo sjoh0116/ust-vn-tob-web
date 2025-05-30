@@ -7,6 +7,7 @@ import Loading from "./layout/Loading";
 import ContentLayout from "layout/CommonLayout";
 import BoardWrite from "./pages/Qna/boardWrite";
 import BoardModify from "./pages/Qna/boardModify";
+import ScrollToTop from "./hooks/ScrollTop";
 
 // 페이지
 const Main = lazy(() => import('pages/main'));
@@ -20,7 +21,12 @@ function App() {
   const router = createBrowserRouter([
       {
           path:'/',
-          element: <ContentLayout />,
+          element: (
+              <>
+                  <ScrollToTop />
+                  <ContentLayout />
+              </>
+          ),
           children: [
               {
                   index:true,
