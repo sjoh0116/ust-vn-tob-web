@@ -1,170 +1,73 @@
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Autoplay, Navigation} from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
 
+import reviewData from 'review.json';
 
 
+export default function ProductReview() {
 
-export default function ProductReview(){
-    return (
-        <ReviewWrap>
-            <div className="title-desc">
-                <h4>Real Review</h4>
-                <p>토브 고객들의 리뷰를 확인하세요.</p>
-            </div>
-            <div className="product-content">
-                <Swiper
-                    modules={[ Autoplay, Navigation ]}
-                    slidesPerView={5} spaceBetween={20}
-                    autoplay={{ delay: 5000, disableOnInteraction: false }}
-                    loop={true}
-                    navigation={{
-                        prevEl: '.swiper-b-prev',
-                        nextEl: '.swiper-b-next'
-                    }}
-                >
-                    <SwiperSlide>
-                            <Link to="" >
-                                <div className="thumbNail">
-                                    <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                                </div>
-                                <div className="review-desc">
-                                    <strong>보습 광채 너무 좋아요~!!</strong>
-                                    <p>예비 신부가 마음에 들어하네요~!!</p>
-                                    <div className="review-info">
-                                        <span>작성자</span>
-                                        <span>2025/05/28</span>
-                                    </div>
-                                </div>
-                            </Link>
-                            <Link to="" className="review-product">
-                                <div className="product-thumb">
-                                    <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                                </div>
-                                <strong>상품명</strong>
-                            </Link>
-                        </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to="" >
-                            <div className="thumbNail">
-                                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                            </div>
-                            <div className="review-desc">
-                                <strong>보습 광채 너무 좋아요~!!</strong>
-                                <p>예비 신부가 마음에 들어하네요~!!</p>
-                                <div className="review-info">
-                                    <span>작성자</span>
-                                    <span>2025/05/28</span>
-                                </div>
-                            </div>
-                        </Link>
-                        <Link to="" className="review-product">
-                            <div className="product-thumb">
-                                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                            </div>
-                            <strong>상품명</strong>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to="" >
-                            <div className="thumbNail">
-                                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                            </div>
-                            <div className="review-desc">
-                                <strong>보습 광채 너무 좋아요~!!</strong>
-                                <p>예비 신부가 마음에 들어하네요~!!</p>
-                                <div className="review-info">
-                                    <span>작성자</span>
-                                    <span>2025/05/28</span>
-                                </div>
-                            </div>
-                        </Link>
-                        <Link to="" className="review-product">
-                            <div className="product-thumb">
-                                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                            </div>
-                            <strong>상품명</strong>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to="" >
-                            <div className="thumbNail">
-                                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                            </div>
-                            <div className="review-desc">
-                                <strong>보습 광채 너무 좋아요~!!</strong>
-                                <p>예비 신부가 마음에 들어하네요~!!</p>
-                                <div className="review-info">
-                                    <span>작성자</span>
-                                    <span>2025/05/28</span>
-                                </div>
-                            </div>
-                        </Link>
-                        <Link to="" className="review-product">
-                            <div className="product-thumb">
-                                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                            </div>
-                            <strong>상품명</strong>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to="" >
-                            <div className="thumbNail">
-                                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                            </div>
-                            <div className="review-desc">
-                                <strong>보습 광채 너무 좋아요~!!</strong>
-                                <p>예비 신부가 마음에 들어하네요~!!</p>
-                                <div className="review-info">
-                                    <span>작성자</span>
-                                    <span>2025/05/28</span>
-                                </div>
-                            </div>
-                        </Link>
-                        <Link to="" className="review-product">
-                            <div className="product-thumb">
-                                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                            </div>
-                            <strong>상품명</strong>
-                        </Link>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Link to="" >
-                            <div className="thumbNail">
-                                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                            </div>
-                            <div className="review-desc">
-                                <strong>보습 광채 너무 좋아요~!!</strong>
-                                <p>예비 신부가 마음에 들어하네요~!!</p>
-                                <div className="review-info">
-                                    <span>작성자</span>
-                                    <span>2025/05/28</span>
-                                </div>
-                            </div>
-                        </Link>
-                        <Link to="" className="review-product">
-                            <div className="product-thumb">
-                                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg" alt="" />
-                            </div>
-                            <strong>상품명</strong>
-                        </Link>
-                    </SwiperSlide>
-                </Swiper>
-                <div className="swiper-button">
-                    <button className="swiper-b-prev">
-                        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-left.svg" alt="prev" />
-                    </button>
-                    <button className="swiper-b-next">
-                        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-right.svg" alt="next" />
-                    </button>
-                </div>
-            </div>
-        </ReviewWrap>
-    )
+  const review = reviewData;
+
+  return (
+    <ReviewWrap>
+      <div className="title-desc">
+        <h4>Real Review</h4>
+        <p>토브 고객들의 리뷰를 확인하세요.</p>
+      </div>
+      <div className="product-content">
+        <Swiper
+          modules={[Autoplay, Navigation]}
+          slidesPerView={5} spaceBetween={20}
+          autoplay={{delay: 5000, disableOnInteraction: false}}
+          loop={true}
+          navigation={{
+            prevEl: '.swiper-b-prev',
+            nextEl: '.swiper-b-next'
+          }}
+        >
+          {review?.map((item, idx) => (
+            <>
+              <SwiperSlide>
+                <Link to="">
+                  <div className="thumbNail">
+                    <img src={item.productImg}
+                         alt=""/>
+                  </div>
+                  <div className="review-desc">
+                    <p>{item.contents}</p>
+                    <div className="review-info">
+                      <span>{item.userId}</span>
+                      <span>{item.regDate}</span>
+                    </div>
+                  </div>
+                </Link>
+                <Link to="" className="review-product">
+                  <div className="product-thumb">
+                    <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg"
+                         alt=""/>
+                  </div>
+                  <strong>{item.productName}</strong>
+                </Link>
+              </SwiperSlide>
+            </>
+          ))}
+        </Swiper>
+        <div className="swiper-button">
+          <button className="swiper-b-prev">
+            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-left.svg" alt="prev"/>
+          </button>
+          <button className="swiper-b-next">
+            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-right.svg" alt="next"/>
+          </button>
+        </div>
+      </div>
+    </ReviewWrap>
+  )
 }
 
 const ReviewWrap = styled.div`
