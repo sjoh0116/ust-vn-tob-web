@@ -82,7 +82,7 @@ export default function FloatingMenu(){
 const FloatContainer = styled.div`
   z-index:99;
   position:fixed;
-  bottom:25px;
+  bottom:56px;
   right:25px;
     
   .menu-button {
