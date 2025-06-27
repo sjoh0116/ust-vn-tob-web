@@ -71,7 +71,7 @@ export default function FloatingMenu(){
                         exit={{ rotate: 90, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                     >
-                        {isOpen ? <X size={24} color="#fff" /> : <Plus size={24} color="#fff" />}
+                        {isOpen ? <X size={28} color="#fff" /> : <Plus size={28} color="#fff" />}
                     </motion.button>
                 </AnimatePresence>
             </div>
@@ -82,16 +82,16 @@ export default function FloatingMenu(){
 const FloatContainer = styled.div`
   z-index:99;
   position:fixed;
-  bottom:56px;
-  right:25px;
+  bottom:130px;
+  right:52px;
     
   .menu-button {
     position:relative;
     displaY:flex;
     justify-content: center;
     align-items: center;
-    width:40px;
-    height:40px;
+    width:60px;
+    height:60px;
     border-radius:50%;
     background:#000;
     border:none;
