@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const FooterLayout = () => {
-
   return (
       <FooterWrap>
         <div className="inner">
@@ -82,6 +82,7 @@ const FooterLayout = () => {
             © 2024 TOB. All rights reserved.
           </p>
         </div>
+
       </FooterWrap>
   )
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 
@@ -7,6 +6,9 @@ import FooterLayout from 'layout/Footer';
 import FloatingMoveBtn from "../components/MoveBtn";
 import FloatingMenu from "../components/FloadtingMenu";
 
+import ZaloSdk from "../hooks/ZaloSDK";
+import ZaloFloat from "../components/Qna/ZaloFloating";
+
 const ContentLayout = () => {
   return (
     <>
@@ -14,6 +16,7 @@ const ContentLayout = () => {
         <HeaderLayout/>
         <Outlet/>
         <FloatingMoveBtn />
+        <ZaloFloat />
         <FloatingMenu />
         <FooterLayout/>
       </ContentWrap>
