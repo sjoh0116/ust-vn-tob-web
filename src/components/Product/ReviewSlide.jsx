@@ -12,7 +12,6 @@ export default function ReviewSlide() {
       <Swiper
         modules={[Autoplay, Navigation]}
         slidesPerView={5} spaceBetween={20}
-        autoplay={{delay: 5000, disableOnInteraction: false}}
         loop={true}
         navigation={{
           prevEl: '.swiper-b-prev',
@@ -22,17 +21,18 @@ export default function ReviewSlide() {
         {review?.map((item, idx) => (
           <>
             <SwiperSlide>
-              <div className="thumbNail">
-                <img src={item.productImg}
-                     alt=""/>
-              </div>
-              <div className="review-desc">
-                <p>{item.contents}</p>
-                <div className="review-info">
-                  <span>{item.userId}</span>
-                  <span>{item.regDate}</span>
+                <div className="review-in">
+                    <div className="thumbNail">
+                        <img src={item.productImg} alt="review"/>
+                    </div>
+                    <div className="review-desc">
+                        <p>{item.contents}</p>
+                        <div className="review-info">
+                            <span className="writer">{item.userId}</span>
+                            <span>{item.regDate}</span>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </SwiperSlide>
           </>
         ))}

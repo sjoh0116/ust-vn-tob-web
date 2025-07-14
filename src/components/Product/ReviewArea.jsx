@@ -20,22 +20,37 @@ const ReviewContent = styled.div`
     position:relative;  
     
     .swiper-slide {
-      border:1px solid #e8e8e8;
       padding:10px;
-      border-radius:13px;
+
+      .review-in {
+        position:relative;
+        padding:10px;
+        border-radius:13px;
+        border:1px solid #e8e8e8;
+
+        &:hover {
+          opacity:0.85;
+          box-shadow:0 2px 8px rgba(30,30,30,.25);
+        }
+      }
 
       .thumbNail {
+        position:relative;
         width:100%;
-        border-radius:13px;
-        overflow:hidden;
+        padding-top:100%;
 
         img {
+          position:absolute;
           width:100%;
+          height:100%;
+          top:0;
+          left:0;
+          border-radius:13px;
         }
       }
 
       .review-desc {
-        padding:20px;
+        padding:20px 10px;
 
         p {
           display: -webkit-box;
@@ -47,6 +62,7 @@ const ReviewContent = styled.div`
           color: #333;
           line-height: 1.5;
           letter-spacing: 0.2px;
+          overflow:hidden;
 
         }
 
@@ -61,6 +77,10 @@ const ReviewContent = styled.div`
             font-weight:500;
             line-height: 1.5;
             color: #777;
+            
+            &.writer {
+              font-weight:700;
+            }
           }
         }
       }
@@ -142,6 +162,7 @@ const ReviewContent = styled.div`
         gap:0 30px;
         
         .item-writer {
+          min-width:120px;
           position:relative;
           padding:0 15px;
           

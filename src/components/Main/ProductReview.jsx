@@ -33,26 +33,28 @@ export default function ProductReview() {
           {review?.map((item, idx) => (
             <>
               <SwiperSlide>
-                <Link to="">
-                  <div className="thumbNail">
-                    <img src={item.productImg}
-                         alt=""/>
+                  <div className="swiper-in">
+                      <Link to="">
+                          <div className="thumbNail">
+                              <img src={item.productImg}
+                                   alt=""/>
+                          </div>
+                          <div className="review-desc">
+                              <p>{item.contents}</p>
+                              <div className="review-info">
+                                  <span>{item.userId}</span>
+                                  <span>{item.regDate}</span>
+                              </div>
+                          </div>
+                      </Link>
+                      <Link to="" className="review-product">
+                          <div className="product-thumb">
+                              <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg"
+                                   alt=""/>
+                          </div>
+                          <strong>{item.productName}</strong>
+                      </Link>
                   </div>
-                  <div className="review-desc">
-                    <p>{item.contents}</p>
-                    <div className="review-info">
-                      <span>{item.userId}</span>
-                      <span>{item.regDate}</span>
-                    </div>
-                  </div>
-                </Link>
-                <Link to="" className="review-product">
-                  <div className="product-thumb">
-                    <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg"
-                         alt=""/>
-                  </div>
-                  <strong>{item.productName}</strong>
-                </Link>
               </SwiperSlide>
             </>
           ))}
@@ -80,15 +82,31 @@ const ReviewWrap = styled.div`
     margin-top: 40px;
     
     .swiper-slide {
-      border:1px solid #e8e8e8;
       padding:10px;
-      border-radius:13px;
+      
+      .swiper-in {
+        position:relative;
+        padding:10px;
+        border-radius:13px;
+        border:1px solid #e8e8e8;
+
+        &:hover {
+          opacity:0.85;
+          box-shadow:0 2px 8px rgba(30,30,30,.25);
+        }
+      }
       
       .thumbNail {
+        position:relative;
         width:100%;
+        padding-top:100%;
         
         img {
+          position:absolute;
           width:100%;
+          height:100%;
+          top:0;
+          left:0;
           border-radius:13px;
         }
       }
