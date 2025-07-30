@@ -30,6 +30,8 @@ const Detail = () => {
 
   useDidMountEffect(() => {
     callProductImgList();
+    window.scrollTo(0, 0);
+
   }, [searchParams])
 
   const callProductImgList = () => {
@@ -105,7 +107,7 @@ const Detail = () => {
 const ProdWrap = styled.div`
   position: relative;
   padding: 70px 0 100px;
-
+  
   .prod_inner {
     max-width: 1240px;
     margin: 0 auto;
