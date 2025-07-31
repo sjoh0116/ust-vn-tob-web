@@ -40,11 +40,11 @@ export default function ProductList() {
             <ul className="prd-list">
               {/* map 데이터 반복 지점 */}
               {productList?.map((item, idx) => (
-                <li className="prd-item">
+                <li key={idx} className="prd-item">
                   <div className="prd-thumb">
                     <Link to={`/product/${item.seq}`}>
                       <img
-                        class="thumb-img"
+                        className="thumb-img"
                         src={item.productUrl}
                         alt={item.productName}/>
                       <img
@@ -125,11 +125,27 @@ const ProductWrap = styled.section`
             width:100%;
             
             a {
+              position:relative;
               display:block;
               width:100%;
               
               img {
                 width:100%;
+              }
+              
+              .thumb-hover {
+                opacity:0;
+                z-index:10;
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                transition:all .3s ease-in;
+
+              }
+              
+              &:hover .thumb-hover {
+                opacity:1;
               }
             }
           }
