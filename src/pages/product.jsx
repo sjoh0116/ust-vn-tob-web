@@ -45,7 +45,7 @@ export default function ProductPage() {
   return (
     <ProductContent>
       {/* 제품 상단 영역 */}
-      <TopArea/>
+      <TopArea param={params}/>
 
       {/* 제품 상세 영역 */}
       <section ref={DetailRef}>

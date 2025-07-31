@@ -19,7 +19,7 @@ export default function KeywordProduct(){
                 <div className="tab-menu">
                     <div className="tab-title">
                         <strong>Truth Of Beauty<br/>Keyword</strong>
-                        <span>원료와 효과에 집중한 진심을 담은 화장품<br/>Truth Of Beauty</span>
+                        <span>Mỹ phẩm chân thành, tập trung vào thành phần và hiệu quả<br/>Truth Of Beauty</span>
                     </div>
                     <div className="tab-nav">
                         <ul>

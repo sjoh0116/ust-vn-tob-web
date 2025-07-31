@@ -4,7 +4,6 @@ import useDidMountEffect from "../../hooks/useDidMountEffect";
 
 export default function Pagination(param) {
 
-  console.log('page :: ', param);
   const [pageLength, setPageLength] = useState(0);
   const pageSize = 5;
 

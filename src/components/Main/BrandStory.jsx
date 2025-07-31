@@ -16,12 +16,12 @@ export default function BrandStory(){
                 </div>
                 <div className="storyDesc">
                     <div className="desc-in">
-                        <p>뷰티의 진실을 토브에서 찾아 보세요</p>
+                        <p>Hãy tìm kiếm sự thật về vẻ đẹp tại Tob.</p>
                         <strong>What is the ‘Truth Of Beauty’</strong>
                         <p className="blank">
-                            화장품의 진실은 성분에 있습니다.<br />
-                            적합한 원료 조합과 피부 고민에 충실한 최적의 함량,<br />
-                            토브가 여러분께 전성분으로 제안합니다.
+                          Sự thật của mỹ phẩm nằm ở thành phần.<br />
+                          Sự kết hợp nguyên liệu phù hợp và hàm lượng tối ưu tập trung vào các vấn đề của làn da,<br />
+                          Tob sẽ mang đến cho bạn đề xuất thành phần đầy đủ.
                         </p>
                         <Link to="/brand">view more</Link>
                     </div>

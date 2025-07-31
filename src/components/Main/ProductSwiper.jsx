@@ -16,8 +16,8 @@ export default function ProductSwipe(){
     return (
         <ProductWrap>
             <div className="title-desc">
-                <h4>Our Best Sellers</h4>
-                <p>토브의 독자적인 원료로 만들어진 화장품을 만나보세요.</p>
+                <h4>New</h4>
+                <p>Hãy khám phá các sản phẩm mỹ phẩm được tạo nên từ nguyên liệu độc quyền của Tob.</p>
             </div>
             <div className="product-content">
                 <Swiper modules={[ Autoplay, Navigation ]}

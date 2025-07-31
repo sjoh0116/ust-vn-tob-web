@@ -34,7 +34,7 @@ export default function ProductReview() {
     <ReviewWrap>
       <div className="title-desc">
         <h4>Real Review</h4>
-        <p>토브 고객들의 리뷰를 확인하세요.</p>
+        <p>Hãy xem đánh giá từ khách hàng của Tob.</p>
       </div>
       <div className="product-content">
         <Swiper
