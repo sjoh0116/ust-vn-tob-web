@@ -17,6 +17,7 @@ const globalStyles = createGlobalStyle`
     .inner {
       position:relative;
       max-width:1720px;
+      padding:0 140px;
       margin:0 auto;
       width:95%;
     }
@@ -67,7 +68,7 @@ const globalStyles = createGlobalStyle`
         position:relative;
         max-width:100%;
         width:100%;
-        padding:0 20px;
+        padding:0 40px;
         margin:0;
       }
 

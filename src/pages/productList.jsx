@@ -1,0 +1,152 @@
+import { Link } from "react-router-dom";
+
+import styled from 'styled-components';
+
+export default function ProductList(){
+    return (
+        <ProductWrap>
+            <div className="inner">
+                <div className="list-title">
+                    <h4>전체 제품</h4>
+                </div>
+                <div className="list-content">
+                    {/* 리스트 MENU */}
+                    <div className="list-menu">
+                        <div className="prd-count">
+                            <span>Total</span>
+                            <strong>00</strong>
+                        </div>
+                    </div>
+
+                    {/* 상품 리스트 */}
+                    <div className="product-list">
+                        <ul className="prd-list">
+                            {/* map 데이터 반복 지점 */}
+                            <li className="prd-item">
+                                <div className="prd-thumb">
+                                    <Link to="">
+                                        <img src="//ecimg.cafe24img.com/pg532b80180662007/truthofbeauty/web/product/small/20250612/b183e31bfb4b33cfee2dbe750bea9ce6.jpg" alt="test01" />
+                                    </Link>
+                                </div>
+                                <div className="prd-desc">
+                                    <Link to="">제품명</Link>
+                                    <span>제품 설명</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </ProductWrap>
+    )
+}
+
+const ProductWrap = styled.section`
+  position:relative;
+  padding:100px 0 80px;
+  
+  .list-title {
+    position:relative;
+    padding:80px 0;
+    text-align:center;
+    
+    h4 {
+      font-weight:700;
+      font-size:2.5em;
+      color:#111;
+    }
+  }
+  
+  .list-content {
+    position:relative;
+    
+    .list-menu {
+      position:relative;
+      
+      .prd-count {
+        display:flex;
+        align-items:center;
+        gap:0 5px;
+        
+        span {
+          font-weight:400;
+          font-size:1rem;
+          color:#111;
+        }
+        
+        strong {
+          font-weight:700;
+          font-size:1rem;
+          color:#111;
+        }
+      }
+    }
+    
+    .product-list {
+      margin-top:30px;
+      position:relative;
+      
+      .prd-list {
+        display:flex;
+        flex-wrap:wrap;
+        gap:60px 30px;
+        
+        .prd-item {
+          width:calc(25% - 22.5px);
+          
+          .prd-thumb {
+            position:relative;
+            width:100%;
+            
+            a {
+              display:block;
+              width:100%;
+              
+              img {
+                width:100%;
+              }
+            }
+          }
+          
+          .prd-desc {
+            margin-top:10px;
+            position:relative;
+            padding:1rem;
+            text-align:center;
+            
+            a {
+              display:block;
+              font-size:1.2rem;
+              font-weight:700;
+              color:#111;
+            }
+            
+            span {
+              margin-top:15px;
+              display:block;
+              font-weight:400;
+              font-size:.9rem;
+              line-height:1.2;
+              color:#a4a4a4;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+
+    .list-content {
+      .product-list {
+        .prd-list {
+          gap:40px 12px;
+
+          .prd-item {
+            width:calc(50% - 12px);
+          }
+        }
+      }
+    }
+  }
+`

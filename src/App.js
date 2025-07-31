@@ -11,6 +11,7 @@ import ScrollToTop from "./hooks/ScrollTop";
 
 // 페이지
 const Main = lazy(() => import('pages/main'));
+const ProductList = lazy(() => import('./pages/productList'));
 const ProductDetail = lazy(() => import('./pages/product'));
 const BrandStory= lazy(() => import('./pages/brand'));
 const BoardList = lazy(() => import('./pages/Qna/boardList'));
@@ -33,6 +34,13 @@ function App() {
                   element:
                       <Suspense fallback={<Loading />}>
                           <Main />
+                      </Suspense>
+              },
+              {
+                  path: '/product/',
+                  element:
+                      <Suspense fallback={<Loading />}>
+                          <ProductList />
                       </Suspense>
               },
               {
@@ -78,7 +86,7 @@ function App() {
                       </Suspense>
               }
           ]
-      }
+      },
   ])
 
   return (

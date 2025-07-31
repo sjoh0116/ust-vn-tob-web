@@ -18,7 +18,7 @@ export default function Brand() {
 
   return (
     <BrandWrap>
-        <div className="content-in">
+        <div className="inner">
           <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/brand_content.webp" alt="truth of beauty Brand Story" />
         </div>
     </BrandWrap>
@@ -26,15 +26,14 @@ export default function Brand() {
 }
 
 const BrandWrap = styled.section`
+ position:relative; 
  padding:100px 0 80px;
   
-  .content-in {
-    max-width:1480px;
-    margin:0 auto;
-    text-align: center;
+  img {
+    width:100%;
   }
+  
   
   @media only screen and (max-width: 1024px) {
   }
-  
 `;
