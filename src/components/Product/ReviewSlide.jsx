@@ -4,8 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import reviewData from "../../test.json";
 
-export default function ReviewSlide() {
-  const review = reviewData;
+export default function ReviewSlide(param) {
 
   return (
     <div className="review-slider">
@@ -18,18 +17,18 @@ export default function ReviewSlide() {
           nextEl: '.swiper-b-next'
         }}
       >
-        {review?.map((item, idx) => (
+        {param.param?.map((item, idx) => (
           <>
             <SwiperSlide>
                 <div className="review-in">
                     <div className="thumbNail">
-                        <img src={item.productImg} alt="review"/>
+                        <img src={item.reviewImg} alt="review"/>
                     </div>
                     <div className="review-desc">
-                        <p>{item.contents}</p>
+                        <p>{item.reviewText}</p>
                         <div className="review-info">
-                            <span className="writer">{item.userId}</span>
-                            <span>{item.regDate}</span>
+                            <span className="writer">{item.reviewUserId}</span>
+                            <span>{item.reviewRegDate}</span>
                         </div>
                     </div>
                 </div>

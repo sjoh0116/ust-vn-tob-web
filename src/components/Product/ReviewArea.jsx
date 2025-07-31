@@ -2,14 +2,41 @@ import styled from 'styled-components';
 
 import ReviewSlide from "./ReviewSlide";
 import ReviewBoard from "./ReviewBoard";
+import * as Server from "../../assets/js/Server";
+import {useEffect, useState} from "react";
+import useDidMountEffect from "../../hooks/useDidMountEffect";
 
-export default function ReviewArea(){
-    return (
-        <ReviewContent className="sec-inner">
-            <ReviewSlide />
-            <ReviewBoard />
-        </ReviewContent>
-    )
+export default function ReviewArea(param) {
+  const [reviewList, setReviewList] = useState([]);
+
+  const getProductReviewList = () => {
+    Server.sendGet(
+      'tob/product/review',
+      {
+        productSeq: param.param.prdNum
+      },
+      getProductReviewListCallback
+    ).then();
+  }
+
+  const getProductReviewListCallback = res => {
+    setReviewList(res['resultList']);
+  }
+
+  useEffect(() => {
+    getProductReviewList();
+  }, [])
+
+  useDidMountEffect(() => {
+    getProductReviewList();
+  },[param]);
+
+  return (
+    <ReviewContent className="sec-inner">
+      <ReviewSlide param={reviewList}/>
+      <ReviewBoard param={param} total={reviewList.length}/>
+    </ReviewContent>
+  )
 }
 
 const ReviewContent = styled.div`

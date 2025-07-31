@@ -2,14 +2,32 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import styled from 'styled-components';
 
+import * as Server from 'assets/js/Server';
+import * as Common from 'assets/js/Common';
+
 export default function Header(){
     const [isScrolled, setIsScrolled] = useState(false);
+
+    const [productList, setProductList] = useState([]);
+
+    const getProductList = () => {
+        Server.sendGet('tob/product/list?useYn=Y', {}, getProductListCallback).then();
+    }
+
+    const getProductListCallback = res => {
+        setProductList(res['resultList']);
+    }
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 0);
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
+
     }, []);
+
+    useEffect(() => {
+        getProductList();
+    }, [])
 
   return (
       <HeadWrap>
@@ -26,35 +44,13 @@ export default function Header(){
                             <NavLink to="/brand">Brand Story</NavLink>
                           </li>
                           <li>
-                              <NavLink to="/product/toctocshot">Product</NavLink>
+                              <NavLink to="/product">Product</NavLink>
                               <ul className="sub-nav">
-                                  <li>
-                                      <Link to='/product/toctocshot'>톡톡샷</Link>
-                                  </li>
-                                  <li>
-                                      <Link to='/product/toctocshot'>톡톡샷</Link>
-                                  </li>
-                                  <li>
-                                      <Link to='/product/toctocshot'>톡톡샷</Link>
-                                  </li>
-                                  <li>
-                                      <Link to='/product/toctocshot'>톡톡샷</Link>
-                                  </li>
-                                  <li>
-                                      <Link to='/product/toctocshot'>톡톡샷</Link>
-                                  </li>
-                                  <li>
-                                      <Link to='/product/toctocshot'>톡톡샷</Link>
-                                  </li>
-                                  <li>
-                                      <Link to='/product/toctocshot'>톡톡샷</Link>
-                                  </li>
-                                  <li>
-                                      <Link to='/product/toctocshot'>톡톡샷</Link>
-                                  </li>
-                                  <li>
-                                      <Link to='/product/toctocshot'>톡톡샷</Link>
-                                  </li>
+                                  {productList?.map((item, idx) => (
+                                    <li>
+                                        <Link to={`/product/${item.seq}`}>{item.menuName}</Link>
+                                    </li>
+                                  ))}
                               </ul>
                           </li>
                           <li>

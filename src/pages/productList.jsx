@@ -1,44 +1,70 @@
-import { Link } from "react-router-dom";
-
+import {Link} from "react-router-dom";
 import styled from 'styled-components';
+import {useEffect, useState} from "react";
 
-export default function ProductList(){
-    return (
-        <ProductWrap>
-            <div className="inner">
-                <div className="list-title">
-                    <h4>전체 제품</h4>
-                </div>
-                <div className="list-content">
-                    {/* 리스트 MENU */}
-                    <div className="list-menu">
-                        <div className="prd-count">
-                            <span>Total</span>
-                            <strong>00</strong>
-                        </div>
-                    </div>
+import * as Server from 'assets/js/Server';
 
-                    {/* 상품 리스트 */}
-                    <div className="product-list">
-                        <ul className="prd-list">
-                            {/* map 데이터 반복 지점 */}
-                            <li className="prd-item">
-                                <div className="prd-thumb">
-                                    <Link to="">
-                                        <img src="//ecimg.cafe24img.com/pg532b80180662007/truthofbeauty/web/product/small/20250612/b183e31bfb4b33cfee2dbe750bea9ce6.jpg" alt="test01" />
-                                    </Link>
-                                </div>
-                                <div className="prd-desc">
-                                    <Link to="">제품명</Link>
-                                    <span>제품 설명</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+export default function ProductList() {
+  const [productList, setProductList] = useState([]);
+
+  const getProductList = () => {
+    Server.sendGet('tob/product/list', {}, getProductListCallback).then();
+  }
+
+  const getProductListCallback = res => {
+    setProductList(res['resultList']);
+  }
+
+  useEffect(() => {
+    getProductList()
+  },[])
+
+  return (
+
+    <ProductWrap>
+      <div className="inner">
+        <div className="list-title">
+          <h4>전체 제품</h4>
+        </div>
+        <div className="list-content">
+          {/* 리스트 MENU */}
+          <div className="list-menu">
+            <div className="prd-count">
+              <span>Total</span>
+              <strong>{productList?.length}</strong>
             </div>
-        </ProductWrap>
-    )
+          </div>
+
+          {/* 상품 리스트 */}
+          <div className="product-list">
+            <ul className="prd-list">
+              {/* map 데이터 반복 지점 */}
+              {productList?.map((item, idx) => (
+                <li className="prd-item">
+                  <div className="prd-thumb">
+                    <Link to={`/product/${item.seq}`}>
+                      <img
+                        class="thumb-img"
+                        src={item.productUrl}
+                        alt={item.productName}/>
+                      <img
+                        className="thumb-hover"
+                        src={item.productHoverUrl}
+                        alt={item.productName}/>
+                    </Link>
+                  </div>
+                  <div className="prd-desc">
+                    <Link to={`/product/${item.seq}`}>{item.productName}</Link>
+                    {/*<span>제품 설명</span>*/}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ProductWrap>
+  )
 }
 
 const ProductWrap = styled.section`

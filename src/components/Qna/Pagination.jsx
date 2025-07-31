@@ -1,20 +1,38 @@
 import styled from 'styled-components';
+import {useState} from "react";
+import useDidMountEffect from "../../hooks/useDidMountEffect";
 
-export default function Pagination(){
-    return (
-        <PaginationBox>
-            <button><img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-left.svg" alt="prev" /></button>
-            <ul>
-                <li className="active">
-                    <button>1</button>
-                </li>
-                <li>
-                    <button>2</button>
-                </li>
-            </ul>
-            <button><img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-right.svg" alt="next" /></button>
-        </PaginationBox>
-    )
+export default function Pagination(param) {
+
+  console.log('page :: ', param);
+  const [pageLength, setPageLength] = useState(0);
+  const pageSize = 5;
+
+  const setPageNumbers = () => {
+    const total = Math.ceil(param.param / pageSize);
+    setPageLength(total);
+  }
+
+  useDidMountEffect(() => {
+    setPageNumbers();
+  }, [param])
+  return (
+    <PaginationBox>
+      <button><img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-left.svg" alt="prev"/>
+      </button>
+      <ul>
+        {Array.from({ length: pageLength }, (_, i) => (
+          <li
+            // key={i} className={i + 1 === currentPage ? 'active' : ''}
+          >
+            <button onClick={() => param.setOffset(i + 1)}>{i + 1}</button>
+          </li>
+        ))}
+      </ul>
+      <button><img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-right.svg" alt="next"/>
+      </button>
+    </PaginationBox>
+  )
 }
 
 const PaginationBox = styled.div`
