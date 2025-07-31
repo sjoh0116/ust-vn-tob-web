@@ -7,9 +7,26 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import reviewData from 'review.json';
+import {useEffect, useState} from "react";
+
+import * as Server from 'assets/js/Server';
 
 
 export default function ProductReview() {
+
+  const [mainReviewList, setMainReviewList] = useState([]);
+
+  const getMainReviewList = () => {
+    Server.sendGet('tob/product/main/review', {}, getMainReviewListCallback).then();
+  }
+
+  const getMainReviewListCallback = res => {
+    setMainReviewList(res['resultList']);
+  }
+
+  useEffect(() => {
+    getMainReviewList();
+  }, [])
 
   const review = reviewData;
 
@@ -30,26 +47,26 @@ export default function ProductReview() {
             nextEl: '.swiper-b-next'
           }}
         >
-          {review?.map((item, idx) => (
+          {mainReviewList?.map((item, idx) => (
             <>
               <SwiperSlide>
                   <div className="swiper-in">
                       <Link to="">
                           <div className="thumbNail">
-                              <img src={item.productImg}
+                              <img src={item.reviewImg}
                                    alt=""/>
                           </div>
                           <div className="review-desc">
                               <p>{item.contents}</p>
                               <div className="review-info">
-                                  <span>{item.userId}</span>
-                                  <span>{item.regDate}</span>
+                                  <span>{item.reviewUserId}</span>
+                                  <span>{item.reviewRegDate}</span>
                               </div>
                           </div>
                       </Link>
                       <Link to="" className="review-product">
                           <div className="product-thumb">
-                              <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/b5b083f729bf1273fe3952b729c945b3.jpg"
+                              <img src={item.productUrl}
                                    alt=""/>
                           </div>
                           <strong>{item.productName}</strong>
