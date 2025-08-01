@@ -28,14 +28,28 @@ const MainPage = () => {
     setMainItem(res['resultObject']);
   };
 
+  const [mainProduct, setMainProduct] = useState({});
+
+  const getMainProduct = () => {
+    Server.sendGet('tob/main/product/list', {}, getMainProductCallback).then();
+  }
+
+  const getMainProductCallback = res => {
+    setMainProduct(res['resultObject']);
+  }
+
+  useEffect(() => {
+    getMainProduct();
+  }, []);
+
   return (
     <Wrap>
       {/* Visual Main Slider */}
       <VisualSwiper banner={mainItem?.banner}/>
-      <ProductSwipe />
+      <ProductSwipe newProduct={mainProduct?.newProductList}/>
       <BrandStory />
       <ProductReview />
-      <KeywordProduct />
+      <KeywordProduct param={mainProduct}/>
     </Wrap>
   )
 }

@@ -22,12 +22,12 @@ const FooterLayout = () => {
                 </Link>
               </li>
               <li>
-                <Link to="https://www.lazada.vn/shop/aqua-solution/?spm=a2o4n.pdp_revamp.seller.1.15084a0ePaPdKq&itemId=2221839876&channelSource=pdp">
+                <Link to="https://www.lazada.vn/shop/tob-store-vn">
                   <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/lazada_ic.webp"/>
                 </Link>
               </li>
               <li>
-                <Link to="https://www.tiktok.com/@healthacleanvietnam">
+                <Link to="https://www.tiktok.com/@tob.vn">
                   <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tiktok_ic.webp"/>
                 </Link>
               </li>

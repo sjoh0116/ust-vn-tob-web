@@ -1,66 +1,77 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import styled from 'styled-components';
 
-import { MAIN_PRODUCT_DATA, PRODUCT_DATA, TAB_DATA } from "./Data";
+import {MAIN_PRODUCT_DATA, PRODUCT_DATA, TAB_DATA} from "./Data";
+import useDidMountEffect from "../../hooks/useDidMountEffect";
 
-export default function KeywordProduct(){
-    const [hovered, setHovered] = useState(null);
+export default function KeywordProduct(param) {
+  const [hovered, setHovered] = useState(null);
 
-    const [activeTab, setActiveTab] = useState(0);
-    const tabLists = ["흔적 지우개","쿨링 진정","클렌징 루틴"];
-    const contentData = [MAIN_PRODUCT_DATA, PRODUCT_DATA, TAB_DATA];
-    const currentData = contentData[activeTab];
+  const [activeTab, setActiveTab] = useState(0);
+  const tabLists = ["Xóa mờ vết thâm", "Làm dịu mát da", "Chu trình làm sạch da"];
+  const [contentData, setContentData] = useState([]);
+  const currentData = contentData[activeTab];
 
-    return (
-        <KeywordWrap>
-            <div className="inner">
-                <div className="tab-menu">
-                    <div className="tab-title">
-                        <strong>Truth Of Beauty<br className="br" /> Keyword</strong>
-                        <span>Mỹ phẩm chân thành, tập trung vào thành phần và hiệu quả<br/>Truth Of Beauty</span>
+  useEffect(() => {
+    let arr = [param.param?.removePorductList, param.param?.coolingProductList, param.param?.cleansingProductList];
+    setContentData(arr);
+  }, []);
+
+  useDidMountEffect(() => {
+    let arr = [param.param?.removePorductList, param.param?.coolingProductList, param.param?.cleansingProductList];
+    setContentData(arr);
+  }, [param]);
+
+  return (
+    <KeywordWrap>
+      <div className="keyword-inner">
+        <div className="tab-menu">
+          <div className="tab-title">
+            <strong>Truth Of Beauty<br/>Keyword</strong>
+            <span>Mỹ phẩm chân thành, tập trung vào thành phần và hiệu quả<br/>Truth Of Beauty</span>
+          </div>
+          <div className="tab-nav">
+            <ul>
+              {tabLists.map((label, idx) => (
+                <li key={idx} className={activeTab === idx ? 'active' : ''}>
+                  <button onClick={() => setActiveTab(idx)}>{label}</button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="tab-content">
+          <div className="tab-item">
+            <ul>
+              {currentData?.map((slide, sidx) => (
+                <li
+                  className="item-product"
+                  key={slide.seq}
+                  onMouseEnter={() => setHovered(sidx)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  <Link to={`/product/${slide.seq}`}>
+                    <div className="swiper-item">
+                      <div className="item-thumb">
+                        <img className="thumb-img" src={slide.productUrl} alt={slide.productName}/>
+                        <img className="thumb-hover" src={slide.productHoverUrl} alt={slide.productName}/>
+                      </div>
+                      <div className="item-desc">
+                        <strong>{slide.productName}</strong>
+                        <span>{slide.subName}</span>
+                      </div>
                     </div>
-                    <div className="tab-nav">
-                        <ul>
-                            {tabLists.map((label, idx) => (
-                                <li key={idx} className={activeTab===idx ? 'active' : ''}>
-                                    <button onClick={() => setActiveTab(idx)}>{label}</button>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-                <div className="tab-content">
-                    <div className="tab-item">
-                        <ul>
-                            {currentData.map((slide, sidx) => (
-                                <li
-                                    className="item-product"
-                                    key={slide.id}
-                                    onMouseEnter={() => setHovered(sidx)}
-                                    onMouseLeave={() => setHovered(null)}
-                                >
-                                    <Link to="">
-                                        <div className="swiper-item">
-                                            <div className="item-thumb">
-                                                <img className="thumb-img" src={slide.img} alt={slide.title} />
-                                                <img className="thumb-hover" src={slide.hover} alt={slide.title} />
-                                            </div>
-                                            <div className="item-desc">
-                                                <strong>{slide.title}</strong>
-                                                <span>{slide.info}</span>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </KeywordWrap>
-    )
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </KeywordWrap>
+  )
 }
 
 const KeywordWrap = styled.section`
@@ -120,91 +131,92 @@ const KeywordWrap = styled.section`
               background:rgba(200, 200, 200, 0.5);
               opacity:0.5;
 
-              &::before {
-                content:'#';
-                margin-right:5px;
-              }
+                            &::before {
+                                content: '#';
+                                margin-right: 5px;
+                            }
 
-              &:hover {
-                opacity:1;
-              }
+                            &:hover {
+                                opacity: 1;
+                            }
+                        }
+
+                        &.active {
+                            button {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
             }
-            
-            &.active {
-              button {
-                opacity:1;
-              }
-            }
-          }
-        }
-      }
-    }
-    
-    .tab-content {
-      flex:1;
-
-      .tab-item {
-        ul {
-          display:flex;
-          gap:0 20px;
-          
-          li {
-            flex:1;
-          }
-        }
-        
-        .item-thumb {
-          position: relative;
-          width: 100%;
-          padding-top: 100%;
-          overflow: hidden;
-
-          img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transition: opacity .3s;
-            border-radius:20%;
-
-            &.thumb-img {
-              opacity:1;
-            }
-
-            &.thumb-hover {
-              opacity:0;
-            }
-          }
         }
 
-        .item-desc {
-          margin-top:25px;
-          position:relative;
-          text-align:center;
+        .tab-content {
+            flex: 1;
 
-          strong {
-            font-size:12px;
-            font-weight:500;
-            line-height:1.5;
-            color:#000000;
-          }
+            .tab-item {
+                ul {
+                    display: flex;
+                    gap: 0 20px;
 
-          span {
-            margin-top:10px;
-            display:block;
-            font-size:12px;
-            font-weight:300;
-            line-height:1.6;
-            color:#999999;
-          }
-        } 
-      }
-      .item-product:hover {
-        .item-thumb img {
-          &.thumb-img {
-            opacity:0;
-          }
+                    li {
+                        flex: 1;
+                    }
+                }
+
+                .item-thumb {
+                    position: relative;
+                    width: 100%;
+                    padding-top: 100%;
+                    overflow: hidden;
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        transition: opacity .3s;
+                        border-radius: 20%;
+
+                        &.thumb-img {
+                            opacity: 1;
+                        }
+
+                        &.thumb-hover {
+                            opacity: 0;
+                        }
+                    }
+                }
+
+                .item-desc {
+                    margin-top: 25px;
+                    position: relative;
+                    text-align: center;
+
+                    strong {
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: 1.5;
+                        color: #000000;
+                    }
+
+                    span {
+                        margin-top: 10px;
+                        display: block;
+                        font-size: 12px;
+                        font-weight: 300;
+                        line-height: 1.6;
+                        color: #999999;
+                    }
+                }
+            }
+
+            .item-product:hover {
+                .item-thumb img {
+                    &.thumb-img {
+                        opacity: 0;
+                    }
 
           &.thumb-hover {
             opacity:1;

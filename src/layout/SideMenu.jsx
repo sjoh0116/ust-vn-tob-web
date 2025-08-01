@@ -25,7 +25,7 @@ export default function SideMenu({ isOpen }){
         {
             img : "https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tiktok_ic.webp",
             label: "tiktok",
-            link: "https://www.tiktok.com/@healthacleanvietnam",
+            link: "https://www.tiktok.com/@tob.vn",
         },
     ]
 
