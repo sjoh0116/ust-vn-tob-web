@@ -26,7 +26,7 @@ export default function KeywordProduct(param) {
 
   return (
     <KeywordWrap>
-      <div className="keyword-inner">
+      <div className="inner">
         <div className="tab-menu">
           <div className="tab-title">
             <strong>Truth Of Beauty<br/>Keyword</strong>
@@ -122,7 +122,7 @@ const KeywordWrap = styled.section`
               display:inline-block;
               border-radius:20px;
               padding:0 20px;
-              font-size:16px;
+              font-size:1rem;
               font-weight:500;
               line-height:45px;
               color:#000;

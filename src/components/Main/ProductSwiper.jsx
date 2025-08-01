@@ -17,47 +17,49 @@ export default function ProductSwipe(param) {
 
   return (
     <ProductWrap>
-      <div className="title-desc">
-        <h4>New</h4>
-        <p>Hãy khám phá các sản phẩm mỹ phẩm được tạo nên từ nguyên liệu độc quyền của Tob.</p>
-      </div>
-      <div className="product-content">
-        <Swiper modules={[Autoplay, Navigation]}
-                slidesPerView={3}
-                spaceBetween={20}
-                autoplay={{delay: 5000, disableOnInteraction: false}}
-                loop={true}
-                navigation={{
-                  prevEl: '.swiper-b-prev',
-                  nextEl: '.swiper-b-next'
-                }}
-        >
-          {param?.newProduct?.map((slide, idx) => (
-            <SwiperSlide key={slide.id} onMouseEnter={() => setHovered(idx)} onMouseLeave={() => setHovered(null)}>
-              <Link to={`/product/${slide.seq}`}>
-                <div className="swiper-item">
-                  <div className="item-thumb">
-                    <img className="thumb-img" src={slide.productUrl} alt={slide.productName}/>
-                    <img className="thumb-hover" src={slide.productHoverUrl} alt={slide.productName}/>
-                  </div>
-                  <div className="item-desc">
-                    <strong>{slide.productName}</strong>
-                    <span>{slide.subName}</span>
-                  </div>
-                </div>
-              </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        {/*<div className="swiper-button">*/}
-        {/*    <button className="swiper-b-prev">*/}
-        {/*        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-left.svg" alt="prev" />*/}
-        {/*    </button>*/}
-        {/*    <button className="swiper-b-next">*/}
-        {/*        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-right.svg" alt="next" />*/}
-        {/*    </button>*/}
-        {/*</div>*/}
-      </div>
+        <div className="inner">
+            <div className="title-desc">
+                <h4>New</h4>
+                <p>Hãy khám phá các sản phẩm mỹ phẩm được tạo nên từ nguyên liệu độc quyền của Tob.</p>
+            </div>
+            <div className="product-content">
+                <Swiper modules={[Autoplay, Navigation]}
+                        slidesPerView={3}
+                        spaceBetween={20}
+                        autoplay={{delay: 5000, disableOnInteraction: false}}
+                        loop={true}
+                        navigation={{
+                            prevEl: '.swiper-b-prev',
+                            nextEl: '.swiper-b-next'
+                        }}
+                >
+                    {param?.newProduct?.map((slide, idx) => (
+                        <SwiperSlide key={slide.id} onMouseEnter={() => setHovered(idx)} onMouseLeave={() => setHovered(null)}>
+                            <Link to={`/product/${slide.seq}`}>
+                                <div className="swiper-item">
+                                    <div className="item-thumb">
+                                        <img className="thumb-img" src={slide.productUrl} alt={slide.productName}/>
+                                        <img className="thumb-hover" src={slide.productHoverUrl} alt={slide.productName}/>
+                                    </div>
+                                    <div className="item-desc">
+                                        <strong>{slide.productName}</strong>
+                                        <span>{slide.subName}</span>
+                                    </div>
+                                </div>
+                            </Link>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+                {/*<div className="swiper-button">*/}
+                {/*    <button className="swiper-b-prev">*/}
+                {/*        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-left.svg" alt="prev" />*/}
+                {/*    </button>*/}
+                {/*    <button className="swiper-b-next">*/}
+                {/*        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-right.svg" alt="next" />*/}
+                {/*    </button>*/}
+                {/*</div>*/}
+            </div>
+        </div>
     </ProductWrap>
   )
 }

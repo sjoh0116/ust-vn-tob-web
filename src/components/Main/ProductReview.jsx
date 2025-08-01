@@ -32,57 +32,66 @@ export default function ProductReview() {
 
   return (
     <ReviewWrap>
-      <div className="title-desc">
-        <h4>Real Review</h4>
-        <p>Hãy xem đánh giá từ khách hàng của Tob.</p>
-      </div>
-      <div className="product-content">
-        <Swiper
-          modules={[Autoplay, Navigation]}
-          slidesPerView={5} spaceBetween={20}
-          autoplay={{delay: 5000, disableOnInteraction: false}}
-          loop={true}
-          navigation={{
-            prevEl: '.swiper-b-prev',
-            nextEl: '.swiper-b-next'
-          }}
-        >
-          {mainReviewList?.map((item, idx) => (
-            <>
-              <SwiperSlide>
-                <div className="swiper-in">
-                  <Link to="">
-                    <div className="thumbNail">
-                      <img src={item.reviewImg}
-                           alt=""/>
+      <div className="inner">
+        <div className="title-desc">
+          <h4>Real Review</h4>
+          <p>Hãy xem đánh giá từ khách hàng của Tob.</p>
+        </div>
+        <div className="product-content">
+          <Swiper
+              modules={[Autoplay, Navigation]}
+              slidesPerView={5} spaceBetween={20}
+              autoplay={{delay: 5000, disableOnInteraction: false}}
+              loop={true}
+              navigation={{
+                prevEl: '.swiper-b-prev',
+                nextEl: '.swiper-b-next'
+              }}
+              breakpoints={{
+                0: { slidesPerView: 1},
+                480: { slidesPerView: 2},
+                841: { slidesPerView: 3},
+                1340: { slidesPerView: 4},
+                1760: { slidesPerView: 5}
+              }}
+          >
+            {mainReviewList?.map((item, idx) => (
+                <>
+                  <SwiperSlide>
+                    <div className="swiper-in">
+                      <Link to="">
+                        <div className="thumbNail">
+                          <img src={item.reviewImg}
+                               alt=""/>
+                        </div>
+                        <div className="review-desc">
+                          <p>{item.reviewText}</p>
+                          <div className="review-info">
+                            <span>{item.reviewUserId}</span>
+                            <span>{item.reviewRegDate}</span>
+                          </div>
+                        </div>
+                      </Link>
+                      <Link to="" className="review-product">
+                        <div className="product-thumb">
+                          <img src={item.productUrl}
+                               alt=""/>
+                        </div>
+                        <strong>{item.productName}</strong>
+                      </Link>
                     </div>
-                    <div className="review-desc">
-                      <p>{item.reviewText}</p>
-                      <div className="review-info">
-                        <span>{item.reviewUserId}</span>
-                        <span>{item.reviewRegDate}</span>
-                      </div>
-                    </div>
-                  </Link>
-                  <Link to="" className="review-product">
-                    <div className="product-thumb">
-                      <img src={item.productUrl}
-                           alt=""/>
-                    </div>
-                    <strong>{item.productName}</strong>
-                  </Link>
-                </div>
-              </SwiperSlide>
-            </>
-          ))}
-        </Swiper>
-        <div className="swiper-button">
-          <button className="swiper-b-prev">
-            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-left.svg" alt="prev"/>
-          </button>
-          <button className="swiper-b-next">
-            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-right.svg" alt="next"/>
-          </button>
+                  </SwiperSlide>
+                </>
+            ))}
+          </Swiper>
+          <div className="swiper-button">
+            <button className="swiper-b-prev">
+              <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-left.svg" alt="prev"/>
+            </button>
+            <button className="swiper-b-next">
+              <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-right.svg" alt="next"/>
+            </button>
+          </div>
         </div>
       </div>
     </ReviewWrap>

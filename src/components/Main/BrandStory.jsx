@@ -19,9 +19,9 @@ export default function BrandStory(){
                         <p>Hãy tìm kiếm sự thật về vẻ đẹp tại Tob.</p>
                         <strong>What is the ‘Truth Of Beauty’</strong>
                         <p className="blank">
-                          Sự thật của mỹ phẩm nằm ở thành phần.<br />
-                          Sự kết hợp nguyên liệu phù hợp và hàm lượng tối ưu tập trung vào các vấn đề của làn da,<br />
-                          Tob sẽ mang đến cho bạn đề xuất thành phần đầy đủ.
+                            Sự thật của mỹ phẩm nằm ở thành phần.<br />
+                            Sự kết hợp nguyên liệu phù hợp và hàm lượng tối ưu tập trung vào các vấn đề của làn da,<br />
+                            Tob sẽ mang đến cho bạn đề xuất thành phần đầy đủ.
                         </p>
                         <Link to="/brand">view more</Link>
                     </div>
@@ -32,106 +32,106 @@ export default function BrandStory(){
 }
 
 const StoryWrap = styled.section`
-    position:relative;
-    width:100%;
-    margin:120px 0;
-    overflow:hidden;
-    background:#f9f9f9;
-  
-    .story-inner {
-      display:flex;
-      
-      .storyVod {
-        flex-basis:63%;
-        
-        iframe {
-          width:100%;
-          height:675px;
-        }
+  position:relative;
+  width:100%;
+  margin:120px 0;
+  overflow:hidden;
+  background:#f9f9f9;
+
+  .story-inner {
+    display:flex;
+
+    .storyVod {
+      flex-basis:63%;
+
+      iframe {
+        width:100%;
+        height:675px;
       }
-      
-      .storyDesc {
-        position:relative;
-        flex-basis:37%;
-        display:flex;
-        align-items:center;
-        justify-content: center;
-        
-        .desc-in {
+    }
+
+    .storyDesc {
+      position:relative;
+      flex-basis:37%;
+      display:flex;
+      align-items:center;
+      justify-content: center;
+
+      .desc-in {
+        text-align:center;
+        line-height:1.6;
+
+        strong {
+          margin-top:10px;
+          display:block;
+          font-size:34px;
+          font-weight:700;
+          font-family:'Pt-Serif', serif;
+          line-height:1.2;
+          letter-spacing: -0.015em;
+        }
+
+        p {
+          display:block;
+          font-size:16px;
+          font-weight:300;
+
+          &.blank::before {
+            content:'';
+            margin:35px auto;
+            display:block;
+            width:14px;
+            height:1px;
+            background-color:#888;
+          }
+        }
+
+        a {
+          margin-top:30px;
+          display:inline-block;
+          width:130px;
+          font-size:12px;
+          font-weight:500;
+          line-height:3;
+          color:#ffffff;
+          background:#000;
           text-align:center;
-          line-height:1.6; 
-          
-          strong {
-            margin-top:10px;
-            display:block;
-            font-size:34px;
-            font-weight:700;
-            font-family:'Pt-Serif', serif;
-            line-height:1.2;
-            letter-spacing: -0.015em;
-          }
-          
-          p {
-            display:block;
-            font-size:16px;
-            font-weight:300;
-            
-            &.blank::before {
-              content:'';
-              margin:35px auto;
-              display:block;
-              width:14px;
-              height:1px;
-              background-color:#888;
-            }
-          }
-          
-          a {
-            margin-top:30px;
-            display:inline-block;
-            width:130px;
-            font-size:12px;
-            font-weight:500;
-            line-height:3;
-            color:#ffffff;
-            background:#000;
-            text-align:center;
-          }
         }
       }
     }
+  }
 
   @media only screen and (max-width: 1024px) {
     margin:60px 0;
     padding:30px 0 50px;
-    
-      .story-inner {
-        padding:0 20px;
-        display:block;
 
-        .storyVod {
-          position:relative;  
-          width:100%;
-          
-          &::before {
-            content:'';
-            display:block;
-            padding-bottom:56.4%;
-          }
+    .story-inner {
+      padding:0 20px;
+      display:block;
 
-          iframe {
-            position:absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-          }
+      .storyVod {
+        position:relative;
+        width:100%;
+
+        &::before {
+          content:'';
+          display:block;
+          padding-bottom:56.4%;
         }
 
-        .storyDesc {
-          margin-top:30px;
+        iframe {
+          position:absolute;
+          top:0;
+          left:0;
           width:100%;
+          height:100%;
         }
       }
+
+      .storyDesc {
+        margin-top:30px;
+        width:100%;
+      }
+    }
   }
 `
