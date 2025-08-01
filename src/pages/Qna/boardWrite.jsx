@@ -12,7 +12,7 @@ export default function BoardWrite(){
 
     return (
         <BoardContent>
-            <div className="sec-inner">
+            <div className="inner">
                 <BoardTitle />
                 <div className="board-content">
                     <div className="board-read">
@@ -48,7 +48,7 @@ const BoardContent = styled.div`
   padding:100px 0 80px;
   position:relative;
 
-  .sec-inner {
+  .inner {
     padding-top:100px;
 
     .board-read {
@@ -132,6 +132,14 @@ const BoardContent = styled.div`
         color:#fff;
         background:#000;
       }
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    padding:70px 0 50px;
+
+    .inner {
+      padding-top:50px;
     }
   }
 `

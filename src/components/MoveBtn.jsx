@@ -71,4 +71,8 @@ const ScrollBtn = styled.div`
       border-bottom:1px solid #eee;
     }
   }
+
+  @media only screen and (max-width: 1024px) {
+    display:none;
+  }
 `

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function QnaBoard(){
     return (
         <QnaContent>
-            <div className="sec-inner">
+            <div className="inner">
                 <div className="qna-head">
                     <h4>Q&A</h4>
                     <Link to="/board/write">상품 문의</Link>
@@ -12,8 +12,8 @@ export default function QnaBoard(){
                 <div className="qna-table">
                     <table>
                         <colgroup>
-                            <col width="75%" />
-                            <col width="10%" />
+                            <col width="70%" />
+                            <col width="15%" />
                             <col width="15%" />
                         </colgroup>
                         <tbody>

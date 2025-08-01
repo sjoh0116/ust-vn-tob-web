@@ -32,8 +32,10 @@ export default function ReviewArea(param) {
     },[param]);
 
     return (
-        <ReviewContent className="sec-inner">
-            <ReviewSlide param={reviewList}/>
+        <ReviewContent className="inner">
+            {reviewList > 0 && (
+                <ReviewSlide param={reviewList}/>
+            )}
             <ReviewBoard param={param} total={reviewList.length}/>
         </ReviewContent>
     )
@@ -201,7 +203,7 @@ const ReviewContent = styled.div`
           span {
             margin-top:10px;
             display:block;
-            font-size:12px;
+            font-size:0.7rem;
             font-weight:400;
             color:#777;
 
@@ -226,6 +228,16 @@ const ReviewContent = styled.div`
             height:70px;
           }
         }
+      }
+      
+      .empty {
+        padding:8rem 0;
+        display:block;
+        text-align:center;
+        font-weight:500;
+        font-size:1.4rem;
+        line-height:1.2;
+        color:#111;
       }
     }
   }

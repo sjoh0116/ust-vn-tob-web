@@ -15,45 +15,52 @@ export default function ProductSwipe(){
 
     return (
         <ProductWrap>
-            <div className="title-desc">
-                <h4>New</h4>
-                <p>Hãy khám phá các sản phẩm mỹ phẩm được tạo nên từ nguyên liệu độc quyền của Tob.</p>
-            </div>
-            <div className="product-content">
-                <Swiper modules={[ Autoplay, Navigation ]}
-                        slidesPerView={3}
-                        spaceBetween={20}
-                        autoplay={{ delay: 5000, disableOnInteraction: false }}
-                        loop={true}
-                        navigation={{
-                            prevEl: '.swiper-b-prev',
-                            nextEl: '.swiper-b-next'
-                        }}
-                >
-                    {MAIN_PRODUCT_DATA.map((slide, idx) => (
-                        <SwiperSlide key={slide.id} onMouseEnter={()=> setHovered(idx)} onMouseLeave={()=> setHovered(null)}>
-                            <Link to="">
-                                <div className="swiper-item">
-                                    <div className="item-thumb">
-                                        <img className="thumb-img" src={slide.img} alt={slide.title} />
-                                        <img className="thumb-hover" src={slide.hover} alt={slide.title} />
+            <div className="inner">
+                <div className="title-desc">
+                    <h4>New</h4>
+                    <p>Hãy khám phá các sản phẩm mỹ phẩm được tạo nên từ nguyên liệu độc quyền của Tob.</p>
+                </div>
+                <div className="product-content">
+                    <Swiper modules={[ Autoplay, Navigation ]}
+                            slidesPerView={3}
+                            spaceBetween={20}
+                            autoplay={{ delay: 5000, disableOnInteraction: false }}
+                            loop={true}
+                            navigation={{
+                                prevEl: '.swiper-b-prev',
+                                nextEl: '.swiper-b-next'
+                            }}
+                            breakpoints={{
+                                0: { slidesPerView: 1},
+                                480: { slidesPerView: 2},
+                                1025: { slidesPerView: 3}
+                            }}
+                    >
+                        {MAIN_PRODUCT_DATA.map((slide, idx) => (
+                            <SwiperSlide key={slide.id} onMouseEnter={()=> setHovered(idx)} onMouseLeave={()=> setHovered(null)}>
+                                <Link to="">
+                                    <div className="swiper-item">
+                                        <div className="item-thumb">
+                                            <img className="thumb-img" src={slide.img} alt={slide.title} />
+                                            <img className="thumb-hover" src={slide.hover} alt={slide.title} />
+                                        </div>
+                                        <div className="item-desc">
+                                            <strong>{slide.title}</strong>
+                                            <span>{slide.info}</span>
+                                        </div>
                                     </div>
-                                    <div className="item-desc">
-                                        <strong>{slide.title}</strong>
-                                        <span>{slide.info}</span>
-                                    </div>
-                                </div>
-                            </Link>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-                <div className="swiper-button">
-                    <button className="swiper-b-prev">
-                        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-left.svg" alt="prev" />
-                    </button>
-                    <button className="swiper-b-next">
-                        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-right.svg" alt="next" />
-                    </button>
+                                </Link>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                    <div className="swiper-button">
+                        <button className="swiper-b-prev">
+                            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-left.svg" alt="prev" />
+                        </button>
+                        <button className="swiper-b-next">
+                            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/board/chevron-right.svg" alt="next" />
+                        </button>
+                    </div>
                 </div>
             </div>
         </ProductWrap>
@@ -61,14 +68,13 @@ export default function ProductSwipe(){
 }
 
 const ProductWrap = styled.section`
-  margin:120px auto;
+  margin:120px 0;
   position:relative;
-  max-width:1480px;
-  
+
   .product-content {
     position:relative;
     margin-top:40px;
-    
+
     .swiper-item {
       .item-thumb {
         position: relative;
@@ -83,29 +89,29 @@ const ProductWrap = styled.section`
           width: 100%;
           height: 100%;
           transition: opacity .3s;
-          
+
           &.thumb-img {
             opacity:1;
           }
-          
+
           &.thumb-hover {
             opacity:0;
           }
         }
       }
-        
+
       .item-desc {
         margin-top:25px;
         position:relative;
         text-align:center;
-        
+
         strong {
           font-size:12px;
           font-weight:500;
           line-height:1.5;
           color:#000000;
         }
-        
+
         span {
           margin-top:10px;
           display:block;
@@ -116,16 +122,16 @@ const ProductWrap = styled.section`
         }
       }
     }
-    
+
     .swiper-item:hover {
       .item-thumb img {
-          &.thumb-img {
-            opacity:0;
-          }
+        &.thumb-img {
+          opacity:0;
+        }
 
-          &.thumb-hover {
-            opacity:1;
-          }
+        &.thumb-hover {
+          opacity:1;
+        }
       }
     }
 
@@ -152,6 +158,22 @@ const ProductWrap = styled.section`
 
       .swiper-b-next {
         right:-25px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    margin:60px 0;
+
+    .product-content {
+      .swiper-button {
+        .swiper-b-prev {
+          left:0;
+        }
+
+        .swiper-b-next {
+          right:0;
+        }
       }
     }
   }

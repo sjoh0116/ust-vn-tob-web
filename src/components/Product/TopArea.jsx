@@ -209,7 +209,7 @@ const TopContent = styled.section`
   }
 
   @media only screen and (max-width: 1024px) {
-    padding-top:40px;
+    padding-top:50px;
 
     .inner {
       display:block;

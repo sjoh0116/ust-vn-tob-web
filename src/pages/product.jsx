@@ -94,4 +94,8 @@ const ProductContent = styled.div`
       width:100%;
     }
   }
+
+  @media only screen and (max-width: 1024px) {
+    padding:70px 0 50px;
+  }
 `

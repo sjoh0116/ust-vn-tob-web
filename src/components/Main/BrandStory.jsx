@@ -100,4 +100,38 @@ const StoryWrap = styled.section`
         }
       }
     }
+
+  @media only screen and (max-width: 1024px) {
+    margin:60px 0;
+    padding:30px 0 50px;
+    
+      .story-inner {
+        padding:0 20px;
+        display:block;
+
+        .storyVod {
+          position:relative;  
+          width:100%;
+          
+          &::before {
+            content:'';
+            display:block;
+            padding-bottom:56.4%;
+          }
+
+          iframe {
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+          }
+        }
+
+        .storyDesc {
+          margin-top:30px;
+          width:100%;
+        }
+      }
+  }
 `

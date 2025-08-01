@@ -18,11 +18,16 @@ const ContentLayout = () => {
     setIsMenuOpen(prev => !prev);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
+
   return (
     <>
       <ContentWrap>
         <HeaderLayout onMenuToggle={toggleMenu} />
-        <SideMenu isOpen={isMenuOpen} />
+        <SideMenu isOpen={isMenuOpen} onClose={closeMenu}/>
         {isMenuOpen &&
           <div onClick={toggleMenu} className="dimmed" />
         }

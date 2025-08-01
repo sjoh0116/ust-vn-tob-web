@@ -91,6 +91,11 @@ export default function ReviewBoard(param) {
                         </div>
                     </div>
                 ))}
+
+                {reviewList == 0 && (
+                    <p className="empty">Không có đánh giá nào được soạn thảo.</p>
+                )}
+
                 <Pagination total={param.total} currentPage={currentPage} onPageChange={handlePageChange} />
             </div>
         </div>

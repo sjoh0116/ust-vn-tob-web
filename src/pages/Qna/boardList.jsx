@@ -7,7 +7,7 @@ import Pagination from "../../components/Qna/Pagination";
 export default function BoardList(){
     return (
         <BoardContent>
-            <div className="sec-inner">
+            <div className="inner">
                 <BoardTitle />
                 <div className="board-content">
                     <div className="board-table">
@@ -64,7 +64,7 @@ const BoardContent = styled.section`
   padding:100px 0 80px;
   position:relative;
 
-  .sec-inner {
+  .inner {
     padding-top:100px;
     
     .board-table {
@@ -177,6 +177,14 @@ const BoardContent = styled.section`
           background:#000;
         }
       }
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    padding: 70px 0 50px;
+
+    .inner {
+      padding-top: 50px;
     }
   }
 `

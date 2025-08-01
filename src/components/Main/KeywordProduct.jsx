@@ -15,10 +15,10 @@ export default function KeywordProduct(){
 
     return (
         <KeywordWrap>
-            <div className="keyword-inner">
+            <div className="inner">
                 <div className="tab-menu">
                     <div className="tab-title">
-                        <strong>Truth Of Beauty<br/>Keyword</strong>
+                        <strong>Truth Of Beauty<br className="br" /> Keyword</strong>
                         <span>Mỹ phẩm chân thành, tập trung vào thành phần và hiệu quả<br/>Truth Of Beauty</span>
                     </div>
                     <div className="tab-nav">
@@ -72,10 +72,7 @@ const KeywordWrap = styled.section`
   background:url('https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/keyword_bg.webp') 50% 50% no-repeat;
   background-size:cover;
   
-  .keyword-inner {
-    position:relative;
-    max-width:1480px;
-    margin:0 auto;
+  .inner {
     display:flex;
     align-items: center;
     gap:0 30px;
@@ -85,6 +82,7 @@ const KeywordWrap = styled.section`
       
       .tab-title {
         strong {
+          display:block;
           font-size:30px;
           font-weight:700;
           font-family:'Pt-Serif', serif;
@@ -102,6 +100,7 @@ const KeywordWrap = styled.section`
       
       .tab-nav {
         margin-top:20px;
+        
         ul {
           display:flex;
           flex-direction: column;
@@ -211,6 +210,76 @@ const KeywordWrap = styled.section`
             opacity:1;
           }
         }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    margin:60px 0;
+    padding:50px 0;
+    
+    .inner {
+      display:block;
+      text-align:center;
+
+      .tab-menu {
+        position:relative;
+        
+        .tab-nav {
+          margin-top:20px;
+
+          ul {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap:0 20px;
+          }
+        }
+      }
+
+      .tab-content {
+        margin-top:25px;
+        flex:1;
+
+        .tab-item {
+          ul {
+            gap:0 20px;
+          }
+        }
+      }
+    }
+    
+    .br {
+      display:none;
+    }
+  }
+
+  @media only screen and (max-width: 640px) {
+    .inner {
+      .tab-content {
+        .tab-item {
+          ul {
+            gap:0;
+            flex-wrap:wrap;
+            
+            li {
+              flex:none;
+
+              &:first-child {
+                width:100%;
+                padding:1% 20% 6%;
+                margin-bottom:5%;
+                border-bottom: 1px solid rgba(130, 130, 130, 0.1);
+              }
+
+              &:nth-child(2), &:nth-child(3) {
+                width:calc(50% - 15px);
+                padding:0 5%;
+              }
+
+            }
+        }
+        
       }
     }
   }

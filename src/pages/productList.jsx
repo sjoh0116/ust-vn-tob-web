@@ -78,7 +78,7 @@ const ProductWrap = styled.section`
     
     h4 {
       font-weight:700;
-      font-size:2.5em;
+      font-size:2.5rem;
       color:#111;
     }
   }
@@ -159,6 +159,7 @@ const ProductWrap = styled.section`
             a {
               display:block;
               font-size:1.2rem;
+              line-height:1.4;
               font-weight:700;
               color:#111;
             }
@@ -178,7 +179,12 @@ const ProductWrap = styled.section`
   }
 
   @media only screen and (max-width: 1024px) {
+    padding:70px 0 50px;
 
+    .list-title {
+      padding:40px 0;
+    }
+    
     .list-content {
       .product-list {
         .prd-list {

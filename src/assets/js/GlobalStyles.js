@@ -275,7 +275,8 @@ const globalStyles = createGlobalStyle`
       margin-top:20px;
       display:block;
       vertical-align: 1px;
-      font-size:14px;
+      font-size:1.1rem;
+      line-height:1.5;
       color:#777;
     }
   }

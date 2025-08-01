@@ -23,7 +23,12 @@ export default function VisualSwiper({ banner }) {
         {/*))}*/}
             <SwiperSlide>
               <Link to="">
-                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/test_bg.webp" alt={'mainBanner'}/>
+                  <figure className="pc">
+                      <img src="//ecimg.cafe24img.com/pg532b80180662007/truthofbeauty/web/upload/category/editor/2025/07/03/d42c24f7bd948c49a8f383dbc929980d.jpg" alt="pc_visual"/>
+                  </figure>
+                  <figure className="mo">
+                      <img src="//ecimg.cafe24img.com/pg532b80180662007/truthofbeauty/web/upload/category/editor/2025/07/08/8f92a44fa7b235d16ec199cd35fc6f21.jpg" alt="mo_visual"/>
+                  </figure>
               </Link>
             </SwiperSlide>
       </Swiper>
@@ -34,7 +39,25 @@ export default function VisualSwiper({ banner }) {
 const Visual = styled.section`
   position: relative;
 
-  img {
+  figure, img {
     width: 100%;
+  }
+  
+  .pc {
+    display:block;
+  }
+  
+  .mo {
+    display:none;
+  }
+
+  @media only screen and (max-width: 1040px) {
+    .pc {
+      display:none;
+    }
+
+    .mo {
+      display:block;
+    }
   }
 `;
