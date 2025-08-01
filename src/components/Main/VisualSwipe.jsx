@@ -19,15 +19,15 @@ export default function VisualSwiper({ banner }) {
         {banner.map((item, index) => (
           <SwiperSlide key={index}>
             <Link to={item.link}>
-              <img src={item.bannerUrl} alt={'mainBanner'}/>
+              <figure className="pc">
+                  <img src={item.bannerUrl} alt="pc-visual" />
+              </figure>
+              <figure className="mo">
+                  <img src={item.bannerUrl} alt="mo-visual"/>
+              </figure>
             </Link>
           </SwiperSlide>
         ))}
-        <SwiperSlide>
-          <Link to="">
-            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/test_bg.webp" alt={'mainBanner'}/>
-          </Link>
-        </SwiperSlide>
       </Swiper>
     </Visual>
   )
@@ -36,7 +36,25 @@ export default function VisualSwiper({ banner }) {
 const Visual = styled.section`
     position: relative;
 
-    img {
+    figure, img {
         width: 100%;
+    }
+  
+    .pc {
+      display:block;
+    }
+  
+    .mo {
+      display:none;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      .pc {
+        display:none;
+      }
+
+      .mo {
+        display:block;
+      }
     }
 `;
