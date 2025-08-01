@@ -1,10 +1,25 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import * as Server from 'assets/js/Server';
 
 import styled from 'styled-components';
-import {motion} from "framer-motion";
 
-export default function SideMenu({ isOpen }){
+export default function SideMenu({ isOpen, onClose }){
+    const [productList, setProductList] = useState([]);
+    const [isProductMenuOpen, setIsProductMenuOpen] = useState(false)
+
+    const getProductList = () => {
+        Server.sendGet('tob/product/list?useYn=Y', {}, getProductListCallback).then();
+    }
+
+    const getProductListCallback = res => {
+        setProductList(res['resultList']);
+    }
+
+    useEffect(() => {
+        getProductList();
+    }, [])
 
     const menuItems = [
         {
@@ -29,6 +44,16 @@ export default function SideMenu({ isOpen }){
         },
     ]
 
+    const handleLinkClick = () => {
+        onClose();
+    }
+
+    const toggleProductMenu = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        setIsProductMenuOpen(!isProductMenuOpen)
+    }
+
     return (
         <SideWrap className={isOpen ? 'open' : ''}>
             <div className='side-in'>
@@ -39,17 +64,30 @@ export default function SideMenu({ isOpen }){
                     <div className="menu-nav">
                         <ul>
                             <li>
-                                <Link to="/brand">
+                                <Link to="/brand" onClick={handleLinkClick}>
                                     Brand Story
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/product">
-                                    Product
-                                </Link>
+                                <div className="accodian-nav">
+                                    <Link to="/product" onClick={handleLinkClick}>
+                                        Product
+                                    </Link>
+                                </div>
+
+
+                                <div className={`accodian-menu ${isProductMenuOpen ? 'open' : ''}`}>
+                                    <ul className="sub-nav">
+                                        {productList?.map((item, idx) => (
+                                            <li>
+                                                <Link to={`/product/${item.seq}`}>{item.menuName}</Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </li>
                             <li>
-                                <Link to="/board">
+                                <Link to="/board" onClick={handleLinkClick}>
                                     Qna
                                 </Link>
                             </li>
@@ -108,15 +146,40 @@ const SideWrap = styled.div`
       .menu-nav {
         margin:25px 0;
         
-        ul {
-          li {
-            a {
-              display:block;
-              font-size:16px;
-              font-weight:400;
-              line-height:1.5;
-              color:#000;
-            }
+        > ul {
+          > li {
+            
+                .accodian-nav {
+                  display:flex;
+                  justify-content: space-between;
+                  align-items: center;
+                }    
+            
+                a {
+                  display:block;
+                  font-size:16px;
+                  font-weight:400;
+                  line-height:1.5;
+                  color:#000;
+                }
+            
+                .sub-nav {
+                    margin-top:12px;          
+                    li {
+                      padding-left:20px;
+                      
+                      a {
+                        font-size:14px;
+                        font-weight:400;
+                        line-height:1.5;
+                        color:#000;
+                      }
+                    }
+
+                 &.open {
+                    max-height: max-content; /* 충분히 큰 값 */
+                  }
+                }
           }
           
           li + li {
