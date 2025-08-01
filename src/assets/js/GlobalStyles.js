@@ -16,10 +16,10 @@ const globalStyles = createGlobalStyle`
     
     .inner {
       position:relative;
-      max-width:1720px;
+      max-width:1740px;
       padding:0 140px;
       margin:0 auto;
-      width:95%;
+      width:100%;
     }
     
     .inner.product {
@@ -63,12 +63,18 @@ const globalStyles = createGlobalStyle`
     --foot-cate: 16px;
     --foot-txt: 12px;
 
+    @media only screen and (max-width: 1280px) {
+      .inner {
+        padding:0 100px;
+      }
+    }
+
     @media only screen and (max-width: 1024px) {
       .inner {
         position:relative;
         max-width:100%;
         width:100%;
-        padding:0 40px;
+        padding:0 35px;
         margin:0;
       }
 
@@ -76,9 +82,25 @@ const globalStyles = createGlobalStyle`
         max-width:100%;
       }
       
+      .zalo-chat-widget {
+        bottom:20px !important;
+        right:20px !important;
+      }
     }
+    
 
+    @media only screen and (max-width: 680px) {
+      .inner {
+        padding:0 28px;
+      }
+    }
+    
     @media only screen and (max-width: 540px) {
+      .inner {
+        padding:0 18px;
+
+      }
+      
       --nav-tit: 14px;
       --info-tit: 18px;
       --info-txt: 12px;

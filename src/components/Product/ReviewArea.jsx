@@ -7,36 +7,36 @@ import {useEffect, useState} from "react";
 import useDidMountEffect from "../../hooks/useDidMountEffect";
 
 export default function ReviewArea(param) {
-  const [reviewList, setReviewList] = useState([]);
+    const [reviewList, setReviewList] = useState([]);
 
-  const getProductReviewList = () => {
-    Server.sendGet(
-      'tob/product/review',
-      {
-        productSeq: param.param.prdNum
-      },
-      getProductReviewListCallback
-    ).then();
-  }
+    const getProductReviewList = () => {
+        Server.sendGet(
+            'tob/product/review',
+            {
+                productSeq: param.param.prdNum
+            },
+            getProductReviewListCallback
+        ).then();
+    }
 
-  const getProductReviewListCallback = res => {
-    setReviewList(res['resultList']);
-  }
+    const getProductReviewListCallback = res => {
+        setReviewList(res['resultList']);
+    }
 
-  useEffect(() => {
-    getProductReviewList();
-  }, [])
+    useEffect(() => {
+        getProductReviewList();
+    }, [])
 
-  useDidMountEffect(() => {
-    getProductReviewList();
-  },[param]);
+    useDidMountEffect(() => {
+        getProductReviewList();
+    },[param]);
 
-  return (
-    <ReviewContent className="sec-inner">
-      <ReviewSlide param={reviewList}/>
-      <ReviewBoard param={param} total={reviewList.length}/>
-    </ReviewContent>
-  )
+    return (
+        <ReviewContent className="sec-inner">
+            <ReviewSlide param={reviewList}/>
+            <ReviewBoard param={param} total={reviewList.length}/>
+        </ReviewContent>
+    )
 }
 
 const ReviewContent = styled.div`
@@ -44,8 +44,8 @@ const ReviewContent = styled.div`
 
   // 리뷰 슬라이드
   .review-slider {
-    position:relative;  
-    
+    position:relative;
+
     .swiper-slide {
       padding:10px;
 
@@ -104,7 +104,7 @@ const ReviewContent = styled.div`
             font-weight:500;
             line-height: 1.5;
             color: #777;
-            
+
             &.writer {
               font-weight:700;
             }
@@ -112,7 +112,7 @@ const ReviewContent = styled.div`
         }
       }
     }
-    
+
     .swiper-button {
 
       button {
@@ -139,29 +139,29 @@ const ReviewContent = styled.div`
       }
     }
   }
-  
+
   // 리뷰 테이블
   .review-board {
     margin-top:45px;
     position:relative;
-    
+
     .board-head {
       display:flex;
       align-items: center;
       justify-content: space-between;
-      
+
       .board-tit {
         display:flex;
         gap:0 5px;
         align-items: center;
-        
+
         strong {
           font-size:20px;
           font-weight:700;
           line-height:1.5;
           color:#111;
         }
-        
+
         span {
           font-size:20px;
           font-weight:700;
@@ -169,14 +169,14 @@ const ReviewContent = styled.div`
           color:#111;
         }
       }
-      
+
       .board-filter {
         display:flex;
         align-items:center;
         gap:0 30px;
       }
     }
-    
+
     .board-list {
       margin-top:45px;
       position:relative;
@@ -185,46 +185,65 @@ const ReviewContent = styled.div`
       .list-item {
         padding:20px 0;
         border-bottom:1px solid #e9e9e9;
-        display:flex; 
+        display:flex;
         gap:0 30px;
-        
+
         .item-writer {
           min-width:120px;
           position:relative;
           padding:0 15px;
-          
+
           .rating-score {
             display:flex;
             align-items: center;
           }
-          
+
           span {
             margin-top:10px;
             display:block;
             font-size:12px;
             font-weight:400;
             color:#777;
-            
+
           }
         }
-        
+
         .item-txt {
           position:relative;
           padding:0 15px;
-          
+
           p {
             margin-bottom:15px;
-            display:block;  
+            display:block;
             font-size:14px;
             font-weight:400;
             line-height:1.5;
             color:#111;
           }
-          
+
           img {
             width:70px;
             height:70px;
           }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .review-slider {
+      display:none;
+    }
+
+    .review-board {
+      margin-top:0;
+      
+      .board-list {
+        margin-top:20px;
+
+        .list-item {
+          padding:10px 0;
+          gap:0 15px;
         }
       }
     }

@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import styled from 'styled-components';
 
 import * as Server from 'assets/js/Server';
 import * as Common from 'assets/js/Common';
 
-export default function Header(){
+export default function Header({ onMenuToggle}){
     const [isScrolled, setIsScrolled] = useState(false);
 
     const [productList, setProductList] = useState([]);
@@ -30,9 +30,16 @@ export default function Header(){
     }, [])
 
   return (
+
       <HeadWrap>
           <div className={`${isScrolled ? "head-inner active" : "head-inner"}`}>
               <div className="head-content">
+                  <div className='hamburger'>
+                      <button onClick={onMenuToggle}>
+                          <div className='icon-left'/>
+                          <div className='icon-right'/>
+                      </button>
+                  </div>
                   <div className="hdLogo">
                       <Link to="/">
                           <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/tob_logo.webp" alt="truth of beauty" />
@@ -136,11 +143,14 @@ const HeadWrap = styled.header`
               border-radius:7px;
               box-shadow:0 2px 9px rgba(0, 0, 0, 0.2);
               
-              li a {
-                font-weight:500;
-                font-size:14px;
-                line-height:1.5;
-                color:#111;
+              li {
+                width:max-content;
+                a {
+                  font-weight:500;
+                  font-size:14px;
+                  line-height:1.5;
+                  color:#111;
+                } 
               }
               
               li + li {
@@ -150,6 +160,130 @@ const HeadWrap = styled.header`
             
             &:hover .sub-nav {
               display:block;
+            }
+          }
+        }
+      }
+
+      .hamburger {
+        display: none;
+        z-index: 99;
+        position: relative;
+        transform: scale(0.7);
+
+        button {
+          position: relative;
+          width: 50px;
+          height: 50px;
+          transition-property: top, bottom, left, right, opacity, transform;
+          transition-duration: 0.5s;
+
+          .icon-left {
+            position: absolute;
+            top: 25px;
+            left: calc(50% - 10px);
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: var(--color-black);
+            transition-property: top, bottom, left, right, opacity, transform;
+            transition-duration: 0.5s;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: -10px;
+              width: 20px;
+              height: 3px;
+              background: var(--color-black);
+              transition-duration: 0.5s;
+              transition-property: top, bottom, left, right, opacity, transform;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 10px;
+              width: 20px;
+              height: 3px;
+              background: var(--color-black);
+              transition-duration: 0.5s;
+              transition-property: top, bottom, left, right, opacity, transform;
+            }
+          }
+
+          .icon-right {
+            position: absolute;
+            top: 25px;
+            left: calc(50% + 10px);
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: var(--color-black);
+            transition-duration: 0.5s;
+            transition-property: top, bottom, left, right, opacity, transform;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: -10px;
+              width: 20px;
+              height: 3px;
+              background: var(--color-black);
+              transition-duration: 0.5s;
+              transition-property: top, bottom, left, right, opacity, transform;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 10px;
+              width: 20px;
+              height: 3px;
+              background: var(--color-black);
+              transition-duration: 0.5s;
+              transition-property: top, bottom, left, right, opacity, transform;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .head-inner {
+      padding:0 20px;
+      height:70px;
+
+      &.active {
+        height:60px;
+        background-color:rgba(255, 255, 255, 0.7);
+      }
+
+      .head-content {
+        gap:0 30px;
+        .hdNav {
+          display:none;
+        }
+
+        .hamburger {
+          display: block;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .head-inner {
+      .head-content {
+        .hdLogo {
+          a {
+            img {
+              height:45px;
             }
           }
         }

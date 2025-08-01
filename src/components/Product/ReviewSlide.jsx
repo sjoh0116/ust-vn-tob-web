@@ -10,11 +10,16 @@ export default function ReviewSlide(param) {
     <div className="review-slider">
       <Swiper
         modules={[Autoplay, Navigation]}
-        slidesPerView={5} spaceBetween={20}
         loop={true}
         navigation={{
           prevEl: '.swiper-b-prev',
           nextEl: '.swiper-b-next'
+        }}
+        breakpoints={{
+            0: { slidesPerView: 2},
+            841: { slidesPerView: 3},
+            1340: { slidesPerView: 4},
+            1760: { slidesPerView: 5},
         }}
       >
         {param.param?.map((item, idx) => (

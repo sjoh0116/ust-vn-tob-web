@@ -1,84 +1,98 @@
-import Pagination from "../Qna/Pagination";
-import test from 'test.json';
-import {useEffect, useState} from "react";
-import * as Server from "../../assets/js/Server";
-import useDidMountEffect from "../../hooks/useDidMountEffect";
+"use client"
+
+import Pagination from "../Qna/Pagination"
+import { useEffect, useState } from "react"
+import * as Server from "../../assets/js/Server"
+import useDidMountEffect from "../../hooks/useDidMountEffect"
 
 export default function ReviewBoard(param) {
+    const [reviewList, setReviewList] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
 
-  const [reviewList, setReviewList] = useState([]);
-  const [offset, setOffset] = useState('');
+    const getProductReviewList = (page = 1) => {
+        Server.sendGet(
+            "tob/product/review",
+            {
+                productSeq: param.param.param.prdNum,
+                offset: page,
+            },
+            getProductReviewListCallback,
+        ).then()
+    }
 
-  const getProductReviewList = () => {
-    Server.sendGet(
-      'tob/product/review',
-      {
-        productSeq: param.param.param.prdNum,
-        offset: 1
-      },
-      getProductReviewListCallback
-    ).then();
-  }
+    const getProductReviewListCallback = (res) => {
+        setReviewList(res["resultList"])
+    }
 
-  const getProductReviewListCallback = res => {
-    setReviewList(res['resultList']);
-  }
+    const handlePageChange = (page) => {
+        setCurrentPage(page)
+        getProductReviewList(page)
+    }
 
-  useEffect(() => {
-    getProductReviewList();
-  }, [])
+    useEffect(() => {
+        getProductReviewList(1)
+    }, [])
 
-  useDidMountEffect(() => {
-    getProductReviewList();
-  },[param]);
+    useDidMountEffect(() => {
+        setCurrentPage(1)
+        getProductReviewList(1)
+    }, [param])
 
-  return (
-    <div className="review-board">
-      <div className="board-head">
-        <div className="board-tit">
-          <strong>Review</strong>
-          <span>{param.total}</span>
-        </div>
-        {/*<div className="board-filter">*/}
-        {/*  <button>추천순</button>*/}
-        {/*  <button>최신순</button>*/}
-        {/*</div>*/}
-      </div>
-      <div className="board-list">
-        {reviewList?.map((item, idx) => (
-          <>
-            <div className="list-item">
-              <div className="item-writer">
-                <ul className="rating-score">
-                  <li>
-                    <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/fill_star.svg" alt="review"/>
-                  </li>
-                  <li>
-                    <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/fill_star.svg" alt="review"/>
-                  </li>
-                  <li>
-                    <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/fill_star.svg" alt="review"/>
-                  </li>
-                  <li>
-                    <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/fill_star.svg" alt="review"/>
-                  </li>
-                  <li>
-                    <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/fill_star.svg" alt="review"/>
-                  </li>
-                </ul>
-                <span>{item.reviewUserId}</span>
-                <span>{item.reviewRegDate}</span>
-              </div>
-              <div className="item-txt">
-                <p>{item.reviewText}</p>
-                <img src={item.reviewImg}
-                     alt=""/>
-              </div>
+    return (
+        <div className="review-board">
+            <div className="board-head">
+                <div className="board-tit">
+                    <strong>Review</strong>
+                    <span>{param.total}</span>
+                </div>
             </div>
-          </>
-        ))}
-        <Pagination param={param.total} setOffset={setOffset}/>
-      </div>
-    </div>
-  )
+            <div className="board-list">
+                {reviewList?.map((item, idx) => (
+                    <div key={idx} className="list-item">
+                        <div className="item-writer">
+                            <ul className="rating-score">
+                                <li>
+                                    <img
+                                        src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/fill_star.svg"
+                                        alt="review"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/fill_star.svg"
+                                        alt="review"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/fill_star.svg"
+                                        alt="review"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/fill_star.svg"
+                                        alt="review"
+                                    />
+                                </li>
+                                <li>
+                                    <img
+                                        src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/fill_star.svg"
+                                        alt="review"
+                                    />
+                                </li>
+                            </ul>
+                            <span>{item.reviewUserId}</span>
+                            <span>{item.reviewRegDate}</span>
+                        </div>
+                        <div className="item-txt">
+                            <p>{item.reviewText}</p>
+                            <img src={item.reviewImg || "/placeholder.svg"} alt="" />
+                        </div>
+                    </div>
+                ))}
+                <Pagination total={param.total} currentPage={currentPage} onPageChange={handlePageChange} />
+            </div>
+        </div>
+    )
 }

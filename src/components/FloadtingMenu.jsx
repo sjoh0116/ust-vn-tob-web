@@ -115,8 +115,9 @@ const FloatContainer = styled.div`
       gap:8px;
       
       .menu-item {
+        text-align:center;
         a {
-          display:flex;
+          display:inline-flex;
           justify-content: center;
           align-items: center;
           width:40px;
@@ -132,5 +133,9 @@ const FloatContainer = styled.div`
         }
       }
     }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    display:none;
   }
 `
