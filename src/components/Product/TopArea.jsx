@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import {useEffect, useState} from "react";
 
 import * as Server from 'assets/js/Server';
-import useDidMountEffect from "../../hooks/useDidMountEffect";
 
 export default function TopArea(param) {
 
@@ -83,7 +82,7 @@ export default function TopArea(param) {
                     <div className="desc-sns desc-depth">
                         <ul>
                             {menuItems.map((item, index) => (
-                                <li>
+                                <li key={index}>
                                     <a href={item.link}>
                                         <img src={item.img} alt={item.label}/>
                                     </a>
@@ -161,6 +160,7 @@ const TopContent = styled.section`
             display:block;
             font-weight:400;
             font-size:1.2rem;
+            line-height:1.5;
             color:#555;
           }
         }

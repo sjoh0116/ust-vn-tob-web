@@ -73,6 +73,6 @@ const ScrollBtn = styled.div`
   }
 
   @media only screen and (max-width: 1024px) {
-    display:none;
+    right:5px;
   }
 `

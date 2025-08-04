@@ -56,8 +56,7 @@ export default function ProductReview() {
               }}
           >
             {mainReviewList?.map((item, idx) => (
-                <>
-                  <SwiperSlide>
+                  <SwiperSlide key={idx}>
                     <div className="swiper-in">
                       <Link to="">
                         <div className="thumbNail">
@@ -67,8 +66,8 @@ export default function ProductReview() {
                         <div className="review-desc">
                           <p>{item.reviewText}</p>
                           <div className="review-info">
-                            <span>{item.reviewUserId}</span>
-                            <span>{item.reviewRegDate}</span>
+                            <span className="user">{item.reviewUserId}</span>
+                            <span className="date">{item.reviewRegDate}</span>
                           </div>
                         </div>
                       </Link>
@@ -81,7 +80,6 @@ export default function ProductReview() {
                       </Link>
                     </div>
                   </SwiperSlide>
-                </>
             ))}
           </Swiper>
           <div className="swiper-button">
@@ -98,7 +96,7 @@ export default function ProductReview() {
   )
 }
 
-const ReviewWrap = styled.div`
+const ReviewWrap = styled.section`
     margin:120px auto;
     position:relative;
     max-width:1480px;
@@ -141,7 +139,8 @@ const ReviewWrap = styled.div`
                 position:relative;
                 padding:30px 10px;
                 border-bottom:1px solid #e8e8e8;
-
+                height:200px;
+              
                 strong {
                     font-size:16px;
                     font-weight:500;
@@ -243,4 +242,32 @@ const ReviewWrap = styled.div`
             }
         }
     }
+
+  @media only screen and (max-width: 1024px) {
+    margin:60px 0;
+
+    .date {
+      display:none;
+    }
+    
+    .product-content {
+      position: relative;
+
+      .swiper-slide {
+        .review-desc {
+          height:150px;
+        }
+      }
+      
+      .swiper-button {
+        .swiper-b-prev {
+          left:0;
+        }
+
+        .swiper-b-next {
+          right:0;
+        }
+      }
+    }
+  }
 `

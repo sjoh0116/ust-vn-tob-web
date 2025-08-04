@@ -2,8 +2,6 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 
-import {MAIN_PRODUCT_DATA} from "./Data";
-
 /* 슬라이드 - 스와이퍼 */
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Navigation} from "swiper/modules";
@@ -32,9 +30,14 @@ export default function ProductSwipe(param) {
                             prevEl: '.swiper-b-prev',
                             nextEl: '.swiper-b-next'
                         }}
+                        breakpoints={{
+                            0: { slidesPerView: 1},
+                            480: { slidesPerView: 2},
+                            1025: { slidesPerView: 3}
+                        }}
                 >
                     {param?.newProduct?.map((slide, idx) => (
-                        <SwiperSlide key={slide.id} onMouseEnter={() => setHovered(idx)} onMouseLeave={() => setHovered(null)}>
+                        <SwiperSlide key={idx} onMouseEnter={() => setHovered(idx)} onMouseLeave={() => setHovered(null)}>
                             <Link to={`/product/${slide.seq}`}>
                                 <div className="swiper-item">
                                     <div className="item-thumb">
@@ -160,4 +163,20 @@ const ProductWrap = styled.section`
             }
         }
     }
+
+  @media only screen and (max-width: 1024px) {
+    margin: 60px 0;
+
+    .product-content {
+      .swiper-button {
+        .swiper-b-prev {
+          left: 0;
+        }
+
+        .swiper-b-next {
+          right: 0;
+        }
+      }
+    }
+  }
 `

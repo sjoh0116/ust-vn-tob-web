@@ -4,7 +4,7 @@ export default function BoardTitle(){
     return (
         <BoardTit>
             <h4>Product Q&A</h4>
-            <p>상품에 대한 문의 답변드립니다.</p>
+            <p>Chúng tôi xin trả lời câu hỏi về sản phẩm.</p>
         </BoardTit>
     )
 }

@@ -44,8 +44,9 @@ export default function SideMenu({ isOpen, onClose }){
         },
     ]
 
+
     const handleLinkClick = () => {
-        onClose();
+        onClose()
     }
 
     const toggleProductMenu = (e) => {
@@ -73,13 +74,15 @@ export default function SideMenu({ isOpen, onClose }){
                                     <Link to="/product" onClick={handleLinkClick}>
                                         Product
                                     </Link>
-                                </div>
+                                    <button onClick={toggleProductMenu} className={isProductMenuOpen ? "active" : ""}>
+                                        <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/drop_down.svg" alt="drop-down" />
+                                    </button>                                </div>
 
 
-                                <div className={`accodian-menu ${isProductMenuOpen ? 'open' : ''}`}>
+                                <div className={`accodian-menu ${isProductMenuOpen ? "open" : ""}`}>
                                     <ul className="sub-nav">
                                         {productList?.map((item, idx) => (
-                                            <li>
+                                            <li key={idx}>
                                                 <Link to={`/product/${item.seq}`}>{item.menuName}</Link>
                                             </li>
                                         ))}
@@ -96,7 +99,7 @@ export default function SideMenu({ isOpen, onClose }){
                     <div className="sns-nav">
                         <ul>
                             {menuItems.map((item, index) => (
-                                <li className="menu-item">
+                                <li key={index} className="menu-item">
                                     <a href={item.link}>
                                         <img src={item.img} alt={item.label} />
                                     </a>
@@ -130,7 +133,7 @@ const SideWrap = styled.div`
   }
   
   .side-in {
-    padding:20px 40px;
+    padding:20px 30px;
     
     .logo-sec {
       position:relative;
@@ -163,11 +166,26 @@ const SideWrap = styled.div`
                   color:#000;
                 }
             
-                .sub-nav {
-                    margin-top:12px;          
+                button.active {
+                  transform:rotate(180deg);
+                }
+
+                .accodian-menu {
+                  max-height: 0;
+                  overflow: hidden;
+                  transition: max-height 0.3s ease-in-out;
+                  
+                  &.open {
+                    max-height: 365px; /* 충분히 큰 값 */
+                    overflow:auto;
+                  }
+
+                  .sub-nav {
+                    margin-top:12px;
+                    
                     li {
-                      padding-left:20px;
-                      
+                      padding-left:10px;
+
                       a {
                         font-size:14px;
                         font-weight:400;
@@ -176,17 +194,18 @@ const SideWrap = styled.div`
                       }
                     }
 
-                 &.open {
-                    max-height: max-content; /* 충분히 큰 값 */
+                    &.open {
+                      max-height: max-content; /* 충분히 큰 값 */
+                    }
                   }
                 }
+              }
+              
+              li + li {
+                margin-top:7.5px;
+              }
+            }
           }
-          
-          li + li {
-            margin-top:12px;
-          }
-        }
-      }
       
       .sns-nav {
         margin:25px 0;

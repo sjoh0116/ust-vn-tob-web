@@ -9,7 +9,6 @@ import 'swiper/css/autoplay';
 
 export default function VisualSwiper({ banner }) {
 
-
   return (
     <Visual>
       <div className='sec_head'>

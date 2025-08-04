@@ -1,8 +1,5 @@
-import { Link } from "react-router-dom";
-
 import styled from 'styled-components';
 import BoardTitle from "../../components/Qna/BoardTitle";
-import Pagination from "../../components/Qna/Pagination";
 
 export default function BoardList(){
     return (
@@ -21,39 +18,40 @@ export default function BoardList(){
                             </colgroup>
                             <tbody>
                             {/* 게시글 번호, 상품 이미지, 상품명 + 제목, 작성자, 날짜 */}
-                                <tr>
-                                    <td>1</td>
-                                    <td>
-                                        <Link to="">
-                                            <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/TocTocShot/thum-01.jpg" alt="product" />
-                                        </Link>
-                                    </td>
-                                    <td className="left">
-                                        <Link className="desc" to="/board/detail/1">
-                                            <span>상품명</span>
-                                            <p>문의명</p>
-                                        </Link>
-                                    </td>
-                                    <td>Truth of Beauty</td>
-                                    <td>2025-05-22</td>
-                                </tr>
+                            {/*    <tr>*/}
+                            {/*        <td>1</td>*/}
+                            {/*        <td>*/}
+                            {/*            <Link to="">*/}
+                            {/*                <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/product/TocTocShot/thum-01.jpg" alt="product" />*/}
+                            {/*            </Link>*/}
+                            {/*        </td>*/}
+                            {/*        <td className="left">*/}
+                            {/*            <Link className="desc" to="/board/detail/1">*/}
+                            {/*                <span>상품명</span>*/}
+                            {/*                <p>문의명</p>*/}
+                            {/*            </Link>*/}
+                            {/*        </td>*/}
+                            {/*        <td>Truth of Beauty</td>*/}
+                            {/*        <td>2025-05-22</td>*/}
+                            {/*    </tr>*/}
                             </tbody>
                         </table>
                     </div>
-                    <div className="board-util">
-                        <div className="board-search">
-                            <div className="search-tool">
-                                <select>
-                                    <option>제목</option>
-                                    <option>아이디</option>
-                                </select>
-                                <input type="text" />
-                                <button>찾기</button>
-                            </div>
-                            <Link to="/board/write">작성하기</Link>
-                        </div>
-                        <Pagination />
-                    </div>
+                    <p className="empty">Không có bài đăng nào được viết.</p>
+                    {/*<div className="board-util">*/}
+                    {/*    <div className="board-search">*/}
+                    {/*        <div className="search-tool">*/}
+                    {/*            <select>*/}
+                    {/*                <option>Tựa đề bài viết</option>*/}
+                    {/*                <option></option>*/}
+                    {/*            </select>*/}
+                    {/*            <input type="text" />*/}
+                    {/*            <button>찾기</button>*/}
+                    {/*        </div>*/}
+                    {/*        <Link to="/board/write">Viết bài đăng</Link>*/}
+                    {/*    </div>*/}
+                    {/*    <Pagination />*/}
+                    {/*</div>*/}
                 </div>
             </div>
         </BoardContent>
@@ -115,6 +113,16 @@ const BoardContent = styled.section`
           }
         }
       }
+      
+    }
+    
+    .empty {
+      display:block;
+      padding:120px 0;
+      font-size:1.2rem;
+      font-weight:60;;
+      line-height:1.2;
+      text-align:center;
       
     }
     
@@ -185,6 +193,17 @@ const BoardContent = styled.section`
 
     .inner {
       padding-top: 50px;
+
+      .board-util {
+        .board-search {
+          display:block;
+
+          a {
+            margin-top:20px;
+            text-align:center;
+          }
+        }
+      }
     }
   }
 `

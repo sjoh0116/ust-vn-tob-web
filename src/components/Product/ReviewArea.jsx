@@ -257,7 +257,26 @@ const ReviewContent = styled.div`
           padding:10px 0;
           gap:0 15px;
         }
+
+        .empty {
+          font-size:1rem;
+        }
       }
     }
   }
+
+  @media only screen and (max-width: 640px) {
+    .review-board {
+      .board-list {
+        .list-item {
+          display:block;
+          }
+
+          .item-txt {
+            margin-top:20px;
+          }
+        }
+      }
+    }
+  
 `

@@ -3,7 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 import styled from 'styled-components';
 
 import * as Server from 'assets/js/Server';
-import * as Common from 'assets/js/Common';
 
 export default function Header({ onMenuToggle}){
     const [isScrolled, setIsScrolled] = useState(false);
@@ -54,7 +53,7 @@ export default function Header({ onMenuToggle}){
                               <NavLink to="/product">Product</NavLink>
                               <ul className="sub-nav">
                                   {productList?.map((item, idx) => (
-                                    <li>
+                                    <li key={idx}>
                                         <Link to={`/product/${item.seq}`}>{item.menuName}</Link>
                                     </li>
                                   ))}

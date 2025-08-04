@@ -1,18 +1,21 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
-import {NavLink, Outlet} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import {Outlet} from 'react-router-dom';
 
 import HeaderLayout from 'layout/Header';
 import FooterLayout from 'layout/Footer';
 import FloatingMoveBtn from "../components/MoveBtn";
 import FloatingMenu from "../components/FloadtingMenu";
 
-import ZaloSdk from "../hooks/ZaloSDK";
 import ZaloFloat from "../components/ZaloFloating";
 import SideMenu from "./SideMenu";
 
 const ContentLayout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(prev => !prev);

@@ -3,7 +3,6 @@ import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 
-import {MAIN_PRODUCT_DATA, PRODUCT_DATA, TAB_DATA} from "./Data";
 import useDidMountEffect from "../../hooks/useDidMountEffect";
 
 export default function KeywordProduct(param) {
@@ -122,7 +121,7 @@ const KeywordWrap = styled.section`
               display:inline-block;
               border-radius:20px;
               padding:0 20px;
-              font-size:1rem;
+              font-size:0.8rem;
               font-weight:500;
               line-height:45px;
               color:#000;
@@ -227,7 +226,7 @@ const KeywordWrap = styled.section`
   }
 
   @media only screen and (max-width: 1024px) {
-    margin:60px 0;
+    margin:60px 0 0;
     padding:50px 0;
     
     .inner {
@@ -244,7 +243,7 @@ const KeywordWrap = styled.section`
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            gap:0 20px;
+            gap:0 10px;
           }
         }
       }
@@ -268,6 +267,18 @@ const KeywordWrap = styled.section`
 
   @media only screen and (max-width: 640px) {
     .inner {
+
+      .tab-menu {
+
+        .tab-nav {
+
+          ul {
+            flex-wrap:wrap;
+            gap:10px 10px;
+          }
+        }
+      }
+      
       .tab-content {
         .tab-item {
           ul {
@@ -285,7 +296,7 @@ const KeywordWrap = styled.section`
               }
 
               &:nth-child(2), &:nth-child(3) {
-                width:calc(50% - 15px);
+                width:50%;
                 padding:0 5%;
               }
 

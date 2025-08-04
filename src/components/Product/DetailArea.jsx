@@ -6,7 +6,7 @@ export default function DetailArea(param){
         <DetailContent>
             <div className="sec-inner">
                 {param?.detail?.map((item, idx) => (
-                  <img src={item.imgUrl} alt="product-detail" />
+                  <img key={idx} src={item.imgUrl} alt="product-detail" />
                 ))}
             </div>
         </DetailContent>

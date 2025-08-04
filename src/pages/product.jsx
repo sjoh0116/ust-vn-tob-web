@@ -3,7 +3,6 @@ import {useParams} from "react-router-dom";
 import styled from 'styled-components';
 
 import * as Server from 'assets/js/Server';
-import * as Common from 'assets/js/Common';
 
 // 컴포넌트
 import TopArea from "../components/Product/TopArea";
@@ -54,6 +53,7 @@ export default function ProductPage() {
           toDetail={() => handleScroll(DetailRef)}
           toQna={() => handleScroll(QnaRef)}
           toReview={() => handleScroll(ReviewRef)}
+          param={params}
         />
         <DetailArea detail={detail}/>
       </section>
@@ -65,20 +65,21 @@ export default function ProductPage() {
           toDetail={() => handleScroll(DetailRef)}
           toQna={() => handleScroll(QnaRef)}
           toReview={() => handleScroll(ReviewRef)}
+          param={params}
         />
         <ReviewArea param={params}/>
       </section>
 
       {/* Qna 테이블 */}
-      <section ref={QnaRef}>
-        <DetailNav
-          qna="active"
-          toDetail={() => handleScroll(DetailRef)}
-          toQna={() => handleScroll(QnaRef)}
-          toReview={() => handleScroll(ReviewRef)}
-        />
-        <QnaBoard/>
-      </section>
+      {/*<section ref={QnaRef}>*/}
+      {/*  <DetailNav*/}
+      {/*    qna="active"*/}
+      {/*    toDetail={() => handleScroll(DetailRef)}*/}
+      {/*    toQna={() => handleScroll(QnaRef)}*/}
+      {/*    toReview={() => handleScroll(ReviewRef)}*/}
+      {/*  />*/}
+      {/*  <QnaBoard/>*/}
+      {/*</section>*/}
     </ProductContent>
   )
 }
