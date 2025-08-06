@@ -8,7 +8,7 @@ export default function ProductList() {
   const [productList, setProductList] = useState([]);
 
   const getProductList = () => {
-    Server.sendGet('tob/product/list', {}, getProductListCallback).then();
+    Server.sendGet('tob/product/list', {useYn: 'Y'}, getProductListCallback).then();
   }
 
   const getProductListCallback = res => {
