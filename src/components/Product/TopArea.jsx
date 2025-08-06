@@ -71,9 +71,6 @@ export default function TopArea(param) {
                         <strong>{productMain.productName}</strong>
                         <span>{productMain.subTitle}</span>
                     </div>
-                    <div className="desc-price desc-depth">
-                        {/*<strong>19,600원</strong>*/}
-                    </div>
                     <div className="desc-txt desc-depth">
                         <p>
                             {productMain.comment}
@@ -89,6 +86,9 @@ export default function TopArea(param) {
                                 </li>
                             ))}
                         </ul>
+                    </div>
+                    <div className="desc-price desc-depth">
+                        <strong>19,600원</strong>
                     </div>
                 </div>
             </div>
@@ -166,7 +166,7 @@ const TopContent = styled.section`
         }
 
         .desc-price {
-          border-bottom:1px solid #d7d7d7;
+          border-top:1px solid #d7d7d7;
           text-align:right;
 
           strong {
@@ -187,6 +187,8 @@ const TopContent = styled.section`
         }
 
         .desc-sns {
+          border-top:1px solid #d7d7d7;
+
           ul {
             display:flex;
             align-items:center;

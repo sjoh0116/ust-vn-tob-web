@@ -34,7 +34,7 @@ export default function DetailNav({ product, qna, review, toDetail, toQna, toRev
                 <ul>
                     <li className={ product === 'active' ? 'active' : undefined}>
                         <button onClick={toDetail}>
-                            <span>thông tin chi tiết</span>
+                            <span>Thông tin sản phẩm</span>
                         </button>
                     </li>
                     <li className={ review === 'active' ? 'active' : undefined}>

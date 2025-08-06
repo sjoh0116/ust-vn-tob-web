@@ -25,7 +25,7 @@ export default function SideMenu({ isOpen, onClose }){
         {
             img : "https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/facebook_ic.webp",
             label: "facebook",
-            link: "https://www.facebook.com/TOBVinaKorean",
+            link: "https://www.facebook.com/tobtruthofbeauty",
         },
         {
             img : "https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/shopper_ic.webp",
