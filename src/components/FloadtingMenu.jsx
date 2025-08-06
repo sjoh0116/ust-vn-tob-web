@@ -53,7 +53,7 @@ export default function FloatingMenu(){
                                     exit={{ opacity: 0, scale: 0.8 }}
                                     transition={{ delay: index * 0.05 }}
                                 >
-                                    <a href={item.link}>
+                                    <a target='_blank' href={item.link}>
                                         <img src={item.img} alt={item.label} />
                                     </a>
                                 </motion.li>

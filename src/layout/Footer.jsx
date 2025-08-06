@@ -3,6 +3,30 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const FooterLayout = () => {
+
+  const menuItems = [
+    {
+      img : "https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/facebook_ic.webp",
+      label: "facebook",
+      link: "https://www.facebook.com/tobtruthofbeauty",
+    },
+    {
+      img : "https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/shopper_ic.webp",
+      label: "shopee",
+      link: 'https://shopee.vn/tob_officialstore',
+    },
+    {
+      img : "https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/lazada_ic.webp",
+      label: "lazada",
+      link: "https://www.lazada.vn/shop/tob-store-vn",
+    },
+    {
+      img : "https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tiktok_ic.webp",
+      label: "tiktok",
+      link: "https://www.tiktok.com/@tob.vn",
+    },
+  ]
+
   return (
       <FooterWrap>
         <div className="inner">
@@ -11,26 +35,13 @@ const FooterLayout = () => {
               <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/tob_logo.webp" alt="truth of beauty" />
             </div>
             <ul className="menu_link">
-              <li>
-                <Link to="https://www.facebook.com/TOBVinaKorean">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/facebook_ic.webp"/>
-                </Link>
-              </li>
-              <li>
-                <Link to="https://shopee.vn/tob_officialstore">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/shopper_ic.webp"/>
-                </Link>
-              </li>
-              <li>
-                <Link to="https://www.lazada.vn/shop/tob-store-vn">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/lazada_ic.webp"/>
-                </Link>
-              </li>
-              <li>
-                <Link to="https://www.tiktok.com/@tob.vn">
-                  <LinkImg src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob/tiktok_ic.webp"/>
-                </Link>
-              </li>
+              {menuItems.map((item, index) => (
+                  <li key={item.label}>
+                    <Link target='_blank' to={item.link}>
+                      <LinkImg src={item.img}/>
+                    </Link>
+                  </li>
+              ))}
             </ul>
           </div>
           <div className="foot_desc">

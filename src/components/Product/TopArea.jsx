@@ -71,6 +71,9 @@ export default function TopArea(param) {
                         <strong>{productMain.productName}</strong>
                         <span>{productMain.subTitle}</span>
                     </div>
+                    <div className="desc-add desc-depth">
+                        <strong>test</strong>
+                    </div>
                     <div className="desc-txt desc-depth">
                         <p>
                             {productMain.comment}
@@ -146,6 +149,11 @@ const TopContent = styled.section`
           padding:20px 0;
         }
 
+        .desc-add {
+          border-bottom:1px solid #d7d7d7;
+
+        }
+        
         .desc-info {
           border-bottom:1px solid #d7d7d7;
 

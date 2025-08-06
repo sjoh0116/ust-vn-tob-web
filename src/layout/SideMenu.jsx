@@ -100,7 +100,7 @@ export default function SideMenu({ isOpen, onClose }){
                         <ul>
                             {menuItems.map((item, index) => (
                                 <li key={index} className="menu-item">
-                                    <a href={item.link}>
+                                    <a target='_blank' href={item.link}>
                                         <img src={item.img} alt={item.label} />
                                     </a>
                                 </li>
