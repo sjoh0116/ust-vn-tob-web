@@ -28,6 +28,18 @@ export default function Header({ onMenuToggle}){
         getProductList();
     }, [])
 
+    const categoryTypes = ["Toner / Pad", "Serum / Ampoule", "Lotion / Cream", "Mask", "Sun Care", "Cleanser"]
+
+    const categoryIngredients = [
+        "Collagen",
+        "Cica-Mucin",
+        "Galacto-C.C",
+        "Vita-Snow TMT",
+        "Lacto-Cica",
+        "Bpantoin",
+        "Hyal-Copper",
+    ]
+
   return (
 
       <HeadWrap>
@@ -56,6 +68,26 @@ export default function Header({ onMenuToggle}){
                                     <li key={idx}>
                                         <Link to={`/product/${item.seq}`}>{item.menuName}</Link>
                                     </li>
+                                  ))}
+                              </ul>
+                          </li>
+                          <li>
+                              <NavLink to="/product">By Type</NavLink>
+                              <ul className="sub-nav">
+                                  {categoryTypes?.map((type, idx) => (
+                                      <li key={idx}>
+                                          <Link to={`/product/${type}`}>{type}</Link>
+                                      </li>
+                                  ))}
+                              </ul>
+                          </li>
+                          <li>
+                              <NavLink to="/product">By Ingredient</NavLink>
+                              <ul className="sub-nav">
+                                  {categoryIngredients?.map((ingredient, idx) => (
+                                      <li key={idx}>
+                                          <Link to={`/product/${ingredient}`}>{ingredient}</Link>
+                                      </li>
                                   ))}
                               </ul>
                           </li>
