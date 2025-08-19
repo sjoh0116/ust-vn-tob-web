@@ -63,13 +63,6 @@ export default function Header({ onMenuToggle}){
                           </li>
                           <li>
                               <NavLink to="/product">Product</NavLink>
-                              <ul className="sub-nav">
-                                  {productList?.map((item, idx) => (
-                                    <li key={idx}>
-                                        <Link to={`/product/${item.seq}`}>{item.menuName}</Link>
-                                    </li>
-                                  ))}
-                              </ul>
                           </li>
                           <li>
                               <NavLink to="/product">By Type</NavLink>
