@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import {useEffect, useState} from "react";
 
 import * as Server from 'assets/js/Server';
+import * as Common from 'assets/js/Common';
+import {formatNumberWithCommas} from "assets/js/Common";
+
 
 export default function TopArea(param) {
 
@@ -21,7 +24,7 @@ export default function TopArea(param) {
 
     useEffect(() => {
         getProductMain();
-    }, [productMain])
+    }, [])
 
     const handleThumbnailClick = (index) => {
         setSelectedImageIndex(index);
@@ -72,7 +75,7 @@ export default function TopArea(param) {
                         <span>{productMain.subTitle}</span>
                     </div>
                     <div className="desc-add desc-depth">
-                        <strong>test</strong>
+                        <strong>{productMain.productSpec}</strong>
                     </div>
                     <div className="desc-txt desc-depth">
                         <p>
@@ -91,7 +94,7 @@ export default function TopArea(param) {
                         </ul>
                     </div>
                     <div className="desc-price desc-depth">
-                        <strong>19,600원</strong>
+                        <strong>{Common.formatNumberWithCommas(productMain.productPrice)} VNĐ</strong>
                     </div>
                 </div>
             </div>

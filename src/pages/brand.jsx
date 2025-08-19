@@ -19,7 +19,7 @@ export default function Brand() {
   return (
     <BrandWrap>
         <div className="inner">
-          <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/renewal/brand_content.webp" alt="truth of beauty Brand Story" />
+          <img src="https://ust-vina.s3.ap-northeast-2.amazonaws.com/tob_renewal/truth_of_beauty.webp" alt="truth of beauty Brand Story" />
         </div>
     </BrandWrap>
   )
